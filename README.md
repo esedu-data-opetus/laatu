@@ -1,8 +1,8 @@
 #Laatuprojekti
 
 ##Projektiin liittyvät opiskelijat: 
--Riku Hänninen
--Onni Heinonen
+>Riku Hänninen
+>Onni Heinonen
 
 ##Työajanseuranta
 Opiskelijat täyttävät työajanseurantaa excel-taulukkoon (työajanseuranta-laatuprojekti.xslx)
