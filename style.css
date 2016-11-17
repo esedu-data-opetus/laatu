@@ -1,0 +1,342 @@
+/* tekstit */
+.carousel h3,
+.carousel a,
+.carousel a:hover{
+  font-family: Arial,Helvetica,sans-serif;
+  color: grey;
+  text-decoration: none;
+}
+.teksti{
+  font-family: Arial,Helvetica,sans-serif;
+  font-size: 20px;
+  color: grey;
+  margin: 0 !important;
+}
+.otsikko{
+  font-family: Arial,Helvetica,sans-serif;
+  font-size: 35px;
+  color: orange;
+  line-height: 110%;
+}
+.accordion h3,
+.accordion a,
+.accordion a:hover{
+  text-decoration: none;
+  font-family: Arial,Helvetica,sans-serif;
+  color: grey !important;
+}
+.accordion a,
+.accordion a:hover{
+  font-size: 20px;
+}
+
+/* hidden / visible */
+.hidden{
+  display: none !important;
+}
+.visible{
+  display: block !important;
+}
+
+/* haitarit */
+.accordion{
+ height: 100%;
+}
+.aPanel{
+  border: 1px solid grey;
+  border-top: none;
+  width: 99%;
+  padding: 10px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin: auto;
+}
+.aPanelIndicator{
+  text-align: left !important;
+  float: left;
+  margin: 0px 5px 0px 5px;
+  width: 15px;
+}
+.aPanelButton{
+  width: 100%;
+  padding: 5px;
+  margin: 0px !important;
+}
+.aPanelButtonText{
+  text-align: left !important;
+  float: left;
+}
+
+/* sivun wrapper */
+#wrapper{
+  width: 1422px;
+  height: 662px;
+  margin: auto;
+  margin-top: 100px;
+}
+
+/* header */
+.header{
+  height: 110px;
+  width:1000px;
+  background-color:  #4BAD31;
+  font-family: Chapparal Pro;
+  padding-top: 10px;
+  float:left;
+  -webkit-box-shadow: 0px 3px 22px -1px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 3px 22px -1px rgba(0,0,0,0.75);
+  box-shadow: 0px 3px 22px -1px rgba(0,0,0,0.75);
+}
+.header img{
+  width: 250px;
+  margin: 0px 20px 0px 10px;
+}
+#header_text1,
+#header_text1:hover{
+  font-size: 30px;
+  color: white;
+  text-decoration: none;
+}
+#header_text2,
+#header_text2:hover{
+  font-size: 30px;
+  color: white;
+  font-style: italic;
+  text-decoration: none;
+}
+
+/* karuselli */
+#carousel-custom{
+  width: 1000px;
+  height: 550px;
+  float:left;
+  -webkit-box-shadow: 0px 3px 22px -1px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 3px 22px -1px rgba(0,0,0,0.75);
+  box-shadow: 0px 3px 22px -1px rgba(0,0,0,0.75);
+}
+#carousel-custom .carousel-outer {
+  position: relative;
+  float:left;
+}
+.item{
+  padding: 20px;
+  height: 469px;
+}
+.content{
+  height: 449px;
+}
+.textOverflow{
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 400.5px;
+}
+.leftside{
+  float: left;
+  width: 475px;
+  height: 450px;
+  font-family: Arial,Helvetica,sans-serif;
+  color: grey;
+  font-size: 20px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.rightside{
+  width: 475px;
+  height: 450px;
+  float: right;
+  font-family: Arial,Helvetica,sans-serif;
+  color: grey;
+  font-size: 20px;
+}
+.rightside img{
+  height: 450px;
+  background-color: transparent;
+  margin: auto;
+  display: block;
+}
+.titleImage{
+  margin-left: 7%;
+  width: 800px;
+}
+
+/* karusellin indikaattorit */
+#carousel-custom .carousel-indicators{
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  z-index: 15;
+  margin-left: -30%;
+  text-align: center;
+  list-style: none;
+  width: 70%;
+  left: 45%;
+}
+#carousel-custom .carousel-indicators li {
+  background-color: transparent;
+  display: inline-block;
+  height: auto;
+  margin: 0 !important;
+  width: auto;
+  cursor:pointer;
+}
+.carousel-indicators img {
+  display: block;
+  background-color:#acd29b;
+  width: 28px;
+  height: 8px;
+}
+.carousel-indicators .active img{
+  display: block;
+  background-color:#f08218;
+}
+.indicators li{
+  border: 1px solid #cccccc;
+  background-color: #cccccc;
+}
+
+/* karusellin controllit */
+.carousel-control.left, .carousel-control.right {
+  background-image: none;
+  top: 88%;
+  cursor: pointer;
+}
+.carousel-control{
+  width: 10%;
+}
+.glyphicon-chevron-left,
+.glyphicon-chevron-right{
+  color: green;
+}
+
+/* navbar */
+#navbaar{
+  height: 660px;
+  width: 400px;
+  float: left;
+  margin: 40px 20px 0px 0px;
+}
+#navbaar h1{
+  font-family: Arial,Helvetica,sans-serif;
+  color: #595959;
+}
+#navlist{
+  height: 550px;
+  width: 400px;
+  padding: 10px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+#navbaar .inactive,
+#navbaar .active{
+  list-style: none;
+  text-decoration: none;
+  font-family: Arial,Helvetica,sans-serif;
+  line-height: 90%;
+  color: grey;
+  font-size: 20px;
+  width: 370px;
+  padding: 5px;
+  margin: 5px 0px 5px 0px;
+  cursor:pointer;
+}
+#navbaar .active{
+  background-color: #acd29b;
+}
+
+ /* totta vai tarua tehtävät */
+ #vastauswrapper{
+   width: 475px;
+   height: 310px;
+   padding: 5px;
+   overflow-y: auto;
+ }
+ #group{
+   display: block;
+   width: 120px;
+   float: left;
+   margin-left: 10px;
+   margin-top: 20px;
+ }
+ #radionappi{
+   margin-bottom: 7px;
+   width:35px;
+   height: 20px;
+   margin-left: 15px;
+
+ }
+ #tottatarua{
+   height: 25px;
+   width:25px;
+   float: right;
+   margin-bottom: 7px;
+   margin-right: 50px;
+ }
+ #kysymys{
+   width:300px;
+   float: left;
+   display: block;
+   margin-top: 20px;
+ }
+#formi_nimi{
+  margin: auto;
+}
+
+/* taulukot */
+.tableborder,
+.tableborder tr,
+.tableborder td{
+  border: 1px solid grey;
+  padding: 5px;
+}
+.tableborderform,
+.tableborderform tr,
+.tableborderform td{
+  border-top: 1px solid grey;
+  padding: 5px;
+}
+
+/* dragrop */
+
+.draggable{
+  cursor:pointer;
+  margin: 0px 10px 10px 0px;
+  float: left;
+  font-family: Arial,Helvetica,sans-serif;
+  font-size: 20px;
+  white-space: nowrap; 
+  overflow: hidden;
+}
+.droppedright,
+.droppedwrong{
+  font-family: Arial,Helvetica,sans-serif;
+  font-size: 20px;
+}
+.droppable{
+  width: 200px;
+  height: 200px;
+  margin: 0px 19px 0px 19px;
+  border: 5px solid #66cc66;
+  border-radius: 10px;
+  float: left;
+  padding-top: 70px;
+  text-align: center;
+  font-family: Arial,Helvetica,sans-serif;
+  font-size: 30px;
+}
+#blocks{
+  width: 771px;
+  height: 121px;
+}
+#goals{
+  margin-top: 30px;
+  z-index: -1;
+  position: absolute;
+  height: 210px;
+  width: auto;
+}
+.droppedright{
+  color: lime !important;
+}
+.droppedwrong{
+  color: red !important;
+}
