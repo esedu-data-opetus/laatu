@@ -19,9 +19,11 @@
       <h1> Sisältö </h1>
       <div id="navlist"></div>
     </div>
-    <div class="header"><img src="pics/esedu_logo.png" style="float: left;"></img>
+    <div class="header">
+      <img src="pics/esedu_logo.png" style="float: left;"/>
       <a id="header_text1">Etelä-Savon ammattiopisto</a><br>
       <a id="header_text2">South Savo Vocational College</a>
+      <button id="menuButton"> <img src="pics/menuicon.png"/> </button>
     </div>
 
     <div id='carousel-custom' class="carousel slide" data-interval="false">
