@@ -52,6 +52,12 @@
   .header a{
     display: none;
   }
+  .item{
+    padding: 0px !important;
+  }
+  .content{
+    padding: 10px;
+  }
   #menuButton{
     display: block !important;
   }
@@ -65,10 +71,10 @@
     width: 448px !important;
   }
   .leftside{
-    width: 448px;
+    width: 429px !important;
   }
   .rightside{
-    width: 448px;
+    width: 429px !important;
     float: left;
   }
   .carousel-indicators{
