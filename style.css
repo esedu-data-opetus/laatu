@@ -41,15 +41,15 @@
 /* small screens */
 @media only screen and (max-width: 500px) {
   #wrapper{
-    width: 450px !important;
+    width: 100% !important;
+  }
+  #carousel-custom{
+    height: 100% !important;
+  }
+  #carousel-inner{
+    height: 100% !important;
   }
   .header{
-    width: 448px !important;
-  }
-  .header img{
-    display: none;
-  }
-  .header a{
     display: none;
   }
   .item{
@@ -59,7 +59,10 @@
     padding: 10px;
   }
   #menuButton{
-    display: block !important;
+    display: inline-block !important;
+    position: absolute;
+    bottom: 0;
+    margin-left: 42%;
   }
   #menuButton img{
     display: block !important;
