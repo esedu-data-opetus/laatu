@@ -4,12 +4,19 @@
   <meta charset="utf-8">
   <title></title>
   <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <!--script src="//code.jquery.com/jquery-1.10.2.js"></script-->
+  <!--script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script-->
+  <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+	<script src="//code.jquery.com/jquery-migrate-1.3.0.min.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
+
   <!-- lisätyt linkit -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <script src="script.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <script src="js/script.js"></script>
+  <script src="js/dragdrop.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/dragdrop.css">
 
 </head>
 <body>

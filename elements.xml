@@ -215,20 +215,22 @@
           <p id="otsikko5" class="otsikko">TEHTÄVÄSIVU</p>
           <p id="teksti4" class="teksti" style="font-weight: bold;">Vie sanat oikeaan laatikkoon:</p>
           <br>
-          <div id="blocks">
-            <a id="block5" class="draggable ui-draggable ui-draggable-handle" style="position: relative; width: 201px; right: auto; height: 29px; bottom: auto; left: 0px; top: 0px;">Henkilöstösuunnitelma</a>
-            <a id="block12" class="draggable ui-draggable ui-draggable-handle" style="position: relative; width: 142px; right: auto; height: 29px; bottom: auto; left: 0px; top: 0px;">Oppimistulokset</a>
-            <a id="block4" class="draggable ui-draggable ui-draggable-handle" style="position: relative; width: 172px; right: auto; height: 29px; bottom: auto; left: 0px; top: 0px;">Opetussuunnitelma</a>
-            <a id="block11" class="draggable ui-draggable ui-draggable-handle" style="position: relative; width: 139px; right: auto; height: 29px; bottom: auto; left: 0px; top: 0px;">Asiakastulokset</a>
-            <a id="block2" class="draggable ui-draggable ui-draggable-handle" style="position: relative; width: 128px; right: auto; height: 29px; bottom: auto; left: 0px; top: 0px;">Hanketoiminta</a>
-            <a id="block3" class="draggable ui-draggable ui-draggable-handle" style="position: relative; width: 161px; right: auto; height: 29px; bottom: auto; left: 0px; top: 0px;">HEKS-keskustelut</a>
-            <a id="block8" class="draggable ui-draggable ui-draggable-handle" style="position: relative; width: 156px; right: auto; height: 29px; bottom: auto; left: 0px; top: 0px;">Työssäoppiminen</a>
-            <a id="block10" class="draggable ui-draggable ui-draggable-handle" style="position: relative; width: 175px; right: auto; height: 29px; bottom: auto; left: 0px; top: 0px;">Opiskelijapalautteet</a>
-            <a id="block1" class="draggable ui-draggable ui-draggable-handle" style="position: relative; width: 217px; right: auto; height: 29px; bottom: auto; left: 0px; top: 0px;">Oman työn kehittäminen</a>
-            <a id="block9" class="draggable ui-draggable ui-draggable-handle" style="position: relative; width: 122px; right: auto; height: 29px; bottom: auto; left: 0px; top: 0px;">Näyttötutkinto</a>
-            <a id="block7" class="draggable ui-draggable ui-draggable-handle" style="position: relative; width: 63px; right: auto; height: 29px; bottom: auto; left: 0px; top: 0px;">Ohjaus</a>
+          <div id="blocks" overflow-y: auto; width: 100%">
+            <span id="block5" class="draggable ui-draggable ui-draggable-handle" style="position: relative; ">Henkilöstösuunnitelma</span>
+            <a id="block12" class="draggable ui-draggable ui-draggable-handle" style="position: relative;">Oppimistulokset</a>
+            <a id="block4" class="draggable ui-draggable ui-draggable-handle" style="position: relative; ">Opetussuunnitelma</a>
+            <a id="block11" class="draggable ui-draggable ui-draggable-handle" style="position: relative;">Asiakastulokset</a>
+            <a id="block2" class="draggable ui-draggable ui-draggable-handle" style="position: relative; ">Hanketoiminta</a>
+            <a id="block3" class="draggable ui-draggable ui-draggable-handle" style="position: relative;">HEKS-keskustelut</a>
+            <a id="block8" class="draggable ui-draggable ui-draggable-handle" style="position: relative;">Työssäoppiminen</a>
+            <a id="block10" class="draggable ui-draggable ui-draggable-handle" style="position: relative;">Opiskelijapalautteet</a>
+            <a id="block1" class="draggable ui-draggable ui-draggable-handle" style="position: relative;">Oman työn kehittäminen</a>
+            <a id="block9" class="draggable ui-draggable ui-draggable-handle" style="position: relative;">Näyttötutkinto</a>
+            <a id="block7" class="draggable ui-draggable ui-draggable-handle" style="position: relative;">Ohjaus</a>
+            <a id="block5" class="draggable ui-draggable ui-draggable-handle" style="position: relative;">Henkilöstösuunnitelma</a>
+            <a id="block12" class="draggable ui-draggable ui-draggable-handle" style="position: relative;">Oppimistulokset</a>
           </div>
-          <div id="goals">
+          <div id="goals" style="position: absolute; bottom: 0px; border: 1px solid red;">
             <div id="goal1" class="droppable">Suunnittelu</div>
             <div id="goal2" class="droppable">Toteutus</div>
             <div id="goal3" class="droppable">Arviointi</div>
