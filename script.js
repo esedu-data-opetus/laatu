@@ -281,8 +281,9 @@ function checkActivity(){
   }
 }
 
+var menuStatus = 0;
+
 function menuFunc(){
-  var menuStatus = 0;
   var menu = document.getElementById("navbaar");
   if(menuStatus === 0){
     menu.style.display = "inline-block";
