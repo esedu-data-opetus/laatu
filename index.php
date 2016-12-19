@@ -16,7 +16,12 @@
 
   <div id="wrapper">
     <div id="navbaar">
-      <h1> Sisältö </h1>
+      <div id="navtitle">
+        <h1> Sisältö </h1>
+      </div>
+      <div id="closebutton">
+        <span class="glyphicon glyphicon glyphicon-remove" onclick="closeMenu();"></span>
+      </div>
       <div id="navlist"></div>
     </div>
     <div class="header">
@@ -48,7 +53,7 @@
           <span class="sr-only">Previous</span>
         </a>
         <div id="bWrapper">
-          <button id="menuButton" onclick="menuFunc()"> <img src="pics/menuicon.png"/> </button>
+          <button id="menuButton" onclick="openMenu()"> <img src="pics/menuicon.png"/> </button>
         </div>
         <a id="control4" class="right carousel-control" href="#carousel-custom" role="button" data-slide="next" onClick="window.setTimeout(checkActivity, 100);">
           <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>

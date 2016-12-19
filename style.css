@@ -39,26 +39,34 @@
 }
 
 /* small screens */
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 700px) {
   #wrapper{
     width: 100% !important;
-    margin-top: 0px !important;
+    height: 100vh !important;
+    margin: 0px !important;
+    position: absolute;
+    top: 0;
+    bottom: 0;
   }
   #carousel-custom{
+    width: 100% !important;
     height: 100% !important;
   }
   #carousel-inner{
     height: 90% !important;
+    width: 100% !important;
   }
   .header{
     display: none;
   }
   .item{
     padding: 0px !important;
+    width: 100% !important;
     height: 100% !important;
   }
   .content{
     padding: 10px;
+    width: 100% !important;
     height: 100% !important;
     overflow-y: auto !important;
     overflow-x: hidden !important;
@@ -103,21 +111,30 @@
   #navbaar{
     display: none;
     position: absolute;
-    width: 448px !important;
-    height: 595.8px !important;
+    width: 100% !important;
+    height: 100% !important;
     margin: auto !important;
-    margin-left: -448px !important;
+    margin-left: -100% !important;
     background-color: white;
     z-index: 1;
   }
+  #navtitle{
+    height: 10%;
+    width: 50%;
+    float: left;
+    padding: 10px;
+  }
+  #closebutton{
+    display: inline-block !important;
+    float: right;
+    margin: 5px;
+    cursor: pointer;
+  }
+  #navbaar h1{
+    margin: 0%;
+  }
   #navlist{
-    width: 446px !important;
-    height: 520px !important;
-  }
-  #carousel-custom{
-    width: 448px !important;
-  }
-  #carousel-inner{
+    width: 100% !important;
     height: 90% !important;
   }
   .leftside{
@@ -230,8 +247,8 @@
 }
 .leftside{
   float: left;
-  width: 475px;
-  height: 450px;
+  width: 100% !important;
+  max-height: 100% !important;
   font-family: Arial,Helvetica,sans-serif;
   color: grey;
   font-size: 20px;
@@ -239,8 +256,8 @@
   overflow-x: hidden;
 }
 .rightside{
-  width: 475px;
-  height: 450px;
+  width: 100% !important;
+  max-height: 100% !important;
   float: right;
   font-family: Arial,Helvetica,sans-serif;
   color: grey;
@@ -313,6 +330,9 @@
 #navbaar h1{
   font-family: Arial,Helvetica,sans-serif;
   color: #595959;
+}
+#closebutton{
+  display: none;
 }
 #navlist{
   height: 550px;

@@ -32,6 +32,7 @@ function init(xml) {
       tabElem.setAttribute("data-slide-to", slideTo);
       tabElem.setAttribute("class", activity);
       tabElem.setAttribute("onClick", "window.setTimeout(checkActivity, 100);");
+      tabElem.setAttribute("onClick", "closeMenu()");
       var tabList = document.getElementById("navlist");
       tabList.appendChild(tabElem);
       var indElem = document.createElement("li");
@@ -281,16 +282,17 @@ function checkActivity(){
   }
 }
 
-var menuStatus = 0;
-
-function menuFunc(){
+function openMenu(){
   var menu = document.getElementById("navbaar");
-  if(menuStatus === 0){
-    menu.style.display = "inline-block";
-    menuStatus = 1;
-  } else{
+  menu.style.display = "inline-block";
+}
+
+function closeMenu(){
+  console.log($(window).width())
+  if($(window).width() < 700){
+    var menu = document.getElementById("navbaar");
     menu.style.display = "none";
-    menuStatus = 0;
+    //problem
   }
 }
 
