@@ -39,7 +39,7 @@
         <![CDATA[
           Tämän materiaalin myötä perehdyt Esedun laadunhallintaan, sen periaatteisiin ja toimintamalleihin. Materiaaliin läpi käytyäsi tiedät, mistä asioista laatu syntyy. Olet myös tutustunut Esedun toiminnan kulmakiviin kuten strategiaan ja prosesseihin, joiden tunteminen on laadukkaan toiminnan edellytys. Materiaali porautuu organisaatiotasolta oman työn tasolle. <br> <br>
 
-          Aikaa materiaaliin perehtymiseen menee arvioilta 1-1,5 tuntia. Materiaali sisältää pieniä tehtäviä, joihin vastaaminen onnistuu materiaaliin tutustumalla. Tehtävien oikeat vastaukset saat näkyviin Lähteä-painikkeen kautta. <br> <br>
+          Aikaa materiaaliin perehtymiseen menee arvioilta 1-1,5 tuntia. Materiaali sisältää pieniä tehtäviä, joihin vastaaminen onnistuu materiaaliin tutustumalla. Tehtävien oikeat vastaukset saat näkyviin Lähetä-painikkeen kautta. <br> <br>
 
           Vahvistamalla henkilöstön osaamista vahvistamme myös työhyvinvointia!
         ]]>
@@ -193,15 +193,13 @@
               Henkilöstön kannalta tärkeimmät strategiset mittarit ovat: <br><br>
               <table class="tableborder">
                 <tr><td> Mittari </td> <td> Tavoite </td></tr>
-                <tr><td> Tutkintojen läpäisy </td><td> 80% </td></tr>
-                <tr><td> Valmistuneiden opiskelijoiden työllistyminen </td> <td> 70% </td></tr>
-                <tr><td> Valmistuneiden opiskelijoiden jatko-opintoihin siirtyminen </td> <td> 15% </td></tr>
+                <tr><td> Tutkintojen läpäisy (ammatillisena peruskoulutuksen suoritettava) </td><td> 75% </td></tr>
                 <tr><td> Vetovoima (hakijat/aloituspaikat) </td> <td> 1,2 </td></tr>
-                <tr><td> Opiskelijatyytyväisyys, nuoret </td> <td> 4,0 </td></tr>
-                <tr><td> Opiskelijatyytyväisyys, aikuiset </td> <td> 4,0 </td></tr>
-                <tr><td> Verkko-opintojen määrä koulutuksessa </td> <td> 10% </td></tr>
+                <tr><td> Opiskelijatyytyväisyys, nuoret </td> <td> 3,9 </td></tr>
+                <tr><td> Opiskelijatyytyväisyys, aikuiset </td> <td> 4,1 </td></tr>
+                <tr><td> Digiopintojen määrä koulutuksessa </td> <td> 20% </td></tr>
                 <tr><td> Opetushenkilöstön pedagoginen pätevyys </td> <td> 85% </td></tr>
-                <tr><td> Työolobarometrin tulos </td> <td> 4,0 </td></tr>
+                <tr><td> Työolobarometrin tulos </td> <td> 3,7 </td></tr>
               </table>
             ]]>
           </teksti>
@@ -427,7 +425,7 @@
               <form name="FORM" method="post">
                 <tr>
                   <td>
-                    <p id="kysymys">Aikaisemman osaamisen tunnistamisen ja tunnustamisen prosessikuvauksen mukaan ohjauskeskustelun käyminen on opiskelijan vastuulla</p>
+                    <p id="kysymys">a) Aikaisemman osaamisen tunnistamisen ja tunnustamisen prosessikuvauksen mukaan ohjauskeskustelun käyminen on opiskelijan vastuulla</p>
                     <fieldset id="group">
                       <input id="radionappi" type="radio" name="kysymys1" value="tarua">
                       <input id="radionappi" type="radio" name="kysymys1" value="totta"> <br>
@@ -436,7 +434,7 @@
                 </tr>
                 <tr>
                   <td>
-                    <p id="kysymys">Aikuiskoulutushaussa vastuuopettaja ja opintosihteeri vastaavat yhdessä mahdollisten hakijoiden informoinnista ja ohjaamisesta</p>
+                    <p id="kysymys">b) Aikuiskoulutushaussa vastuuopettaja ja opintosihteeri vastaavat yhdessä mahdollisten hakijoiden informoinnista ja ohjaamisesta</p>
                     <fieldset id="group">
                       <input id="radionappi" type="radio" name="kysymys2" value="tarua">
                       <input id="radionappi" type="radio" name="kysymys2" value="totta"> <br>
@@ -445,7 +443,7 @@
                 </tr>
                 <tr>
                   <td>
-                    <p id="kysymys">Opettajan vastuulla on ohjata opiskelijat vastaamaan opiskelijapalautekyselyihin (nuorten tulo-, olo- ja päättökyselyt, aikuiskoulutus OPAL ja AIPAL sekä kummankin koulutusmuodon opettajan henkilökohtainen palaute)</p>
+                    <p id="kysymys">c) Opettajan vastuulla on ohjata opiskelijat vastaamaan opiskelijapalautekyselyihin (nuorten tulo-, olo- ja päättökyselyt, aikuiskoulutus OPAL ja AIPAL sekä kummankin koulutusmuodon opettajan henkilökohtainen palaute)</p>
                     <fieldset id="group">
                       <input id="radionappi" type="radio" name="kysymys3" value="tarua">
                       <input id="radionappi" type="radio" name="kysymys3" value="totta"> <br>
@@ -454,7 +452,7 @@
                 </tr>
                 <tr>
                   <td>
-                    <p id="kysymys">Opiskelija tunnistaa olemassa olevan osaamisen</p>
+                    <p id="kysymys">d) Opiskelija tunnistaa olemassa olevan osaamisen</p>
                       <fieldset id="group">
                       <input id="radionappi" type="radio"  name="kysymys4" value="tarua">
                       <input id="radionappi" type="radio"  name="kysymys4" value="totta"> <br>
@@ -463,7 +461,7 @@
                 </tr>
                 <tr>
                   <td>
-                    <p id="kysymys">Oppisopimuskoordinaattori ja vastuuopettaja vastaavat yhdessä oppisopimuskoulutuksen tietopuolisen koulutuksen suunnittelusta</p>
+                    <p id="kysymys">e) Oppisopimuskoordinaattori ja vastuuopettaja vastaavat yhdessä oppisopimuskoulutuksen tietopuolisen koulutuksen suunnittelusta</p>
                     <fieldset id="group">
                       <input id="radionappi" type="radio"  name="kysymys5" value="tarua">
                       <input id="radionappi" type="radio"  name="kysymys5" value="totta"> <br>
@@ -482,7 +480,7 @@
                 </tr>
                 <tr>
                   <td>
-                    <button type="button" onClick="submitData();">Submit</button>
+                    <button type="button" onClick="submitData();">Lähetä</button>
                   </td>
                 </tr>
               </form>
@@ -512,19 +510,19 @@
       <vastaukset>
         <![CDATA[
           <br>
-          <b>a)</b> Aikaisemman osaamisen tunnistamisen ja tunnustamisen prosessikuvauksen mukaan ohjauskeskustelun käyminen on opiskelijan vastuulla [väärin. Vastaus: Ryhmäohjaaja kartoittaa opiskelijan aiempaa osaamista HOPS –keskustelun yhteydessä. Opinto-ohjaaja kirjaa suoraan tutkinnon perusteissa mainitut korvaavuudet]<br><br>
-          <b>b)</b> Aikuiskoulutushaussa vastuuopettaja ja opintosihteeri vastaavat yhdessä mahdollisten hakijoiden informoinnista ja ohjaamisesta [Totta: Vastuuopettaja sekä opintosihteeri vastaavat hakeutujien tiedusteluihin ja ohjaavat hakeutujia]<br><br>
-          <b>c)</b> Opettajan vastuulla on ohjata opiskelijat vastaamaan opiskelijapalautekyselyihin (nuorten tulo-, olo- ja päättökyselyt, aikuiskoulutus OPAL ja AIPAL sekä kummankin koulutusmuodon opettajan henkilökohtainen palaute) [Totta: Opettajan tehtäviin kuuluu opiskelijapalautteen keruu! Aikuisten OPAL- ja AIPAL-palautteissa tunnukset pyydetään opintosihteeri Satu Vuoriselta, joka tekee tunnukset vain opettajan pyynnöstä. ]<br><br>
-          <b>d)</b> Opiskelija tunnistaa olemassa olevan osaamisen [väärin. Jos opiskelijalla on aiemmin hankittua osaamista, hän voi hakea opettajalta osaamisen tunnistamista ja tunnustamista. Opettaja tunnistaa osaamista ja tarvittaessa vapauttaa opiskelijan tutkinnon osan tai teeman opinnoista.]<br><br>
-          <b>e)</b> Oppisopimuskoordinaattori ja vastuuopettaja vastaavat yhdessä oppisopimuskoulutuksen tietopuolisen koulutuksen suunnittelusta [Totta: Oppisopimus koordinaattori ja vastuuopettajat suunnittelevat oppisopimusopiskelijan tietopuolisen koulutuksen niin, että ne tukevat ja täydentävät työpaikalla tapahtuvaa oppimista]
+          <b>a) Tarua.</b> Ryhmäohjaaja kartoittaa opiskelijan aiempaa osaamista HOPS –keskustelun yhteydessä. Opinto-ohjaaja kirjaa suoraan tutkinnon perusteissa mainitut korvaavuudet<br><br>
+          <b>b) Totta.</b> Vastuuopettaja sekä opintosihteeri vastaavat hakeutujien tiedusteluihin ja ohjaavat hakeutujia<br><br>
+          <b>c) Totta.</b> Opettajan tehtäviin kuuluu opiskelijapalautteen keruu! Aikuisten OPAL- ja AIPAL-palautteissa tunnukset pyydetään opintosihteeri Satu Vuoriselta, joka tekee tunnukset vain opettajan pyynnöstä.<br><br>
+          <b>d) Tarua.</b> Jos opiskelijalla on aiemmin hankittua osaamista, hän voi hakea opettajalta osaamisen tunnistamista ja tunnustamista. Opettaja tunnistaa osaamista ja tarvittaessa vapauttaa opiskelijan tutkinnon osan tai teeman opinnoista.<br><br>
+          <b>e) Totta.</b> Oppisopimus koordinaattori ja vastuuopettajat suunnittelevat oppisopimusopiskelijan tietopuolisen koulutuksen niin, että ne tukevat ja täydentävät työpaikalla tapahtuvaa oppimista
         ]]>
       </vastaukset>
       <tehtava>
-        <kysymys>Aikaisemman osaamisen tunnistamisen ja tunnustamisen prosessikuvauksen mukaan ohjauskeskustelun käyminen on opiskelijan vastuulla</kysymys>
-        <kysymys>Aikuiskoulutushaussa vastuuopettaja ja opintosihteeri vastaavat yhdessä mahdollisten hakijoiden informoinnista ja ohjaamisesta</kysymys>
-        <kysymys>Opettajan vastuulla on ohjata opiskelijat vastaamaan opiskelijapalautekyselyihin (nuorten tulo-, olo- ja päättökyselyt, aikuiskoulutus OPAL ja AIPAL sekä kummankin koulutusmuodon opettajan henkilökohtainen palaute)</kysymys>
-        <kysymys>Opiskelija tunnistaa olemassa olevan osaamisen</kysymys>
-        <kysymys>Oppisopimuskoordinaattori ja vastuuopettaja vastaavat yhdessä oppisopimuskoulutuksen tietopuolisen koulutuksen suunnittelusta</kysymys>
+        <kysymys>a) Aikaisemman osaamisen tunnistamisen ja tunnustamisen prosessikuvauksen mukaan ohjauskeskustelun käyminen on opiskelijan vastuulla</kysymys>
+        <kysymys>b) Aikuiskoulutushaussa vastuuopettaja ja opintosihteeri vastaavat yhdessä mahdollisten hakijoiden informoinnista ja ohjaamisesta</kysymys>
+        <kysymys>c) Opettajan vastuulla on ohjata opiskelijat vastaamaan opiskelijapalautekyselyihin (nuorten tulo-, olo- ja päättökyselyt, aikuiskoulutus OPAL ja AIPAL sekä kummankin koulutusmuodon opettajan henkilökohtainen palaute)</kysymys>
+        <kysymys>d) Opiskelija tunnistaa olemassa olevan osaamisen</kysymys>
+        <kysymys>e) Oppisopimuskoordinaattori ja vastuuopettaja vastaavat yhdessä oppisopimuskoulutuksen tietopuolisen koulutuksen suunnittelusta</kysymys>
       </tehtava>
     </sivu>
 

@@ -42,6 +42,7 @@
 @media only screen and (max-width: 500px) {
   #wrapper{
     width: 100% !important;
+    margin-top: 0px !important;
   }
   #carousel-custom{
     height: 100% !important;
@@ -101,6 +102,17 @@
   }
   #navbaar{
     display: none;
+    position: absolute;
+    width: 448px !important;
+    height: 595.8px !important;
+    margin: auto !important;
+    margin-left: -448px !important;
+    background-color: white;
+    z-index: 1;
+  }
+  #navlist{
+    width: 446px !important;
+    height: 520px !important;
   }
   #carousel-custom{
     width: 448px !important;
