@@ -38,6 +38,13 @@
   display: block !important;
 }
 
+/* medium screens */
+@media only screen and (max-width: 1200px) and (min-width: 700px) {
+  #navbaar{
+    display: none;
+  }
+}
+
 /* small screens */
 @media only screen and (max-width: 700px) {
   #wrapper{
@@ -138,10 +145,14 @@
     height: 90% !important;
   }
   .leftside{
-    width: 429px !important;
+    width: 100% !important;
+    overflow: visible !important;
+    max-height: none !important;
   }
   .rightside{
-    width: 429px !important;
+    width: 100% !important;
+    overflow: visible !important;
+    max-height: none !important;
     float: left;
   }
   .carousel-indicators{
@@ -240,15 +251,10 @@
 .content{
   height: 449px;
 }
-.textOverflow{
-  overflow-y: auto;
-  overflow-x: hidden;
-  max-height: 400.5px;
-}
 .leftside{
   float: left;
-  width: 100% !important;
-  max-height: 100% !important;
+  width: 100%;
+  max-height: 100%;
   font-family: Arial,Helvetica,sans-serif;
   color: grey;
   font-size: 20px;

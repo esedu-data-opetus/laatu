@@ -31,8 +31,7 @@ function init(xml) {
       tabElem.setAttribute("data-target", "#carousel-custom");
       tabElem.setAttribute("data-slide-to", slideTo);
       tabElem.setAttribute("class", activity);
-      tabElem.setAttribute("onClick", "window.setTimeout(checkActivity, 100);");
-      tabElem.setAttribute("onClick", "closeMenu()");
+      tabElem.setAttribute("onClick", "window.setTimeout(checkActivity, 100); closeMenu();");
       var tabList = document.getElementById("navlist");
       tabList.appendChild(tabElem);
       var indElem = document.createElement("li");
@@ -90,14 +89,11 @@ function init(xml) {
         titleElem.appendChild(titleNode);
         content.appendChild(titleElem);
 
-        var overflowElem = document.createElement("div");
-        overflowElem.setAttribute("class", "textOverflow");
         var textElem = document.createElement("p");
         textElem.setAttribute("class", "teksti");
         var text = $sivu.children("teksti").text();
         textElem.innerHTML = text;
-        overflowElem.appendChild(textElem);
-        content.appendChild(overflowElem);
+        content.appendChild(textElem);
       } else if(pageType === "sivu2"){
         var leftElem = document.createElement("div");
         leftElem.setAttribute("class", "leftside");
@@ -288,11 +284,9 @@ function openMenu(){
 }
 
 function closeMenu(){
-  console.log($(window).width())
   if($(window).width() < 700){
     var menu = document.getElementById("navbaar");
     menu.style.display = "none";
-    //problem
   }
 }
 
