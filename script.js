@@ -284,7 +284,7 @@ function openMenu(){
 }
 
 function closeMenu(){
-  if($(window).width() < 700){
+  if($(window).width() < 1200){
     var menu = document.getElementById("navbaar");
     menu.style.display = "none";
   }

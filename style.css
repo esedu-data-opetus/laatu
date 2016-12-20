@@ -40,8 +40,90 @@
 
 /* medium screens */
 @media only screen and (max-width: 1200px) and (min-width: 700px) {
+  p.otsikko{
+    margin: 0px;
+  }
+  #wrapper{
+    width: 100% !important;
+    height: 100vh !important;
+    margin: 0px !important;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+  }
+  .header{
+    height: 15% !important;
+    width: 100% !important;
+  }
+  #carousel-custom{
+    width: 100% !important;
+    height: 85% !important;
+  }
+  #carousel-inner{
+    height: 90% !important;
+    width: 100% !important;
+  }
+  .item{
+    padding: 0px !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+  .content{
+    width: 100% !important;
+    height: 100% !important;
+    padding: 1%;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+  }
+  #menuButton2{
+    display: inline-block !important;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 1% 1% 0 0;
+  }
+  #control3, #control4{
+    display: none;
+  }
+  #mob-control{
+    display: none;
+  }
   #navbaar{
     display: none;
+    position: absolute;
+    width: 100% !important;
+    height: 100% !important;
+    margin: auto !important;
+    margin-left: -100% !important;
+    background-color: white;
+    z-index: 2;
+  }
+  #navtitle{
+    height: 10%;
+    width: 50%;
+    float: left;
+    padding: 10px;
+  }
+  #closebutton{
+    display: inline-block !important;
+    float: right;
+    margin: 5px;
+    cursor: pointer;
+  }
+  #navbaar h1{
+    margin: 0%;
+  }
+  #navlist{
+    width: 100% !important;
+    height: 90% !important;
+  }
+  .leftside{
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+  }
+  .rightside{
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
   }
 }
 
@@ -230,6 +312,13 @@
   width: 50px;
   height: 50px;
 }
+#menuButton2{
+  display: none;
+}
+#menuButton2 img{
+  width: 50px;
+  height: 50px;
+}
 
 /* karuselli */
 #carousel-custom{
@@ -253,8 +342,8 @@
 }
 .leftside{
   float: left;
-  width: 100%;
-  max-height: 100%;
+  width: 50%;
+  height: 100%;
   font-family: Arial,Helvetica,sans-serif;
   color: grey;
   font-size: 20px;
@@ -262,8 +351,8 @@
   overflow-x: hidden;
 }
 .rightside{
-  width: 100% !important;
-  max-height: 100% !important;
+  width: 50% !important;
+  height: 100% !important;
   float: right;
   font-family: Arial,Helvetica,sans-serif;
   color: grey;
@@ -282,7 +371,7 @@
   position: absolute;
   bottom: 0px;
   left: 50%;
-  z-index: 15;
+  z-index: 1;
   margin-left: -30%;
   text-align: center;
   list-style: none;
@@ -366,10 +455,9 @@
 
  /* totta vai tarua tehtävät */
  #vastauswrapper{
-   width: 475px;
-   height: 310px;
+   width: 100%;
+   height: 100%;
    padding: 5px;
-   overflow-y: auto;
  }
  #group{
    display: block;
