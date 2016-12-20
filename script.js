@@ -122,7 +122,7 @@ function init(xml) {
         $pList.find("haitari").each(function(){
           var $panel = $(this);
           // panel button
-          var pButtonElem = document.createElement("button");
+          var pButtonElem = document.createElement("div");
           pButtonElem.setAttribute("class", "aPanelButton");
           pButtonElem.setAttribute("onclick", "accordion(this);");
           // panel indicator
@@ -227,29 +227,25 @@ function closePanels(){
   });
 }
 
-function calcHeight(){
-  // var accordionHeight = $('div.accordion').height();
-  var accordionHeight = "380";
-  console.log("accordion " + accordionHeight);
+function calcHeight(parentDiv){
+  var accordionHeight = $(parentDiv[0]).height();
   var totalHeight = 0;
   var activeItems = $('div.item.active');
-  var panelButtons = $(activeItems[0]).find('button.aPanelButton');
+  var panelButtons = $(activeItems[0]).find('div.aPanelButton');
   $(panelButtons).each(function(){
-    var thisButton = this;
-    totalHeight += $(thisButton).height();
+    totalHeight += $(this).height() + 13; //margin + border + padding
   });
-  console.log("total " + totalHeight);
-  console.log("panel " + (accordionHeight - totalHeight));
   return accordionHeight - totalHeight;
 }
 
 function accordion(elem){
   var button = elem;
+  var parent = $(button).parent();
   var nextElem = next(button);
   if($(nextElem).hasClass("hidden")){
     closePanels();
     button.children[0].innerHTML = "-";
-    $(nextElem).css("height", calcHeight())
+    $(nextElem).css("height", calcHeight(parent));
     nextElem.classList.add("visible");
     nextElem.classList.remove("hidden");
   } else{

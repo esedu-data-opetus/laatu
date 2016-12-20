@@ -82,6 +82,9 @@
     right: 0;
     margin: 1% 1% 0 0;
   }
+  #menuButton2 img{
+    margin: auto;
+  }
   #control3, #control4{
     display: none;
   }
@@ -262,9 +265,14 @@
   width: 15px;
 }
 .aPanelButton{
+  border: 1px solid grey;
+  border-radius: 3px;
   width: 100%;
   padding: 5px;
-  margin: 0px !important;
+  margin-top: 1px !important;
+  position: relative;
+  float: left;
+  cursor: pointer;
 }
 .aPanelButtonText{
   text-align: left !important;
