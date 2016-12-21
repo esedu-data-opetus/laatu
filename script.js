@@ -229,13 +229,18 @@ function closePanels(){
 
 function calcHeight(parentDiv){
   var accordionHeight = $(parentDiv[0]).height();
+  console.log(accordionHeight);
   var totalHeight = 0;
   var activeItems = $('div.item.active');
   var panelButtons = $(activeItems[0]).find('div.aPanelButton');
   $(panelButtons).each(function(){
+    console.log("button height " + $(this).height());
     totalHeight += $(this).height() + 13; //margin + border + padding
   });
-  return accordionHeight - totalHeight;
+  console.log("total button height" + totalHeight);
+  var panelHeight = accordionHeight - totalHeight;
+  console.log("panel height" + panelHeight);
+  return panelHeight;
 }
 
 function accordion(elem){
