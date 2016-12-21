@@ -397,6 +397,9 @@
     overflow-y: auto !important;
     overflow-x: hidden !important;
   }
+  .accordion{
+    max-height: 100%;
+  }
   #menuButton2{
     display: inline-block !important;
     position: absolute;
@@ -442,14 +445,6 @@
     width: 100% !important;
     height: 90% !important;
   }
-  .leftside{
-    overflow-y: auto !important;
-    overflow-x: hidden !important;
-  }
-  .rightside{
-    overflow-y: auto !important;
-    overflow-x: hidden !important;
-  }
 }
 
 /* small screens */
@@ -467,7 +462,7 @@
     height: 100% !important;
   }
   #carousel-inner{
-    height: 100% !important;
+    height: 90% !important;
     width: 100% !important;
   }
   .header{
@@ -476,7 +471,7 @@
   .item{
     padding: 0px !important;
     width: 100% !important;
-    height: 90% !important;
+    height: 100% !important;
   }
   .content{
     padding: 10px;
@@ -552,14 +547,14 @@
     height: 90% !important;
   }
   .leftside{
+    height: auto !important;
     width: 100% !important;
     overflow: visible !important;
-    max-height: none !important;
   }
   .rightside{
+    height: auto !important;
     width: 100% !important;
     overflow: visible !important;
-    max-height: none !important;
     float: left;
   }
   .carousel-indicators{

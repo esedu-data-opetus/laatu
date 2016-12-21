@@ -250,7 +250,7 @@ function accordion(elem){
   if($(nextElem).hasClass("hidden")){
     closePanels();
     button.children[0].innerHTML = "-";
-    $(nextElem).css("height", calcHeight(parent));
+    $(nextElem).css("max-height", calcHeight(parent));
     nextElem.classList.add("visible");
     nextElem.classList.remove("hidden");
   } else{
