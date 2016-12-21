@@ -82,18 +82,23 @@ function init(xml) {
         imgElem.setAttribute("class", "titleImage");
         content.appendChild(imgElem);
       } else if(pageType === "sivu1"){
+        var wrapperElem = document.createElement("div");
+        wrapperElem.setAttribute("class", "textWrapper");
+
         var titleElem = document.createElement("p");
         titleElem.setAttribute("class", "otsikko");
         var title = $sivu.children("otsikko").text();
         var titleNode = document.createTextNode(title);
         titleElem.appendChild(titleNode);
-        content.appendChild(titleElem);
+        wrapperElem.appendChild(titleElem);
 
         var textElem = document.createElement("p");
         textElem.setAttribute("class", "teksti");
         var text = $sivu.children("teksti").text();
         textElem.innerHTML = text;
-        content.appendChild(textElem);
+        wrapperElem.appendChild(textElem);
+        
+        content.appendChild(wrapperElem);
       } else if(pageType === "sivu2"){
         var leftElem = document.createElement("div");
         leftElem.setAttribute("class", "leftside");
