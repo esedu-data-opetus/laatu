@@ -97,7 +97,7 @@ function init(xml) {
         var text = $sivu.children("teksti").text();
         textElem.innerHTML = text;
         wrapperElem.appendChild(textElem);
-        
+
         content.appendChild(wrapperElem);
       } else if(pageType === "sivu2"){
         var leftElem = document.createElement("div");
@@ -131,8 +131,9 @@ function init(xml) {
           pButtonElem.setAttribute("class", "aPanelButton");
           pButtonElem.setAttribute("onclick", "accordion(this);");
           // panel indicator
-          var pIndicatorElem = document.createElement("p");
-          pIndicatorElem.innerHTML = "+";
+          var pIndicatorElem = document.createElement("div");
+          var pIndicatorChar = document.createElement("p");
+          pIndicatorChar.innerHTML = "+";
           pIndicatorElem.classList.add("aPanelIndicator");
           // panel title
           var pTitleElem = document.createElement("p");
@@ -141,6 +142,7 @@ function init(xml) {
           var pTitle = $panel.find("otsikko").text();
           pTitleElem.innerHTML = pTitle;
           // append
+          pIndicatorElem.appendChild(pIndicatorChar);
           pButtonElem.appendChild(pIndicatorElem);
           pButtonElem.appendChild(pTitleElem);
           accordion.appendChild(pButtonElem);

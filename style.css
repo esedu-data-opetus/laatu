@@ -8,13 +8,13 @@
 }
 .teksti{
   font-family: Arial,Helvetica,sans-serif;
-  font-size: 1.25em;
+  font-size: 1.5em;
   color: grey;
   margin: 0 !important;
 }
 .otsikko{
   font-family: Arial,Helvetica,sans-serif;
-  font-size: 2.2em;
+  font-size: 2.5em;
   color: orange;
   line-height: 110%
 }
@@ -27,7 +27,7 @@
 }
 .accordion a,
 .accordion a:hover{
-  font-size: 1.25em;
+  font-size: 1.5em;
 }
 
 /* hidden / visible */
@@ -52,10 +52,13 @@
   margin: auto;
 }
 .aPanelIndicator{
-  text-align: left !important;
+  height: 100%;
+  width: 5%;
   float: left;
-  margin: 0px 5px 0px 5px;
-  width: 15px;
+  text-align: center;
+}
+.aPanelIndicator p{
+  font-size: 1.5em;
 }
 .aPanelButton{
   border: 1px solid grey;
@@ -70,6 +73,7 @@
 .aPanelButtonText{
   text-align: left !important;
   float: left;
+  width: 90%;
 }
 
 /* sivun wrapper */
@@ -99,7 +103,7 @@
 }
 .header a,
 .header a:hover{
-  font-size: 1.85em;
+  font-size: 2em;
   color: white;
   text-decoration: none;
 }
@@ -161,7 +165,7 @@
   height: 100%;
   font-family: Arial,Helvetica,sans-serif;
   color: grey;
-  font-size: 1.25em;
+  font-size: 1.5em;
   overflow-y: auto;
   overflow-x: hidden;
 }
@@ -260,7 +264,7 @@
   font-family: Arial,Helvetica,sans-serif;
   line-height: 90%;
   color: grey;
-  font-size: 1.25em;
+  font-size: 1.5em;
   width: 100%;
   padding: 5px;
   margin: 5px 0px 5px 0px;
@@ -327,14 +331,14 @@
   margin: 0px 10px 10px 0px;
   float: left;
   font-family: Arial,Helvetica,sans-serif;
-  font-size: 1.25em;
+  font-size: 1.5em;
   white-space: nowrap;
   overflow: hidden;
 }
 .droppedright,
 .droppedwrong{
   font-family: Arial,Helvetica,sans-serif;
-  font-size: 1.25em;
+  font-size: 1.5em;
 }
 .droppable{
   width: 200px;
@@ -346,7 +350,7 @@
   padding-top: 70px;
   text-align: center;
   font-family: Arial,Helvetica,sans-serif;
-  font-size: 1.85em;
+  font-size: 2em;
 }
 #blocks{
   width: 771px;
@@ -367,7 +371,7 @@
 }
 
 /* medium screens */
-@media only screen and (max-width: 1200px) and (min-width: 700px) {
+@media only screen and (max-width: 1200px) and (min-width: 900px) {
   p.otsikko{
     margin: 0px;
   }
@@ -454,7 +458,7 @@
 }
 
 /* small screens */
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 900px) {
   #wrapper{
     width: 100% !important;
     height: 100vh !important;
