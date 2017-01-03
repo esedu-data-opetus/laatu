@@ -8,15 +8,15 @@
 }
 .teksti{
   font-family: Arial,Helvetica,sans-serif;
-  font-size: 20px;
+  font-size: 1.25em;
   color: grey;
   margin: 0 !important;
 }
 .otsikko{
   font-family: Arial,Helvetica,sans-serif;
-  font-size: 35px;
+  font-size: 2.2em;
   color: orange;
-  line-height: 110%;
+  line-height: 110%
 }
 .accordion h3,
 .accordion a,
@@ -27,7 +27,7 @@
 }
 .accordion a,
 .accordion a:hover{
-  font-size: 20px;
+  font-size: 1.25em;
 }
 
 /* hidden / visible */
@@ -99,7 +99,7 @@
 }
 .header a,
 .header a:hover{
-  font-size: 30px;
+  font-size: 1.85em;
   color: white;
   text-decoration: none;
 }
@@ -161,7 +161,7 @@
   height: 100%;
   font-family: Arial,Helvetica,sans-serif;
   color: grey;
-  font-size: 20px;
+  font-size: 1.25em;
   overflow-y: auto;
   overflow-x: hidden;
 }
@@ -171,7 +171,7 @@
   float: right;
   font-family: Arial,Helvetica,sans-serif;
   color: grey;
-  font-size: 20px;
+  font-size: 1.25em;
   overflow-y: auto;
   overflow-x: hidden;
 }
@@ -260,7 +260,7 @@
   font-family: Arial,Helvetica,sans-serif;
   line-height: 90%;
   color: grey;
-  font-size: 20px;
+  font-size: 1.25em;
   width: 100%;
   padding: 5px;
   margin: 5px 0px 5px 0px;
@@ -327,14 +327,14 @@
   margin: 0px 10px 10px 0px;
   float: left;
   font-family: Arial,Helvetica,sans-serif;
-  font-size: 20px;
+  font-size: 1.25em;
   white-space: nowrap;
   overflow: hidden;
 }
 .droppedright,
 .droppedwrong{
   font-family: Arial,Helvetica,sans-serif;
-  font-size: 20px;
+  font-size: 1.25em;
 }
 .droppable{
   width: 200px;
@@ -346,7 +346,7 @@
   padding-top: 70px;
   text-align: center;
   font-family: Arial,Helvetica,sans-serif;
-  font-size: 30px;
+  font-size: 1.85em;
 }
 #blocks{
   width: 771px;
@@ -531,10 +531,10 @@
   #navbaar{
     display: none;
     position: absolute;
+    left: 0;
     width: 100% !important;
     height: 100% !important;
-    margin: auto !important;
-    margin-left: -100% !important;
+    margin: 0% !important;
     background-color: white;
     z-index: 1;
   }
