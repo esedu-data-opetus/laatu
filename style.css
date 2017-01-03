@@ -371,7 +371,7 @@
 }
 
 /* medium screens */
-@media only screen and (max-width: 1200px) and (min-width: 900px) {
+@media only screen and (max-width: 1200px) and (min-width: 800px){
   p.otsikko{
     margin: 0px;
   }
@@ -458,7 +458,7 @@
 }
 
 /* small screens */
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 800px){
   #wrapper{
     width: 100% !important;
     height: 100vh !important;
