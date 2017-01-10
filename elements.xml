@@ -208,32 +208,6 @@
     </sivu>
 
     <sivu>
-      <valiaikainen>
-        <![CDATA[
-          <p id="otsikko5" class="otsikko">TEHTÄVÄSIVU</p>
-          <p id="teksti4" class="teksti" style="font-weight: bold;">Vie sanat oikeaan laatikkoon:</p>
-          <br>
-          <div id="blocks">
-            <a id="block5" class="draggable ui-draggable ui-draggable-handle" style="position: relative; width: 201px; right: auto; height: 29px; bottom: auto; left: 0px; top: 0px;">Henkilöstösuunnitelma</a>
-            <a id="block12" class="draggable ui-draggable ui-draggable-handle" style="position: relative; width: 142px; right: auto; height: 29px; bottom: auto; left: 0px; top: 0px;">Oppimistulokset</a>
-            <a id="block4" class="draggable ui-draggable ui-draggable-handle" style="position: relative; width: 172px; right: auto; height: 29px; bottom: auto; left: 0px; top: 0px;">Opetussuunnitelma</a>
-            <a id="block11" class="draggable ui-draggable ui-draggable-handle" style="position: relative; width: 139px; right: auto; height: 29px; bottom: auto; left: 0px; top: 0px;">Asiakastulokset</a>
-            <a id="block2" class="draggable ui-draggable ui-draggable-handle" style="position: relative; width: 128px; right: auto; height: 29px; bottom: auto; left: 0px; top: 0px;">Hanketoiminta</a>
-            <a id="block3" class="draggable ui-draggable ui-draggable-handle" style="position: relative; width: 161px; right: auto; height: 29px; bottom: auto; left: 0px; top: 0px;">HEKS-keskustelut</a>
-            <a id="block8" class="draggable ui-draggable ui-draggable-handle" style="position: relative; width: 156px; right: auto; height: 29px; bottom: auto; left: 0px; top: 0px;">Työssäoppiminen</a>
-            <a id="block10" class="draggable ui-draggable ui-draggable-handle" style="position: relative; width: 175px; right: auto; height: 29px; bottom: auto; left: 0px; top: 0px;">Opiskelijapalautteet</a>
-            <a id="block1" class="draggable ui-draggable ui-draggable-handle" style="position: relative; width: 217px; right: auto; height: 29px; bottom: auto; left: 0px; top: 0px;">Oman työn kehittäminen</a>
-            <a id="block9" class="draggable ui-draggable ui-draggable-handle" style="position: relative; width: 122px; right: auto; height: 29px; bottom: auto; left: 0px; top: 0px;">Näyttötutkinto</a>
-            <a id="block7" class="draggable ui-draggable ui-draggable-handle" style="position: relative; width: 63px; right: auto; height: 29px; bottom: auto; left: 0px; top: 0px;">Ohjaus</a>
-          </div>
-          <div id="goals">
-            <div id="goal1" class="droppable">Suunnittelu</div>
-            <div id="goal2" class="droppable">Toteutus</div>
-            <div id="goal3" class="droppable">Arviointi</div>
-            <div id="goal4" class="droppable">Parantaminen</div>
-          </div>
-        ]]>
-      </valiaikainen>
       <numero>6</numero>
       <tyyppi>dragdrop</tyyppi>
       <nav>
@@ -242,29 +216,29 @@
         <otsikko>Tehtäväsivu 1</otsikko>
       </nav>
       <otsikko>TEHTÄVÄSIVU</otsikko>
-      <teksti>Vie sanat oikeaan laatikkoon:</teksti>
+      <teksti>Vie sanat oikeaan dragon:</teksti>
       <dragdrop>
-        <laatikot>
-          <laatikko>Opetussuunnitelma</laatikko>
-          <laatikko>Henkilöstösuunnitelma</laatikko>
-          <laatikko>Opetus</laatikko>
-          <laatikko>Ohjaus</laatikko>
-          <laatikko>Työssäoppiminen</laatikko>
-          <laatikko>Näyttötutkinto</laatikko>
-          <laatikko>Opiskelijapalautteet</laatikko>
-          <laatikko>Asiakaspalauttee</laatikko>
-          <laatikko>Oppimistulokset</laatikko>
-          <laatikko>Työvoimapoliittisen koulutuksen raportointi</laatikko>
-          <laatikko>Oman työn kehittäminen</laatikko>
-          <laatikko>Hanketoiminta</laatikko>
-          <laatikko>HEKS-keskustelut</laatikko>
-        </laatikot>
-        <maalit>
-          <maali>Suunnittelu</maali>
-          <maali>Toteutus</maali>
-          <maali>Arviointi</maali>
-          <maali>Parantaminen</maali>
-        </maalit>
+        <drags>
+          <drag target="4">Hanketoiminta</drag>
+          <drag target="1">Henkilöstösuunnitelma</drag>
+          <drag target="3">Asiakaspalauttee</drag>
+          <drag target="2">Ohjaus</drag>
+          <drag target="3">Oppimistulokset</drag>
+          <drag target="2">Työssäoppiminen</drag>
+          <drag target="1">Opetussuunnitelma</drag>
+          <drag target="2">Näyttötutkinto</drag>
+          <drag target="4">HEKS-keskustelut</drag>
+          <drag target="3">Opiskelijapalautteet</drag>
+          <drag target="2">Opetus</drag>
+          <drag target="3">Työvoimapoliittisen koulutuksen raportointi</drag>
+          <drag target="4">Oman työn kehittäminen</drag>
+        </drags>
+        <drops>
+          <drop target="1">Suunnittelu</drop>
+          <drop target="2">Toteutus</drop>
+          <drop target="3">Arviointi</drop>
+          <drop target="4">Parantaminen</drop>
+        </drops>
       </dragdrop>
     </sivu>
 

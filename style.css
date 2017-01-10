@@ -322,48 +322,36 @@
 }
 
 /* dragrop */
-.draggable{
-  cursor:pointer;
-  margin: 0px 10px 10px 0px;
+.drag{
+  display: inline;
   float: left;
-  font-family: Arial,Helvetica,sans-serif;
-  font-size: 1.5em;
-  white-space: nowrap;
-  overflow: hidden;
+  background-color: #66ffff;
+  padding: 3px;
+  margin: 3px;
+  border: 1px solid grey;
+  border-radius: 3px;
 }
-.droppedright,
-.droppedwrong{
-  font-family: Arial,Helvetica,sans-serif;
-  font-size: 1.5em;
-}
-.droppable{
-  width: 200px;
-  height: 200px;
-  margin: 0px 19px 0px 19px;
-  border: 5px solid #66cc66;
-  border-radius: 10px;
+.drop{
+  width: 25%;
+  height: 100%;
   float: left;
-  padding-top: 70px;
-  text-align: center;
-  font-family: Arial,Helvetica,sans-serif;
-  font-size: 2em;
+  background-color: #ffff99;
+  border: 1px solid grey;
 }
-#blocks{
-  width: 771px;
-  height: 121px;
-}
-#goals{
-  margin-top: 30px;
-  z-index: -1;
+.dropWrapper{
+  background-color: #ffcc99;
+  width: 90%;
+  height: 30%;
   position: absolute;
-  height: 210px;
-  width: auto;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
 }
-.droppedright{
-  color: lime !important;
+.dragRight{
+  background-color: #66ff66;
 }
-.droppedwrong{
-  color: red !important;
+.dragWrong{
+  background-color: #ff6666;
 }
 
 /* medium screens */
