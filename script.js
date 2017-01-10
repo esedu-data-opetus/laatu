@@ -364,12 +364,16 @@ function drop(ev) {
   ev.preventDefault();
   var data = ev.dataTransfer.getData("text");
   var dataElem = document.getElementById(data);
-  ev.target.appendChild(dataElem);
-  if(ev.target.getAttribute("target") === dataElem.getAttribute("target")){
-    $(dataElem).addClass("dragRight");
-    $(dataElem).removeClass("dragWrong");
-  }else{
-    $(dataElem).addClass("dragWrong");
-    $(dataElem).removeClass("dragRight");
+  if($(ev.target).hasClass("drop")){
+    ev.target.appendChild(dataElem);
+    if(ev.target.getAttribute("target") === dataElem.getAttribute("target")){
+      $(dataElem).addClass("dragRight");
+      $(dataElem).removeClass("dragWrong");
+    }else{
+      $(dataElem).addClass("dragWrong");
+      $(dataElem).removeClass("dragRight");
+    }
+  } else {
+    console.log("not a valid element");
   }
 }
