@@ -96,6 +96,7 @@
   box-shadow: 0px 3px 22px -1px rgba(0,0,0,0.75);
 }
 .header img{
+  float: left;
   height: 90%;
   position: relative;
   top: 50%;
@@ -325,7 +326,7 @@
 .drag{
   display: inline;
   float: left;
-  background-color: #66ffff;
+  background-color: #bfbfbf;
   padding: 3px;
   margin: 3px;
   border: 1px solid grey;
@@ -335,13 +336,17 @@
   width: 25%;
   height: 100%;
   float: left;
-  background-color: #ffff99;
+  background-color: #e6e6e6;
   border: 1px solid grey;
+  margin-right: -1px
+}
+.drop p{
+  margin: 0;
+  text-align: center;
 }
 .dropWrapper{
-  background-color: #ffcc99;
   width: 90%;
-  height: 30%;
+  height: 40%;
   position: absolute;
   bottom: 0;
   left: 50%;

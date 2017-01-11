@@ -25,8 +25,8 @@
       <div id="navlist"></div>
     </div>
     <div class="header">
-      <img src="pics/esedu_logo.png" style="float: left;"/>
-      <img src="pics/headertext.png" style="float: left;"/>
+      <img src="pics/esedu_logo.png"/>
+      <img src="pics/headertext.png"/>
       <button id="menuButton2" onclick="openMenu()"> <img src="pics/menuicon.png"/> </button>
     </div>
 
