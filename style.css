@@ -272,41 +272,37 @@
 }
 
  /* totta vai tarua tehtävät */
- #vastauswrapper{
-   width: 100%;
+ .kyselywrapper{
+   width: 50%;
    height: 100%;
-   padding: 5px;
- }
- #group{
-   display: block;
-   width: 120px;
-   float: left;
-   margin-left: 10px;
-   margin-top: 20px;
- }
- #radionappi{
-   margin-bottom: 7px;
-   width:35px;
-   height: 20px;
-   margin-left: 15px;
-
- }
- #tottatarua{
-   height: 25px;
-   width:25px;
    float: right;
-   margin-bottom: 7px;
-   margin-right: 50px;
+   overflow-y: auto;
+   overflow-x: hidden;
  }
- #kysymys{
-   width:300px;
+ .tehtavaWrapper{
+   width:100%;
+ }
+ .leftWrapper{
+   width:70%;
+   height: 100%;
    float: left;
-   display: block;
-   margin-top: 20px;
  }
-#formi_nimi{
-  margin: auto;
-}
+ .rightWrapper{
+   width:30%;
+   height: 100%;
+   float: left;
+ }
+ .kyselyTeksti{
+   font-size: 2em;
+ }
+ .upperLeftWrapper{
+   width:70%;
+   float: left;
+ }
+ .upperRightWrapper{
+   width:30%;
+   float: right;
+ }
 
 /* taulukot */
 .tableborder,

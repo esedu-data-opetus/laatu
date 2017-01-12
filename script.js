@@ -200,8 +200,6 @@ function init(xml) {
       } else if(pageType === "kysely"){
         var leftElem = document.createElement("div");
         leftElem.setAttribute("class", "leftside");
-        var rightElem = document.createElement("div");
-        rightElem.setAttribute("class", "rightside");
 
         var titleElem = document.createElement("p");
         titleElem.setAttribute("class", "otsikko");
@@ -216,6 +214,66 @@ function init(xml) {
         textElem.innerHTML = text;
         leftElem.appendChild(textElem);
 
+        var kyselyWrapper = document.createElement("div");
+        kyselyWrapper.setAttribute("class", "kyselywrapper");
+        var upperLeftWrapper = document.createElement("div");
+        kyselyWrapper.appendChild(upperLeftWrapper);
+        upperLeftWrapper.setAttribute("class", "upperLeftWrapper");
+        var upperRightWrapper = document.createElement("div");
+        kyselyWrapper.appendChild(upperRightWrapper);
+        upperRightWrapper.setAttribute("class", "upperRightWrapper");
+        var otsikkoElem = document.createElement("p");
+        var otsikko = $sivu.find("kysely").find("otsikko").text();
+        otsikkoElem.innerHTML = otsikko;
+        otsikkoElem.setAttribute("class", "otsikko");
+        kyselyWrapper.appendChild(otsikkoElem);
+        content.appendChild(kyselyWrapper);
+        var tottaElem = document.createElement("p");
+        tottaElem.innerHTML = "Totta";
+        var taruaElem = document.createElement("p");
+        taruaElem.innerHTML = "Tarua";
+        taruaElem.setAttribute("class", "tottatarua");
+        tottaElem.setAttribute("class", "tottatarua");
+
+        var $tehtavat = $sivu.find("kysely");
+        $tehtavat.find("tehtava").each(function(){
+          $tehtava = $(this);
+          var tehtavaWrapper = document.createElement("div");
+          tehtavaWrapper.setAttribute("class", "tehtavaWrapper");
+          kyselyWrapper.appendChild(tehtavaWrapper);
+          var leftWrapper = document.createElement("div");
+          leftWrapper.setAttribute("class", "leftWrapper");
+          tehtavaWrapper.appendChild(leftWrapper);
+          var rightWrapper = document.createElement("div");
+          rightWrapper.setAttribute("class", "rightWrapper");
+          tehtavaWrapper.appendChild(rightWrapper);
+          var kysymysElem = document.createElement("p");
+          kysymysElem.setAttribute("class", "kyselyTeksti");
+          var kysymysText = $tehtava.find("kysymys").text();
+          kysymysElem.innerHTML = kysymysText
+          leftWrapper.appendChild(kysymysElem);
+
+          var fieldsetElem = document.createElement("fieldset");
+          fieldsetElem.setAttribute("id", "group");
+
+          var kysymysNumero = 1;
+          var kysymysName = "kysymys" + kysymysNumero;
+
+          var inputElem1 = document.createElement("input");
+          inputElem1.setAttribute("type", "radio");
+          inputElem1.setAttribute("name", kysymysName);
+          inputElem1.setAttribute("value", "totta");
+          rightWrapper.appendChild(inputElem1);
+          var inputElem2 = document.createElement("input");
+          inputElem2.setAttribute("type", "radio");
+          inputElem2.setAttribute("name", kysymysName);
+          inputElem2.setAttribute("value", "tarua");
+          rightWrapper.appendChild(inputElem2);
+
+          kysymysNumero += 1;
+        });
+
+        /*
         var answerElem = document.createElement("p");
         $(answerElem).addClass("teksti");
         $(answerElem).addClass("hidden");
@@ -239,8 +297,9 @@ function init(xml) {
         });
         rightElem.appendChild(selectElem);
         rightElem.innerHTML += $(valiaikainen[1]).text();
+        */
+
         content.appendChild(leftElem);
-        content.appendChild(rightElem);
       }
     }
     addNavElements();
@@ -333,8 +392,8 @@ function closeMenu(){
 
 $("#esimies").load('options.php');
 
-function submitData() {
-  var vastausElem = document.getElementById("vastauksetDiv");
+function submitData(parentDiv) {
+  var vastausElem = parentDiv;
   $(vastausElem).addClass("visible");
   $(vastausElem).removeClass("hidden");
 
