@@ -222,11 +222,7 @@ function init(xml) {
         var upperRightWrapper = document.createElement("div");
         kyselyWrapper.appendChild(upperRightWrapper);
         upperRightWrapper.setAttribute("class", "upperRightWrapper");
-        var otsikkoElem = document.createElement("p");
-        var otsikko = $sivu.find("kysely").find("otsikko").text();
-        otsikkoElem.innerHTML = otsikko;
-        otsikkoElem.setAttribute("class", "otsikko");
-        kyselyWrapper.appendChild(otsikkoElem);
+
         content.appendChild(kyselyWrapper);
         var tottaElem = document.createElement("p");
         tottaElem.innerHTML = "Totta";
@@ -234,8 +230,14 @@ function init(xml) {
         taruaElem.innerHTML = "Tarua";
         taruaElem.setAttribute("class", "tottatarua");
         tottaElem.setAttribute("class", "tottatarua");
+        taruaElem.setAttribute("style", "float:right;");
+        tottaElem.setAttribute("style", "float:left;");
+        upperRightWrapper.appendChild(tottaElem);
+        upperRightWrapper.appendChild(taruaElem);
 
         var $tehtavat = $sivu.find("kysely");
+        var kysymysNumero = 1;
+
         $tehtavat.find("tehtava").each(function(){
           $tehtava = $(this);
           var tehtavaWrapper = document.createElement("div");
@@ -248,7 +250,7 @@ function init(xml) {
           rightWrapper.setAttribute("class", "rightWrapper");
           tehtavaWrapper.appendChild(rightWrapper);
           var kysymysElem = document.createElement("p");
-          kysymysElem.setAttribute("class", "kyselyTeksti");
+          kysymysElem.setAttribute("class", "teksti");
           var kysymysText = $tehtava.find("kysymys").text();
           kysymysElem.innerHTML = kysymysText
           leftWrapper.appendChild(kysymysElem);
@@ -256,22 +258,33 @@ function init(xml) {
           var fieldsetElem = document.createElement("fieldset");
           fieldsetElem.setAttribute("id", "group");
 
-          var kysymysNumero = 1;
-          var kysymysName = "kysymys" + kysymysNumero;
-
+          console.log(kysymysNumero);
           var inputElem1 = document.createElement("input");
           inputElem1.setAttribute("type", "radio");
-          inputElem1.setAttribute("name", kysymysName);
+          inputElem1.setAttribute("name", kysymysNumero);
           inputElem1.setAttribute("value", "totta");
-          rightWrapper.appendChild(inputElem1);
+          inputElem1.setAttribute("class", "radionappi");
+          inputElem1.setAttribute("style", "float:left;");
+          fieldsetElem.appendChild(inputElem1);
           var inputElem2 = document.createElement("input");
           inputElem2.setAttribute("type", "radio");
-          inputElem2.setAttribute("name", kysymysName);
+          inputElem2.setAttribute("name", kysymysNumero);
           inputElem2.setAttribute("value", "tarua");
-          rightWrapper.appendChild(inputElem2);
+          inputElem2.setAttribute("class", "radionappi");
+          inputElem2.setAttribute("style", "float:right;");
+          fieldsetElem.appendChild(inputElem2);
+          rightWrapper.appendChild(fieldsetElem);
+          kysymysNumero = kysymysNumero + 1;
 
-          kysymysNumero += 1;
+
         });
+
+        var buttonElem = document.createElement("button");
+        buttonElem.setAttribute("onclick", "submitdata();");
+        kyselyWrapper.appendChild(buttonElem);
+        buttonElem.innerHTML = "Lähetä";
+
+
 
         /*
         var answerElem = document.createElement("p");
