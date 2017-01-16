@@ -281,8 +281,8 @@ function init(xml) {
 
         var buttonElem = document.createElement("button");
         buttonElem.setAttribute("onclick", "submitdata();");
-        kyselyWrapper.appendChild(buttonElem);
         buttonElem.innerHTML = "Lähetä";
+        kyselyWrapper.appendChild(buttonElem);
 
 
 
