@@ -240,17 +240,22 @@ function init(xml) {
 
         $tehtavat.find("tehtava").each(function(){
           $tehtava = $(this);
+
           var tehtavaWrapper = document.createElement("div");
           tehtavaWrapper.setAttribute("class", "tehtavaWrapper");
           kyselyWrapper.appendChild(tehtavaWrapper);
+
           var leftWrapper = document.createElement("div");
           leftWrapper.setAttribute("class", "leftWrapper");
           tehtavaWrapper.appendChild(leftWrapper);
+
           var rightWrapper = document.createElement("div");
           rightWrapper.setAttribute("class", "rightWrapper");
           tehtavaWrapper.appendChild(rightWrapper);
+
           var kysymysElem = document.createElement("p");
           kysymysElem.setAttribute("class", "teksti");
+
           var kysymysText = $tehtava.find("kysymys").text();
           kysymysElem.innerHTML = kysymysText
           leftWrapper.appendChild(kysymysElem);
@@ -258,7 +263,6 @@ function init(xml) {
           var fieldsetElem = document.createElement("fieldset");
           fieldsetElem.setAttribute("id", "group");
 
-          console.log(kysymysNumero);
           var inputElem1 = document.createElement("input");
           inputElem1.setAttribute("type", "radio");
           inputElem1.setAttribute("name", kysymysNumero);
@@ -266,6 +270,7 @@ function init(xml) {
           inputElem1.setAttribute("class", "radionappi");
           inputElem1.setAttribute("style", "float:left;");
           fieldsetElem.appendChild(inputElem1);
+
           var inputElem2 = document.createElement("input");
           inputElem2.setAttribute("type", "radio");
           inputElem2.setAttribute("name", kysymysNumero);
@@ -275,9 +280,34 @@ function init(xml) {
           fieldsetElem.appendChild(inputElem2);
           rightWrapper.appendChild(fieldsetElem);
           kysymysNumero = kysymysNumero + 1;
-
-
         });
+
+        var nameTextElem = document.createElement("p");
+        nameTextElem.innerHTML = "Nimi";
+        nameTextElem.setAttribute("class", "teksti");
+        kyselyWrapper.appendChild(nameTextElem);
+
+        var nameElem = document.createElement("input");
+        nameElem.setAttribute("type", "text");
+        nameElem.setAttribute("name", "nimi");
+        kyselyWrapper.appendChild(nameElem);
+
+        function lineBreakFunc(parent){
+          var elem = document.createElement("br");
+          parent.appendChild(elem);
+        }
+
+        var selectionElem = document.createElement("select");
+        selectionElem.setAttribute("name", "esimies");
+        kyselyWrapper.appendChild(selectionElem);
+
+        kyselyWrapper.appendChild(lineBreak);
+
+        var optionElem = document.createElement("option");
+        optionElem.innerHTML = "esimerkki";
+        selectionElem.appendChild(optionElem);
+
+        kyselyWrapper.appendChild(lineBreak);
 
         var buttonElem = document.createElement("button");
         buttonElem.setAttribute("onclick", "submitdata();");
