@@ -14,6 +14,17 @@ $.ajax({
 
 function init(xml) {
 
+  $(window).on('resize orientationChange', function(event) {
+    var width = $(window).width();
+    var height = $(window).height();
+    var menuElem = document.getElementById("navbaar");
+    if(width > 1200){
+      menuElem.style.display = "block";
+    } else{
+      menuElem.style.display = "none";
+    }
+  });
+
   $(xml).find('sivu').each(function(index){
 
     var $sivu = $(this);
