@@ -211,6 +211,7 @@ function init(xml) {
       } else if(pageType === "kysely"){
         var leftElem = document.createElement("div");
         leftElem.setAttribute("class", "leftside");
+        content.appendChild(leftElem);
 
         var titleElem = document.createElement("p");
         titleElem.setAttribute("class", "otsikko");
@@ -335,36 +336,6 @@ function init(xml) {
         buttonElem.setAttribute("onclick", "submitdata();");
         buttonElem.innerHTML = "Lähetä";
         kyselyWrapper.appendChild(buttonElem);
-
-
-
-        /*
-        var answerElem = document.createElement("p");
-        $(answerElem).addClass("teksti");
-        $(answerElem).addClass("hidden");
-        answerElem.setAttribute("id", "vastauksetDiv")
-        var answerText = $sivu.find("vastaukset").text();
-        answerElem.innerHTML = answerText;
-        leftElem.appendChild(answerElem);
-
-        var valiaikainen = $sivu.find("valiaikainen");
-        rightElem.innerHTML = $(valiaikainen[0]).text();
-
-        var selectElem = document.createElement("select");
-        selectElem.setAttribute("name", "esimiehet");
-        selectElem.setAttribute("id", "esimies");
-
-        $sivu.find("esimies").each(function(){
-          var thisOption = $(this).text();
-          var optionElem = document.createElement("option");
-          optionElem.innerHTML = thisOption;
-          selectElem.appendChild(optionElem);
-        });
-        rightElem.appendChild(selectElem);
-        rightElem.innerHTML += $(valiaikainen[1]).text();
-        */
-
-        content.appendChild(leftElem);
       }
     }
     addNavElements();

@@ -449,6 +449,11 @@
     width: 100% !important;
     height: 90% !important;
   }
+  .kyselywrapper{
+    width: 100% !important;
+    float: left;
+    overflow-y: visible;
+  }
 
 }
 
@@ -571,5 +576,8 @@
   .carousel-indicators{
     display: none;
   }
-
+  .kyselywrapper{
+    width: 100% !important;
+    float: left;
+  }
 }
