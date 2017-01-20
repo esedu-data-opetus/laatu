@@ -1,0 +1,65 @@
+*{
+  font-family: sans-serif;
+}
+
+#wrapper{
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+
+#menu{
+  display: none;
+  background-color: white;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#sivumalli{
+  display: none;
+}
+
+#sortable{
+  float: left;
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+}
+
+#sortable li{
+  border: 1px solid black;
+  border-radius: 5px;
+  list-style-type: none;
+  padding: 3px 5px 3px 5px;
+  background-color: white;
+  cursor: pointer;
+  margin-bottom: -1px;
+}
+
+.characterbutton{
+  margin-left: 5px;
+  float: right;
+}
+
+.delete:hover{
+  color: red;
+}
+
+.edit:hover{
+  color: blue;
+}
+
+button{
+  float: left;
+  margin: 10px 0 10px 10px;
+}
+
+h1{
+  padding: 0;
+  margin: 10px;
+}
