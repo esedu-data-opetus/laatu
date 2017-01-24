@@ -1,10 +1,13 @@
 //ajax (hakee xml:n)
+var xmlDoc;
+
 $.ajax({
   type: "GET",
   url: "elements.xml",
   dataType: "xml",
   success: function (xml) {
     init(xml);
+    xmlDoc = xml;
     console.log("success");
   },
   error: function(){
@@ -14,12 +17,12 @@ $.ajax({
 
 function init(xml){
 
-    $( "#sortable" ).sortable({
-      stop: function(event, ui) {
-        console.log("New position: " + ui.item.index());
-      }
-    });
-    $( "#sortable" ).disableSelection();
+  $( "#sortable" ).sortable({
+    stop: function(event, ui) {
+      console.log("New position: " + ui.item.index());
+    }
+  });
+  $( "#sortable" ).disableSelection();
 
   $(xml).find('sivu').each(function(index){
     var $sivu =  $(this);
@@ -30,18 +33,18 @@ function init(xml){
     sortable.appendChild(sivuElem);
 
     var titleElem = document.createElement("a");
-    titleElem.innerHTML = $nav.children("otsikko").text();
+    titleElem.innerHTML = $sivu.find("nav-otsikko").text();
     sivuElem.appendChild(titleElem);
 
     var deleteElem = document.createElement("a");
-    deleteElem.setAttribute("onClick", "delete(elem)");
+    deleteElem.setAttribute("onClick", "deleteFunc(this)");
     deleteElem.setAttribute("class", "characterbutton delete");
     deleteElem.setAttribute("title", "Poista sivu");
     deleteElem.innerHTML = "&#9932;";
     sivuElem.appendChild(deleteElem);
 
     var editElem = document.createElement("a");
-    editElem.setAttribute("onClick", "edit(elem)");
+    editElem.setAttribute("onClick", "editFunc(this)");
     editElem.setAttribute("class", "characterbutton edit");
     editElem.setAttribute("title", "Muokkaa sivua");
     editElem.innerHTML = "&#9881;";
@@ -77,17 +80,86 @@ function addElement(){
 }
 
 function sivumalli(elem){
+  var sivumalliElem = document.getElementById("sivumalli");
+
   if(elem.innerHTML === "Kansi"){
-
-    
-
+    document.getElementById("kansi").style.display = "block";
+    sivumalliElem.style.display = "none";
   } else if(elem.innerHTML === "Sivumalli 1"){
-
+    document.getElementById("sivumalli1").style.display = "block";
+    sivumalliElem.style.display = "none";
   } else if(elem.innerHTML === "Sivumalli 2"){
-
+    document.getElementById("sivumalli2").style.display = "block";
+    sivumalliElem.style.display = "none";
   } else if(elem.innerHTML === "Drag and drop"){
-
+    document.getElementById("draganddrop").style.display = "block";
+    sivumalliElem.style.display = "none";
   } else if(elem.innerHTML === "Kysely"){
+    document.getElementById("kysely").style.display = "block";
+    sivumalliElem.style.display = "none";
+  }
+}
+
+function deleteFunc(elem){
+  var pageElement = elem.parentElement;
+  var pageIndex = $(pageElement).index();
+
+  var y = xmlDoc.getElementsByTagName("sivu")[pageIndex];
+  xmlDoc.documentElement.getElementsByTagName("sivut")[0].removeChild(y);
+
+  pageElement.parentElement.removeChild(pageElement);
+}
+
+function editFunc(elem){
+  var pageIndex = $(elem).parent().index();
+}
+
+function formFunc(elem, event){
+  event.preventDefault();
+
+  $.ajax({
+    type:     "POST",
+    url:      $(this).attr('action'),
+    success:  function() {
+                console.log("POST was success");
+              }
+  });
+
+  var formElem = elem.parentElement;
+  var formData = new FormData(formElem);
+
+  var sivut = xmlDoc.getElementsByTagName("sivut")[0];
+  var sivu = xmlDoc.createElement("sivu");
+  sivut.appendChild(sivu);
+
+  function commonElements(type){
+    var tyyppiElem = xmlDoc.createElement("tyyppi");
+    tyyppiElem.innerHTML = type;
+    sivu.appendChild(tyyppiElem);
+
+    var navElem = xmlDoc.createElement("nav-otsikko");
+    navElem.innerHTML = formData.get("otsikko");
+    sivu.appendChild(navElem);
+  }
+
+  if(formElem.id === "kansi"){
+    commonElements("kansi");
+    var otsikkoElem = xmlDoc.createElement("otsikko")
+    otsikkoElem.innerHTML = formData.get("otsikko");
+    sivu.appendChild(otsikkoElem);
+    var kuvaElem = xmlDoc.createElement("kuva")
+    kuvaElem.innerHTML = formData.get("kuva").name;
+    sivu.appendChild(kuvaElem);
+  } else if(formElem.id === "sivumalli1"){
+
+  } else if(formElem.id === "sivumalli2"){
+
+  } else if(formElem.id === "draganddrop"){
+
+  } else if(formElem.id === "kysely"){
 
   }
+
+  var n = $(sivut).find("sivu").length - 1;
+  console.log($(sivut).find("sivu")[n].innerHTML);
 }

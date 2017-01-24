@@ -24,6 +24,10 @@
   display: none;
 }
 
+.sivumalli{
+  display: none;
+}
+
 #sortable{
   float: left;
   padding: 0;

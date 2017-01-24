@@ -35,13 +35,16 @@ function init(xml) {
 
     function addNavElements(){
       var tabElem = document.createElement("li");
-      var tabTitle = document.createTextNode($nav.find("otsikko").text());
+      var tabTitle = document.createTextNode($sivu.find("nav-otsikko").text());
       tabElem.appendChild(tabTitle);
-      var slideTo = $nav.find('sivulle').text();
-      var activity = $nav.find('activity').text();
+      var slideTo = index;
+      if(index === 0){
+        tabElem.setAttribute("class", "active");
+      } else{
+        tabElem.setAttribute("class", "inactive");
+      }
       tabElem.setAttribute("data-target", "#carousel-custom");
       tabElem.setAttribute("data-slide-to", slideTo);
-      tabElem.setAttribute("class", activity);
       tabElem.setAttribute("onClick", "window.setTimeout(checkActivity, 100); closeMenu();");
       var tabList = document.getElementById("navlist");
       tabList.appendChild(tabElem);
@@ -49,7 +52,11 @@ function init(xml) {
       var indPict = document.createElement("img");
       indPict.setAttribute("src", "pics/indicator.png");
       indElem.appendChild(indPict);
-      indElem.setAttribute("class", activity);
+      if(index === 0){
+        indElem.setAttribute("class", "active");
+      } else{
+        indElem.setAttribute("class", "inactive");
+      }
       indElem.setAttribute("data-target", "#carousel-custom");
       indElem.setAttribute("data-slide-to", slideTo);
       indElem.setAttribute("onClick", "window.setTimeout(checkActivity, 100);");
