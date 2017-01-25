@@ -55,28 +55,6 @@ function init(xml){
 function addElement(){
   document.getElementById("menu").style.display = "block";
   document.getElementById("sivumalli").style.display = "inline-block";
-  /*var sortable = document.getElementById("sortable");
-
-  var sivuElem = document.createElement("li");
-  sortable.appendChild(sivuElem);
-
-  var titleElem = document.createElement("a");
-  titleElem.innerHTML = "esimerkki";
-  sivuElem.appendChild(titleElem);
-
-  var deleteElem = document.createElement("a");
-  deleteElem.setAttribute("onClick", "delete(elem)");
-  deleteElem.setAttribute("class", "characterbutton delete");
-  deleteElem.setAttribute("title", "Poista sivu");
-  deleteElem.innerHTML = "&#9932;";
-  sivuElem.appendChild(deleteElem);
-
-  var editElem = document.createElement("a");
-  editElem.setAttribute("onClick", "edit(elem)");
-  editElem.setAttribute("class", "characterbutton edit");
-  editElem.setAttribute("title", "Muokkaa sivua");
-  editElem.innerHTML = "&#9881;";
-  sivuElem.appendChild(editElem);*/
 }
 
 function sivumalli(elem){
@@ -142,8 +120,34 @@ function formFunc(elem, event){
     sivu.appendChild(navElem);
   }
 
+  function addPageElement(title){
+    var sortable = document.getElementById("sortable");
+
+    var sivuElem = document.createElement("li");
+    sortable.appendChild(sivuElem);
+
+    var titleElem = document.createElement("a");
+    titleElem.innerHTML = title;
+    sivuElem.appendChild(titleElem);
+
+    var deleteElem = document.createElement("a");
+    deleteElem.setAttribute("onClick", "deleteFunc(this)");
+    deleteElem.setAttribute("class", "characterbutton delete");
+    deleteElem.setAttribute("title", "Poista sivu");
+    deleteElem.innerHTML = "&#9932;";
+    sivuElem.appendChild(deleteElem);
+
+    var editElem = document.createElement("a");
+    editElem.setAttribute("onClick", "editFunc(this)");
+    editElem.setAttribute("class", "characterbutton edit");
+    editElem.setAttribute("title", "Muokkaa sivua");
+    editElem.innerHTML = "&#9881;";
+    sivuElem.appendChild(editElem);
+  }
+
   if(formElem.id === "kansi"){
     commonElements("kansi");
+    addPageElement(formData.get("otsikko"));
     var otsikkoElem = xmlDoc.createElement("otsikko")
     otsikkoElem.innerHTML = formData.get("otsikko");
     sivu.appendChild(otsikkoElem);
@@ -162,4 +166,11 @@ function formFunc(elem, event){
 
   var n = $(sivut).find("sivu").length - 1;
   console.log($(sivut).find("sivu")[n].innerHTML);
+
+  document.getElementById("kansi").style.display = "none";
+  document.getElementById("sivumalli1").style.display = "none";
+  document.getElementById("sivumalli2").style.display = "none";
+  document.getElementById("draganddrop").style.display = "none";
+  document.getElementById("kysely").style.display = "none";
+  document.getElementById("menu").style.display = "none";
 }

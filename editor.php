@@ -5,15 +5,10 @@
   <title>Laatu editor</title>
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+  <script>tinymce.init({ selector:'textarea' });</script>
   <link rel="stylesheet" type="text/css" href="editor.css">
   <script src="editor.js"></script>
-  <script src="addKansi.js"></script>
-  <script src="addSivu1.js"></script>
-  <script src="addSivu2.js"></script>
-  <script src="addDragAndDrop.js"></script>
-  <script src="addKysely.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script> 
-  <script src="http://malsup.github.com/jquery.form.js"></script> 
 </head>
 <body>
   <div id="wrapper">
@@ -32,23 +27,29 @@
         <input type="submit" value="Lähetä" onclick="formFunc(this, event)">
       </form>
       <form id="sivumalli1" class="sivumalli">
-        <input type="text">
-        <input type="text">
-        <input type="submit" value="Lähetä">
+        Tabin otsikko: <input type="text" name="nav-otsikko"> <br>
+        Otsikko: <input type="text" name="otsikko"> <br>
+        Sisältöteksti: <textarea type="text" name="teksti"></textarea> <br>
+        <input type="submit" value="Lähetä" onclick="formFunc(this, event)">
       </form>
       <form id="sivumalli2" class="sivumalli">
-        <input type="text">
-        <input type="text">
-        <!-- accordion -->
-        <input type="submit" value="Lähetä">
+        Tabin otsikko: <input type="text" name="nav-otsikko"> <br>
+        Otsikko: <input type="text" name="otsikko"> <br>
+        Sisältöteksti: <textarea type="text" name="teksti"></textarea> <br>
+        <!-- accordion editor -->
+        <input type="submit" value="Lähetä" onclick="formFunc(this, event)">
       </form>
       <form id="draganddrop" class="sivumalli">
-        <input type="text">
-        <input type="submit" value="Lähetä">
+        Tabin otsikko: <input type="text" name="nav-otsikko"> <br>
+        Otsikko: <input type="text" name="otsikko"> <br>
+        <!-- draganddrop editor -->
+        <input type="submit" value="Lähetä" onclick="formFunc(this, event)">
       </form>
       <form id="kysely" class="sivumalli">
-        <input type="text">
-        <input type="submit" value="Lähetä">
+        Tabin otsikko: <input type="text" name="nav-otsikko"> <br>
+        Otsikko: <input type="text" name="otsikko"> <br>
+        <!-- kysely editor -->
+        <input type="submit" value="Lähetä" onclick="formFunc(this, event)">
       </form>
     </div>
     <ul id="sortable"></ul>
