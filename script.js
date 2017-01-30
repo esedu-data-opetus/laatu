@@ -12,6 +12,23 @@ $.ajax({
   }
 });
 
+function imagePosition(image) {
+  var images = document.getElementsByClassName(image);
+
+  for(i = 0; i < images.length; i++){
+    var imageHeight = $(images[i]).height();
+    var imageWidth = $(images[i]).width();
+
+    var x = imageHeight / 2;
+    var y = imageWidth / 2;
+    x = -x + "px";
+    y = -y + "px";
+
+    images[i].style.marginTop = x;
+    images[i].style.marginLeft = y;
+  }
+}
+
 function init(xml) {
 
   $(window).on('resize orientationChange', function(event) {
@@ -35,31 +52,24 @@ function init(xml) {
 
     function addNavElements(){
       var tabElem = document.createElement("li");
-      var tabTitle = document.createTextNode($sivu.find("nav-otsikko").text());
+      var tabTitle = document.createTextNode($nav.find("otsikko").text());
       tabElem.appendChild(tabTitle);
-      var slideTo = index;
-      if(index === 0){
-        tabElem.setAttribute("class", "active");
-      } else{
-        tabElem.setAttribute("class", "inactive");
-      }
+      var slideTo = $nav.find('sivulle').text();
+      var activity = $nav.find('activity').text();
       tabElem.setAttribute("data-target", "#carousel-custom");
       tabElem.setAttribute("data-slide-to", slideTo);
-      tabElem.setAttribute("onClick", "window.setTimeout(checkActivity, 100); closeMenu();");
+      tabElem.setAttribute("class", activity);
+      tabElem.setAttribute("onClick", "navFunc(); closeMenu();");
       var tabList = document.getElementById("navlist");
       tabList.appendChild(tabElem);
       var indElem = document.createElement("li");
       var indPict = document.createElement("img");
       indPict.setAttribute("src", "pics/indicator.png");
       indElem.appendChild(indPict);
-      if(index === 0){
-        indElem.setAttribute("class", "active");
-      } else{
-        indElem.setAttribute("class", "inactive");
-      }
+      indElem.setAttribute("class", activity);
       indElem.setAttribute("data-target", "#carousel-custom");
       indElem.setAttribute("data-slide-to", slideTo);
-      indElem.setAttribute("onClick", "window.setTimeout(checkActivity, 100);");
+      indElem.setAttribute("onClick", "navFunc()");
       var indicators = document.getElementById("indicators");
       indicators.appendChild(indElem);
     }
@@ -84,7 +94,6 @@ function init(xml) {
     function pageTypes(){
 
       var pageType = $sivu.find("tyyppi").text();
-      console.log(number + " - " + pageType);
 
       if(pageType === "kansi"){
         var titleElem = document.createElement("p");
@@ -152,7 +161,7 @@ function init(xml) {
           var pIndicatorElem = document.createElement("div");
           var pIndicatorChar = document.createElement("p");
           pIndicatorChar.innerHTML = "+";
-          pIndicatorElem.classList.add("aPanelIndicator");
+          pIndicatorElem.setAttribute("class", "aPanelIndicator teksti");
           // panel title
           var pTitleElem = document.createElement("p");
           pTitleElem.classList.add("teksti");
@@ -348,6 +357,7 @@ function init(xml) {
     addNavElements();
     addItems();
     pageTypes();
+    imagePosition("titleImage");
   });
 }
 
@@ -359,7 +369,7 @@ function next(elem) {
 }
 
 function closePanels(){
-  $('p.aPanelIndicator').each(function(){
+  $('div.aPanelIndicator').each(function(){
     this.innerHTML = "+";
   });
   $('div.aPanel').each(function(){
@@ -371,17 +381,13 @@ function closePanels(){
 
 function calcHeight(parentDiv){
   var accordionHeight = $(parentDiv[0]).height();
-  console.log(accordionHeight);
   var totalHeight = 0;
   var activeItems = $('div.item.active');
   var panelButtons = $(activeItems[0]).find('div.aPanelButton');
   $(panelButtons).each(function(){
-    console.log("button height " + $(this).height());
     totalHeight += $(this).height() + 13; //margin + border + padding
   });
-  console.log("total button height" + totalHeight);
   var panelHeight = accordionHeight - totalHeight;
-  console.log("panel height" + panelHeight);
   return panelHeight;
 }
 
@@ -419,6 +425,10 @@ function checkActivity(){
       }
     }
   }
+}
+
+function navFunc(){
+  window.setTimeout(function(){checkActivity(); imagePosition("titleImage");}, 100);
 }
 
 function openMenu(){

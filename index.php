@@ -39,23 +39,23 @@
       <div id="carousel-inner" class="carousel-inner" role="listbox"></div>
 
       <!-- Controls -->
-      <a id="control1" class="left carousel-control" href="#carousel-custom" role="button" data-slide="prev" onClick="window.setTimeout(checkActivity, 100);">
+      <a id="control1" class="left carousel-control" href="#carousel-custom" role="button" data-slide="prev" onClick="navFunc()">
         <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
       </a>
-      <a id="control2" class="right carousel-control" href="#carousel-custom" role="button" data-slide="next" onClick="window.setTimeout(checkActivity, 100);">
+      <a id="control2" class="right carousel-control" href="#carousel-custom" role="button" data-slide="next" onClick="navFunc()">
         <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
       </a>
       <div id="mob-control">
-        <a id="control3" class="left carousel-control" href="#carousel-custom" role="button" data-slide="prev" onClick="window.setTimeout(checkActivity, 100);">
+        <a id="control3" class="left carousel-control" href="#carousel-custom" role="button" data-slide="prev" onClick="navFunc()">
           <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
           <span class="sr-only">Previous</span>
         </a>
         <div id="bWrapper">
           <button id="menuButton" onclick="openMenu()"> <img src="pics/menuicon.png"/> </button>
         </div>
-        <a id="control4" class="right carousel-control" href="#carousel-custom" role="button" data-slide="next" onClick="window.setTimeout(checkActivity, 100);">
+        <a id="control4" class="right carousel-control" href="#carousel-custom" role="button" data-slide="next" onClick="navFunc()">
           <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
           <span class="sr-only">Next</span>
         </a>

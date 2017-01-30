@@ -1,4 +1,4 @@
-/* tekstit */
+ /* tekstit */
 .carousel h3,
 .carousel a,
 .carousel a:hover{
@@ -56,9 +56,6 @@
   width: 5%;
   float: left;
   text-align: center;
-}
-.aPanelIndicator p{
-  font-size: 1.5em;
 }
 .aPanelButton{
   border: 1px solid grey;
@@ -154,9 +151,6 @@
   float: left;
   width: 50%;
   height: 100%;
-  font-family: Arial,Helvetica,sans-serif;
-  color: grey;
-  font-size: 1.5em;
   overflow-y: auto;
   overflow-x: hidden;
 }
@@ -164,15 +158,14 @@
   width: 50% !important;
   height: 100% !important;
   float: right;
-  font-family: Arial,Helvetica,sans-serif;
-  color: grey;
-  font-size: 1.25em;
   overflow-y: auto;
   overflow-x: hidden;
 }
 .titleImage{
-  margin-left: 7%;
-  width: 800px;
+  height: 70%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
 }
 #mob-control{
   display: none;
@@ -352,7 +345,7 @@
   width: 90%;
   height: 40%;
   position: absolute;
-  bottom: 0;
+  bottom: 5%;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -451,8 +444,9 @@
   }
   .kyselywrapper{
     width: 100% !important;
-    float: left;
-    overflow-y: visible;
+    float: left !important;
+    overflow-y: visible !important;
+    overflow-x: initial !important;
   }
 
 }
@@ -578,6 +572,8 @@
   }
   .kyselywrapper{
     width: 100% !important;
-    float: left;
+    float: left !important;
+    overflow-y: visible !important;
+    overflow-x: initial !important;
   }
 }

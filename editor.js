@@ -33,7 +33,7 @@ function init(xml){
     sortable.appendChild(sivuElem);
 
     var titleElem = document.createElement("a");
-    titleElem.innerHTML = $sivu.find("nav-otsikko").text();
+    titleElem.innerHTML = $nav.find("otsikko").text();
     sivuElem.appendChild(titleElem);
 
     var deleteElem = document.createElement("a");
