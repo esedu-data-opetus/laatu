@@ -155,7 +155,14 @@ function formFunc(elem, event){
     kuvaElem.innerHTML = formData.get("kuva").name;
     sivu.appendChild(kuvaElem);
   } else if(formElem.id === "sivumalli1"){
-
+    commonElements("sivumalli1");
+    addPageElement(formData.get("otsikko"));
+    var otsikkoElem = xmlDoc.createElement("otsikko")
+    otsikkoElem.innerHTML = formData.get("otsikko");
+    sivu.appendChild(otsikkoElem);
+    var tekstiElem = xmlDoc.createElement("teksti")
+    tekstiElem.innerHTML = formData.get("teksti").name;
+    sivu.appendChild(tekstiElem);
   } else if(formElem.id === "sivumalli2"){
 
   } else if(formElem.id === "draganddrop"){
