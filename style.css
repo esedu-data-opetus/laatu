@@ -444,8 +444,9 @@
   }
   .kyselywrapper{
     width: 100% !important;
-    float: left;
-    overflow-y: visible;
+    float: left !important;
+    overflow-y: visible !important;
+    overflow-x: initial !important;
   }
 
 }
@@ -571,6 +572,8 @@
   }
   .kyselywrapper{
     width: 100% !important;
-    float: left;
+    float: left !important;
+    overflow-y: visible !important;
+    overflow-x: initial !important;
   }
 }

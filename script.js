@@ -19,14 +19,10 @@ function imagePosition(image) {
     var imageHeight = $(images[i]).height();
     var imageWidth = $(images[i]).width();
 
-    console.log( images[i].src + " " + imageHeight + " " + imageWidth);
-
     var x = imageHeight / 2;
     var y = imageWidth / 2;
-
     x = -x + "px";
     y = -y + "px";
-    console.log(x +" "+ y);
 
     images[i].style.marginTop = x;
     images[i].style.marginLeft = y;
@@ -98,7 +94,6 @@ function init(xml) {
     function pageTypes(){
 
       var pageType = $sivu.find("tyyppi").text();
-      console.log(number + " - " + pageType);
 
       if(pageType === "kansi"){
         var titleElem = document.createElement("p");
@@ -374,7 +369,7 @@ function next(elem) {
 }
 
 function closePanels(){
-  $('p.aPanelIndicator').each(function(){
+  $('div.aPanelIndicator').each(function(){
     this.innerHTML = "+";
   });
   $('div.aPanel').each(function(){
@@ -386,17 +381,13 @@ function closePanels(){
 
 function calcHeight(parentDiv){
   var accordionHeight = $(parentDiv[0]).height();
-  console.log(accordionHeight);
   var totalHeight = 0;
   var activeItems = $('div.item.active');
   var panelButtons = $(activeItems[0]).find('div.aPanelButton');
   $(panelButtons).each(function(){
-    console.log("button height " + $(this).height());
     totalHeight += $(this).height() + 13; //margin + border + padding
   });
-  console.log("total button height" + totalHeight);
   var panelHeight = accordionHeight - totalHeight;
-  console.log("panel height" + panelHeight);
   return panelHeight;
 }
 
