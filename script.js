@@ -12,6 +12,27 @@ $.ajax({
   }
 });
 
+function imagePosition(image) {
+  var images = document.getElementsByClassName(image);
+
+  for(i = 0; i < images.length; i++){
+    var imageHeight = $(images[i]).height();
+    var imageWidth = $(images[i]).width();
+
+    console.log( images[i].src + " " + imageHeight + " " + imageWidth);
+
+    var x = imageHeight / 2;
+    var y = imageWidth / 2;
+
+    x = -x + "px";
+    y = -y + "px";
+    console.log(x +" "+ y);
+
+    images[i].style.marginTop = x;
+    images[i].style.marginLeft = y;
+  }
+}
+
 function init(xml) {
 
   $(window).on('resize orientationChange', function(event) {
@@ -42,7 +63,7 @@ function init(xml) {
       tabElem.setAttribute("data-target", "#carousel-custom");
       tabElem.setAttribute("data-slide-to", slideTo);
       tabElem.setAttribute("class", activity);
-      tabElem.setAttribute("onClick", "window.setTimeout(checkActivity, 100); closeMenu();");
+      tabElem.setAttribute("onClick", "navFunc(); closeMenu();");
       var tabList = document.getElementById("navlist");
       tabList.appendChild(tabElem);
       var indElem = document.createElement("li");
@@ -52,7 +73,7 @@ function init(xml) {
       indElem.setAttribute("class", activity);
       indElem.setAttribute("data-target", "#carousel-custom");
       indElem.setAttribute("data-slide-to", slideTo);
-      indElem.setAttribute("onClick", "window.setTimeout(checkActivity, 100);");
+      indElem.setAttribute("onClick", "navFunc()");
       var indicators = document.getElementById("indicators");
       indicators.appendChild(indElem);
     }
@@ -145,7 +166,7 @@ function init(xml) {
           var pIndicatorElem = document.createElement("div");
           var pIndicatorChar = document.createElement("p");
           pIndicatorChar.innerHTML = "+";
-          pIndicatorElem.classList.add("aPanelIndicator");
+          pIndicatorElem.setAttribute("class", "aPanelIndicator teksti");
           // panel title
           var pTitleElem = document.createElement("p");
           pTitleElem.classList.add("teksti");
@@ -341,6 +362,7 @@ function init(xml) {
     addNavElements();
     addItems();
     pageTypes();
+    imagePosition("titleImage");
   });
 }
 
@@ -412,6 +434,10 @@ function checkActivity(){
       }
     }
   }
+}
+
+function navFunc(){
+  window.setTimeout(function(){checkActivity(); imagePosition("titleImage");}, 100);
 }
 
 function openMenu(){
