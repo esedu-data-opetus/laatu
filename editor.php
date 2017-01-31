@@ -29,14 +29,21 @@
       <form id="sivumalli1" class="sivumalli">
         Tabin otsikko: <input type="text" name="nav-otsikko"> <br>
         Otsikko: <input type="text" name="otsikko"> <br>
-        Sisältöteksti: <textarea type="text" name="teksti"></textarea> <br>
+        Sisältöteksti: <textarea name="teksti" cols="50" rows="15" > </textarea><br>
         <input type="submit" value="Lähetä" onclick="formFunc(this, event)">
       </form>
       <form id="sivumalli2" class="sivumalli">
         Tabin otsikko: <input type="text" name="nav-otsikko"> <br>
         Otsikko: <input type="text" name="otsikko"> <br>
         Sisältöteksti: <textarea type="text" name="teksti"></textarea> <br>
-        <!-- accordion editor -->
+
+        Haitarilista: <br><br>
+        <div id="accordionList"></div> <br><br>
+        Otsikko: <input type="text" name="haitari-otsikko" id="haitari-otsikko"> <br>
+        Teksti: <textarea name="haitari-teksti" id="haitari-teksti" cols="50" rows="15" > </textarea> <br>
+        <input id="addAcc" type="submit" value="Luo uusi" onclick="addAccordion(this, event)">
+        <input type="submit" value="Peruuta" onclick="cancel(event, this)"><br><br>
+
         <input type="submit" value="Lähetä" onclick="formFunc(this, event)">
       </form>
       <form id="draganddrop" class="sivumalli">

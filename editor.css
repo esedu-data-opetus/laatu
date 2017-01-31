@@ -41,6 +41,7 @@
   border: 1px solid black;
   border-radius: 5px;
   list-style-type: none;
+  min-width: 500px;
   padding: 3px 5px 3px 5px;
   background-color: white;
   cursor: pointer;
@@ -68,4 +69,14 @@ button{
 h1{
   padding: 0;
   margin: 10px;
+}
+
+.accordionInd{
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 3px 5px 3px 5px;
+  cursor: pointer;
+  margin-bottom: -1px;
+  display: inline-block;
+  float: left;
 }
