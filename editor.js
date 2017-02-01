@@ -1,4 +1,4 @@
-//ajax (hakee xml:n)
+//ajax hakee xml:n
 var xmlDoc;
 
 $.ajax({
@@ -15,13 +15,17 @@ $.ajax({
   }
 });
 
+//jos xml:n hakeminen onnistuu, tekee seuraavan
 function init(xml){
+
+//teksti editorin aktivointi
 
   tinyMCE.init({
         mode : "textareas",
         theme : "simple"
   });
 
+//sortable elementtien aktivointi ja asetukset
   $( "#sortable" ).sortable({
     stop: function(event, ui) {
       console.log("New position: " + ui.item.index());
@@ -29,6 +33,7 @@ function init(xml){
   });
   $( "#sortable" ).disableSelection();
 
+//jokaista xml:n sivua kohtaan tekee sortable elementin
   $(xml).find('sivu').each(function(index){
     var $sivu =  $(this);
     var $nav = $sivu.find("nav");
@@ -57,6 +62,7 @@ function init(xml){
   });
 }
 
+//inserttaa rivin vaihdon
 function lineBreak(parent, amount){
   for(var i = 0; i < amount; i++){
     var elem = document.createElement("br");
@@ -64,11 +70,13 @@ function lineBreak(parent, amount){
   }
 }
 
+//asettaa menun näkyviin
 function addElement(){
   document.getElementById("menu").style.display = "block";
   document.getElementById("sivumalli").style.display = "inline-block";
 }
 
+//asettaa valittua sivumallia vastaavan formin näkyviin
 function sivumalli(elem){
   var sivumalliElem = document.getElementById("sivumalli");
 
@@ -90,6 +98,7 @@ function sivumalli(elem){
   }
 }
 
+//poistaa valitun sivun indikaattorin ja xml elementin
 function deleteFunc(elem){
   var pageElement = elem.parentElement;
   var pageIndex = $(pageElement).index();
@@ -100,18 +109,23 @@ function deleteFunc(elem){
   pageElement.parentElement.removeChild(pageElement);
 }
 
+//avaa valitun elementin formin
 function editFunc(elem){
   var pageIndex = $(elem).parent().index();
 }
 
+//accordioneiden määrä
 var accordionAmount = 1;
+//käsiteltävän accordionin id
 var currentAccordion = 0;
 
+//poistaa accordionin indikaattorin
 function deleteAccordion(elem){
   var pageElement = elem.parentElement;
   pageElement.parentElement.removeChild(pageElement);
 }
 
+//Lisää uuden accordionin indikaattorin tai muokkaa sitä ja tallentaa tiedot .data() käyttäen
 function addAccordion(elem, event){
   event.preventDefault();
   tinyMCE.triggerSave();
@@ -123,6 +137,7 @@ function addAccordion(elem, event){
     var haitariInd = document.createElement("div");
     haitariInd.setAttribute("class", "accordionInd");
     var haitariIndText = document.createElement("a");
+    haitariIndText.setAttribute("class", "haitariText");
     haitariInd.appendChild(haitariIndText);
     haitariIndText.setAttribute("id", accordionAmount);
     haitariIndText.setAttribute("onclick", "accordionPassValues(this)");
@@ -145,13 +160,11 @@ function addAccordion(elem, event){
     currentAccordion = 0;
   }
   document.getElementById("addAcc").value = "Luo uusi";
-
-  //tietojen tallentaminen
-
   document.getElementById("haitari-otsikko").value = "";
   tinyMCE.get("haitari-teksti").setContent("");
 }
 
+//tyhjentää formiin täytetyt tiedot ja deselectaa valitun elementin
 function cancel(event, elem){
   event.preventDefault();
   document.getElementById("haitari-otsikko").value = "";
@@ -160,6 +173,7 @@ function cancel(event, elem){
   document.getElementById("addAcc").value = "Luo uusi";
 }
 
+//välittää valitun accordionin tiedot formiin
 function accordionPassValues(elem){
   document.getElementById("haitari-otsikko").value = elem.innerHTML;
   var tekstiData = $(elem).data("teksti");
@@ -168,6 +182,7 @@ function accordionPassValues(elem){
   document.getElementById("addAcc").value = "Tallenna muutokset";
 }
 
+//välittää täytetyt tiedot xml:ään ja lisää sivuja vastaavat indikaattorit
 function formFunc(elem, event){
   event.preventDefault();
   tinyMCE.triggerSave();
@@ -255,7 +270,6 @@ function formFunc(elem, event){
     sivu.appendChild(otsikkoElem);
 
     var tekstiElem = xmlDoc.createElement("teksti");
-    console.log(formData.get("teksti"));
     tekstiElem.innerHTML = formData.get("teksti");
     sivu.appendChild(tekstiElem);
 
@@ -266,7 +280,7 @@ function formFunc(elem, event){
       var haitari = xmlDoc.createElement("haitari");
       haitarilista.appendChild(haitari);
       var otsikko = xmlDoc.createElement("otsikko");
-      otsikko.innerHTML = $(this).find("a").text();
+      otsikko.innerHTML = $(this).find(".haitariText").text();
       haitari.appendChild(otsikko);
       var teksti = xmlDoc.createElement("teksti");
       teksti.innerHTML = $(this).data("teksti");
