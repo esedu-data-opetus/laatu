@@ -192,12 +192,13 @@ var droppableTarget = 0;
 function dragMenu(elem){
   droppableTarget = $(elem.parentElement).find(".dropText").attr("id");
   console.log(droppableTarget);
+  document.getElementById("dragDiv").style.display = "block";
 }
 
 //Lisää uuden draggable indikaattorin ja kiinnittää tiedot siihen .data() käyttäen
 function addDragFunc(elem, event){
   event.preventDefault();
-  var formElem = elem.parentElement;
+  var formElem = elem.parentElement.parentElement;
   var formData = new FormData(formElem);
 
   if(currentDrag === 0){
@@ -223,28 +224,29 @@ function addDragFunc(elem, event){
   } else{
     var elem = document.getElementById(currentDrag);
     elem.innerHTML = formData.get("drag-teksti");
-    $(elem.parentElement).data("target", formData.get("drag-target"));
+    $(elem.parentElement).data("target", $(document.getElementById(droppableTarget).parentElement).data("target"));
     currentDrag = 0;
   }
   document.getElementById("addDrag").value = "Luo uusi";
   document.getElementById("drag-teksti").value = "";
+  document.getElementById("dragDiv").style.display = "none";
 }
 
 //tyhjentää formiin täytetyt tiedot ja deselectaa valitun elementin
 function cancelDrag(event, elem){
   event.preventDefault();
   document.getElementById("drag-teksti").value = "";
-  document.getElementById("drag-target").value = "";
   currentDrag = 0;
   document.getElementById("addDrag").value = "Luo uusi";
+  document.getElementById("dragDiv").style.display = "none";
 }
 
 //välittää valitun drag elementin tiedot formiin
 function dragPassValues(elem){
+  document.getElementById("dragDiv").style.display = "block";
   document.getElementById("drag-teksti").value = elem.innerHTML;
   var target = $(elem.parentElement).data("target");
   console.log($(elem.parentElement).data("target"));
-  document.getElementById("drag-target").value = target;
   currentDrag = elem.id;
   console.log(elem.id);
   document.getElementById("addDrag").value = "Tallenna muutokset";

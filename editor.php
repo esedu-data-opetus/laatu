@@ -59,10 +59,12 @@
         <input id="addDrop" type="submit" value="Luo uusi" onclick="addDropFunc(this, event)">
         <input type="submit" value="Peruuta" onclick="cancelDrop(event, this)"><br><br>
 
-        Draggables: <br>
-        Teksti: <input type="text" name="drag-teksti" id="drag-teksti"> <br>
-        <input id="addDrag" type="submit" value="Luo uusi" onclick="addDragFunc(this, event)">
-        <input type="submit" value="Peruuta" onclick="cancelDrag(event, this)"><br><br>
+        <div id="dragDiv">
+          Draggables: <br>
+          Teksti: <input type="text" name="drag-teksti" id="drag-teksti"> <br>
+          <input id="addDrag" type="submit" value="Luo uusi" onclick="addDragFunc(this, event)">
+          <input type="submit" value="Peruuta" onclick="cancelDrag(event, this)"><br><br>
+        </div>
 
         <input type="submit" value="Lähetä" onclick="formFunc(this, event)">
       </form>
