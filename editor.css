@@ -51,6 +51,11 @@
 .characterbutton{
   margin-left: 5px;
   float: right;
+  font-size: 15px;
+}
+
+.small-char{
+  font-size: 20px;
 }
 
 .delete:hover{
@@ -72,11 +77,11 @@ h1{
 }
 
 .elemenIndicator{
+  display: relative;
   border: 1px solid black;
   border-radius: 5px;
   padding: 3px 5px 3px 5px;
   cursor: pointer;
-  margin-bottom: -1px;
+  margin: 5px 5px 5px 0px;
   display: inline-block;
-  float: left;
 }

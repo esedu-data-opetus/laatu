@@ -186,14 +186,19 @@ function accordionPassValues(elem){
 var dragAmount = 1;
 //käsiteltävän drag elementin id
 var currentDrag = 0;
+//kohde drop elementtientti
+var droppableTarget = 0;
+
+function dragMenu(elem){
+  droppableTarget = $(elem.parentElement).find(".dropText").attr("id");
+  console.log(droppableTarget);
+}
 
 //Lisää uuden draggable indikaattorin ja kiinnittää tiedot siihen .data() käyttäen
 function addDragFunc(elem, event){
   event.preventDefault();
-  console.log("addDrag is a function");
   var formElem = elem.parentElement;
   var formData = new FormData(formElem);
-  var target = document.getElementById("draggables");
 
   if(currentDrag === 0){
     var dragInd = document.createElement("div");
@@ -201,10 +206,10 @@ function addDragFunc(elem, event){
     var dragIndText = document.createElement("a");
     dragIndText.setAttribute("class", "dragText");
     dragInd.appendChild(dragIndText);
-    dragIndText.setAttribute("id", dragAmount);
+    dragIndText.setAttribute("id", "drag" + dragAmount);
     dragIndText.setAttribute("onclick", "dragPassValues(this)");
     dragIndText.innerHTML = formData.get("drag-teksti");
-    $(dragInd).data("target", formData.get("drag-target"));
+    $(dragInd).data("target", $(document.getElementById(droppableTarget).parentElement).data("target"));
 
     var dragDel = document.createElement("a");
     dragDel.setAttribute("onClick", "deleteElement(this)");
@@ -213,7 +218,7 @@ function addDragFunc(elem, event){
     dragDel.innerHTML = "&#9932;";
     dragInd.appendChild(dragDel);
 
-    target.appendChild(dragInd);
+    document.getElementById(droppableTarget).parentElement.children[3].appendChild(dragInd);
     dragAmount++;
   } else{
     var elem = document.getElementById(currentDrag);
@@ -223,7 +228,6 @@ function addDragFunc(elem, event){
   }
   document.getElementById("addDrag").value = "Luo uusi";
   document.getElementById("drag-teksti").value = "";
-  document.getElementById("drag-target").value = "";
 }
 
 //tyhjentää formiin täytetyt tiedot ja deselectaa valitun elementin
@@ -264,7 +268,7 @@ function addDropFunc(elem, event){
     var dropIndText = document.createElement("a");
     dropIndText.setAttribute("class", "dropText");
     dropInd.appendChild(dropIndText);
-    dropIndText.setAttribute("id", dropAmount);
+    dropIndText.setAttribute("id", "drop" + dropAmount);
     dropIndText.setAttribute("onclick", "dropPassValues(this)");
     dropIndText.innerHTML = formData.get("drop-teksti");
     $(dropInd).data("target", formData.get("drop-target"));
@@ -275,6 +279,17 @@ function addDropFunc(elem, event){
     dropDel.setAttribute("title", "Poista droppable");
     dropDel.innerHTML = "&#9932;";
     dropInd.appendChild(dropDel);
+
+    var dropAdd = document.createElement("a");
+    dropAdd.setAttribute("onClick", "dragMenu(this)");
+    dropAdd.setAttribute("class", "characterbutton edit small-char");
+    dropAdd.setAttribute("title", "Lisää draggable");
+    dropAdd.innerHTML = "&plus;";
+    dropInd.appendChild(dropAdd);
+
+    var draggables = document.createElement("div");
+    draggables.setAttribute("class", "draggables");
+    dropInd.appendChild(draggables);
 
     target.appendChild(dropInd);
     dropAmount++;
@@ -427,7 +442,7 @@ function formFunc(elem, event){
     var drags = xmlDoc.createElement("drags");
     sivu.appendChild(drags);
 
-    $("#draggables").find("div").each(function( index ) {
+    $(".draggables").find("div").each(function( index ) {
       var drag = xmlDoc.createElement("drag");
       drags.appendChild(drag);
       drag.innerHTML = $(this).find(".dragText").text();
@@ -438,7 +453,7 @@ function formFunc(elem, event){
     var drops = xmlDoc.createElement("drops");
     sivu.appendChild(drops);
 
-    $("#droppables").find("div").each(function( index ) {
+    $("#droppables").children("div").each(function( index ) {
       var drop = xmlDoc.createElement("drop");
       drops.appendChild(drop);
       drop.innerHTML = $(this).find(".dropText").text();
