@@ -55,17 +55,16 @@
         Draggables: <br><br>
         <div id="draggables"></div> <br><br>
         Teksti: <input type="text" name="drag-teksti" id="drag-teksti"> <br>
-        Target numero: <input type="text" name="target" id="target"> <br>
+        Kohteen numero: <input type="text" name="drag-target" id="drag-target"> <br>
         <input id="addDrag" type="submit" value="Luo uusi" onclick="addDragFunc(this, event)">
         <input type="submit" value="Peruuta" onclick="cancelDrag(event, this)"><br><br>
 
-        <!-- Droppables: <br><br>
+        Droppables: <br><br>
         <div id="droppables"></div> <br><br>
-        Otsikko: <input type="text" name="drop-otsikko" id="drop-otsikko"> <br>
-        Teksti: <textarea name="drop-teksti" id="drop-teksti" cols="50" rows="15" > </textarea> <br>
-        <input id="addDrop" type="submit" value="Luo uusi" onclick="addDrop(this, event)"> -->
-
-        <input type="submit" value="Peruuta" onclick="cancel(event, this)"><br><br>
+        Teksti: <input type="text" name="drop-teksti" id="drop-teksti"> <br>
+        Numero: <input type="text" name="drop-target" id="drop-target"> <br> <br>
+        <input id="addDrop" type="submit" value="Luo uusi" onclick="addDropFunc(this, event)">
+        <input type="submit" value="Peruuta" onclick="cancelDrop(event, this)"><br><br>
 
         <input type="submit" value="Lähetä" onclick="formFunc(this, event)">
       </form>

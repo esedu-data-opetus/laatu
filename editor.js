@@ -204,7 +204,7 @@ function addDragFunc(elem, event){
     dragIndText.setAttribute("id", dragAmount);
     dragIndText.setAttribute("onclick", "dragPassValues(this)");
     dragIndText.innerHTML = formData.get("drag-teksti");
-    $(dragIndText).data("target", formData.get("target"));
+    $(dragInd).data("target", formData.get("drag-target"));
 
     var dragDel = document.createElement("a");
     dragDel.setAttribute("onClick", "deleteElement(this)");
@@ -216,21 +216,21 @@ function addDragFunc(elem, event){
     target.appendChild(dragInd);
     dragAmount++;
   } else{
-    var dragIndText = document.getElementById(currentDrag);
-    dragIndText.innerHTML = formData.get("drag-teksti");
-    $(dragIndText).data("target", formData.get("target"));
+    var elem = document.getElementById(currentDrag);
+    elem.innerHTML = formData.get("drag-teksti");
+    $(elem.parentElement).data("target", formData.get("drag-target"));
     currentDrag = 0;
   }
   document.getElementById("addDrag").value = "Luo uusi";
   document.getElementById("drag-teksti").value = "";
-  document.getElementById("target").value = "";
+  document.getElementById("drag-target").value = "";
 }
 
 //tyhjentää formiin täytetyt tiedot ja deselectaa valitun elementin
 function cancelDrag(event, elem){
   event.preventDefault();
   document.getElementById("drag-teksti").value = "";
-  document.getElementById("target").value = "";
+  document.getElementById("drag-target").value = "";
   currentDrag = 0;
   document.getElementById("addDrag").value = "Luo uusi";
 }
@@ -238,10 +238,73 @@ function cancelDrag(event, elem){
 //välittää valitun drag elementin tiedot formiin
 function dragPassValues(elem){
   document.getElementById("drag-teksti").value = elem.innerHTML;
-  var target = $(elem).data("target");
-  document.getElementById("target").value = target;
+  var target = $(elem.parentElement).data("target");
+  console.log($(elem.parentElement).data("target"));
+  document.getElementById("drag-target").value = target;
   currentDrag = elem.id;
+  console.log(elem.id);
   document.getElementById("addDrag").value = "Tallenna muutokset";
+}
+
+//drop elementtien määrä
+var dropAmount = 1;
+//käsiteltävän drop elementin id
+var currentDrop = 0;
+
+//Lisää uuden droppable indikaattorin ja kiinnittää tiedot siihen .data() käyttäen
+function addDropFunc(elem, event){
+  event.preventDefault();
+  var formElem = elem.parentElement;
+  var formData = new FormData(formElem);
+  var target = document.getElementById("droppables");
+
+  if(currentDrop === 0){
+    var dropInd = document.createElement("div");
+    dropInd.setAttribute("class", "elemenIndicator");
+    var dropIndText = document.createElement("a");
+    dropIndText.setAttribute("class", "dropText");
+    dropInd.appendChild(dropIndText);
+    dropIndText.setAttribute("id", dropAmount);
+    dropIndText.setAttribute("onclick", "dropPassValues(this)");
+    dropIndText.innerHTML = formData.get("drop-teksti");
+    $(dropInd).data("target", formData.get("drop-target"));
+
+    var dropDel = document.createElement("a");
+    dropDel.setAttribute("onClick", "deleteElement(this)");
+    dropDel.setAttribute("class", "characterbutton delete");
+    dropDel.setAttribute("title", "Poista droppable");
+    dropDel.innerHTML = "&#9932;";
+    dropInd.appendChild(dropDel);
+
+    target.appendChild(dropInd);
+    dropAmount++;
+  } else{
+    var elem = document.getElementById(currentDrop);
+    elem.innerHTML = formData.get("drop-teksti");
+    $(elem.parentElement).data("target", formData.get("drop-target"));
+    currentDrop = 0;
+  }
+  document.getElementById("addDrop").value = "Luo uusi";
+  document.getElementById("drop-teksti").value = "";
+  document.getElementById("drop-target").value = "";
+}
+
+//tyhjentää formiin täytetyt tiedot ja deselectaa valitun elementin
+function cancelDrop(event, elem){
+  event.preventDefault();
+  document.getElementById("drop-teksti").value = "";
+  document.getElementById("drop-target").value = "";
+  currentDrop = 0;
+  document.getElementById("addDrop").value = "Luo uusi";
+}
+
+//välittää valitun drop elementin tiedot formiin
+function dropPassValues(elem){
+  document.getElementById("drop-teksti").value = elem.innerHTML;
+  var target = $(elem.parentElement).data("target");
+  document.getElementById("drop-target").value = target;
+  currentDrop = elem.id;
+  document.getElementById("addDrop").value = "Tallenna muutokset";
 }
 
 //välittää täytetyt tiedot xml:ään ja lisää sivuja vastaavat indikaattorit
@@ -370,6 +433,17 @@ function formFunc(elem, event){
       drag.innerHTML = $(this).find(".dragText").text();
       var target = $(this).data("target");
       drag.setAttribute("target", target);
+    });
+
+    var drops = xmlDoc.createElement("drops");
+    sivu.appendChild(drops);
+
+    $("#droppables").find("div").each(function( index ) {
+      var drop = xmlDoc.createElement("drop");
+      drops.appendChild(drop);
+      drop.innerHTML = $(this).find(".dropText").text();
+      var target = $(this).data("target");
+      drop.setAttribute("target", target);
     });
   } else if(formElem.id === "kysely"){
 
