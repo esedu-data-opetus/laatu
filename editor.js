@@ -120,7 +120,7 @@ var accordionAmount = 1;
 var currentAccordion = 0;
 
 //poistaa accordionin indikaattorin
-function deleteAccordion(elem){
+function deleteElement(elem){
   var pageElement = elem.parentElement;
   pageElement.parentElement.removeChild(pageElement);
 }
@@ -135,7 +135,7 @@ function addAccordion(elem, event){
 
   if(currentAccordion === 0){
     var haitariInd = document.createElement("div");
-    haitariInd.setAttribute("class", "accordionInd");
+    haitariInd.setAttribute("class", "elemenIndicator");
     var haitariIndText = document.createElement("a");
     haitariIndText.setAttribute("class", "haitariText");
     haitariInd.appendChild(haitariIndText);
@@ -145,7 +145,7 @@ function addAccordion(elem, event){
     $(haitariIndText).data("teksti", formData.get("haitari-teksti"));
 
     var haitariDel = document.createElement("a");
-    haitariDel.setAttribute("onClick", "deleteAccordion(this)");
+    haitariDel.setAttribute("onClick", "deleteElement(this)");
     haitariDel.setAttribute("class", "characterbutton delete");
     haitariDel.setAttribute("title", "Poista haitari");
     haitariDel.innerHTML = "&#9932;";
@@ -182,6 +182,68 @@ function accordionPassValues(elem){
   document.getElementById("addAcc").value = "Tallenna muutokset";
 }
 
+//drag elementtien määrä
+var dragAmount = 1;
+//käsiteltävän drag elementin id
+var currentDrag = 0;
+
+//Lisää uuden draggable indikaattorin ja kiinnittää tiedot siihen .data() käyttäen
+function addDragFunc(elem, event){
+  event.preventDefault();
+  console.log("addDrag is a function");
+  var formElem = elem.parentElement;
+  var formData = new FormData(formElem);
+  var target = document.getElementById("draggables");
+
+  if(currentDrag === 0){
+    var dragInd = document.createElement("div");
+    dragInd.setAttribute("class", "elemenIndicator");
+    var dragIndText = document.createElement("a");
+    dragIndText.setAttribute("class", "dragText");
+    dragInd.appendChild(dragIndText);
+    dragIndText.setAttribute("id", dragAmount);
+    dragIndText.setAttribute("onclick", "dragPassValues(this)");
+    dragIndText.innerHTML = formData.get("drag-teksti");
+    $(dragIndText).data("target", formData.get("target"));
+
+    var dragDel = document.createElement("a");
+    dragDel.setAttribute("onClick", "deleteElement(this)");
+    dragDel.setAttribute("class", "characterbutton delete");
+    dragDel.setAttribute("title", "Poista draggable");
+    dragDel.innerHTML = "&#9932;";
+    dragInd.appendChild(dragDel);
+
+    target.appendChild(dragInd);
+    dragAmount++;
+  } else{
+    var dragIndText = document.getElementById(currentDrag);
+    dragIndText.innerHTML = formData.get("drag-teksti");
+    $(dragIndText).data("target", formData.get("target"));
+    currentDrag = 0;
+  }
+  document.getElementById("addDrag").value = "Luo uusi";
+  document.getElementById("drag-teksti").value = "";
+  document.getElementById("target").value = "";
+}
+
+//tyhjentää formiin täytetyt tiedot ja deselectaa valitun elementin
+function cancelDrag(event, elem){
+  event.preventDefault();
+  document.getElementById("drag-teksti").value = "";
+  document.getElementById("target").value = "";
+  currentDrag = 0;
+  document.getElementById("addDrag").value = "Luo uusi";
+}
+
+//välittää valitun drag elementin tiedot formiin
+function dragPassValues(elem){
+  document.getElementById("drag-teksti").value = elem.innerHTML;
+  var target = $(elem).data("target");
+  document.getElementById("target").value = target;
+  currentDrag = elem.id;
+  document.getElementById("addDrag").value = "Tallenna muutokset";
+}
+
 //välittää täytetyt tiedot xml:ään ja lisää sivuja vastaavat indikaattorit
 function formFunc(elem, event){
   event.preventDefault();
@@ -208,7 +270,7 @@ function formFunc(elem, event){
     sivu.appendChild(tyyppiElem);
 
     var navElem = xmlDoc.createElement("nav-otsikko");
-    navElem.innerHTML = formData.get("otsikko");
+    navElem.innerHTML = formData.get("nav-otsikko");
     sivu.appendChild(navElem);
   }
 
@@ -239,7 +301,7 @@ function formFunc(elem, event){
 
   if(formElem.id === "kansi"){
     commonElements("kansi");
-    addPageElement(formData.get("otsikko"));
+    addPageElement(formData.get("nav-otsikko"));
 
     var otsikkoElem = xmlDoc.createElement("otsikko")
     otsikkoElem.innerHTML = formData.get("otsikko");
@@ -251,7 +313,7 @@ function formFunc(elem, event){
 
   } else if(formElem.id === "sivumalli1"){
     commonElements("sivumalli1");
-    addPageElement(formData.get("otsikko"));
+    addPageElement(formData.get("nav-otsikko"));
 
     var otsikkoElem = xmlDoc.createElement("otsikko");
     otsikkoElem.innerHTML = formData.get("otsikko");
@@ -263,7 +325,7 @@ function formFunc(elem, event){
 
   } else if(formElem.id === "sivumalli2"){
     commonElements("sivumalli2");
-    addPageElement(formData.get("otsikko"));
+    addPageElement(formData.get("nav-otsikko"));
 
     var otsikkoElem = xmlDoc.createElement("otsikko");
     otsikkoElem.innerHTML = formData.get("otsikko");
@@ -288,7 +350,27 @@ function formFunc(elem, event){
     });
 
   } else if(formElem.id === "draganddrop"){
+    commonElements("draganddrop");
+    addPageElement(formData.get("nav-otsikko"));
 
+    var otsikkoElem = xmlDoc.createElement("otsikko");
+    otsikkoElem.innerHTML = formData.get("otsikko");
+    sivu.appendChild(otsikkoElem);
+
+    var tekstiElem = xmlDoc.createElement("teksti");
+    tekstiElem.innerHTML = formData.get("teksti");
+    sivu.appendChild(tekstiElem);
+
+    var drags = xmlDoc.createElement("drags");
+    sivu.appendChild(drags);
+
+    $("#draggables").find("div").each(function( index ) {
+      var drag = xmlDoc.createElement("drag");
+      drags.appendChild(drag);
+      drag.innerHTML = $(this).find(".dragText").text();
+      var target = $(this).data("target");
+      drag.setAttribute("target", target);
+    });
   } else if(formElem.id === "kysely"){
 
   }
