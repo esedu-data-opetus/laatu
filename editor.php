@@ -70,7 +70,20 @@
       </form>
       <form id="kysely" class="sivumalli">
         Tabin otsikko: <input type="text" name="nav-otsikko"> <br>
-        Otsikko: <input type="text" name="otsikko"> <br>
+        Kyselyteksti: <textarea type="text" name="teksti" id="kysely-teksti"></textarea> <br><br>
+          <div id="kyselyList"></div>
+        <div id="kyselyDiv">
+          Kysymys: <input type="text" name="kysymys-teksti" id="kysymys-teksti"> <br>
+          Oikea vastaus: <input type="text" name="vastaus-teksti" id="vastaus-teksti"> <br>
+          <select name="tottatarua" id="tottatarua">
+            <option value="Totta">Totta</option>
+            <option value="Tarua">Tarua</option>
+          </select><br>
+          <input id="kyselyAdd" type="submit" value="Luo uusi" onclick="addKysely(this, event)">
+          <input type="submit" value="Peruuta" onclick="cancelKysely(event, this)"><br><br>
+
+        </div>
+
         <!-- kysely editor -->
         <input type="submit" value="Lähetä" onclick="formFunc(this, event)">
       </form>

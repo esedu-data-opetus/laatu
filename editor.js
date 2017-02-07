@@ -324,6 +324,73 @@ function dropPassValues(elem){
   document.getElementById("addDrop").value = "Tallenna muutokset";
 }
 
+//Lisää uuden kysely indikaattorin tai muokkaa sitä ja tallentaa tiedot .data() käyttäen
+
+//kyselyjen määrä
+var kyselyAmount = 1;
+//käsiteltävän kyselyn id
+var currentKysely = 0;
+
+
+function addKysely(elem, event){
+  event.preventDefault();
+  tinyMCE.triggerSave();
+  var formElem = elem.parentElement.parentElement;
+  var formData = new FormData(formElem);
+  var target = document.getElementById("kyselyList");
+
+  if(currentKysely === 0){
+    var kyselyInd = document.createElement("div");
+    kyselyInd.setAttribute("class", "elemenIndicator");
+    var kyselyIndText = document.createElement("a");
+    kyselyIndText.setAttribute("class", "kyselyText");
+    kyselyInd.appendChild(kyselyIndText);
+    kyselyIndText.setAttribute("id", kyselyAmount);
+    kyselyIndText.setAttribute("onclick", "kyselyPassValues(this)");
+    kyselyIndText.innerHTML = formData.get("kysymys-teksti");
+    $(kyselyIndText).data("teksti", formData.get("vastaus-teksti"));
+    $(kyselyIndText).data("tottatarua", formData.get("tottatarua"));
+
+
+
+
+var kyselyDel = document.createElement("a");
+kyselyDel.setAttribute("onClick", "deleteElement(this)");
+kyselyDel.setAttribute("class", "characterbutton delete");
+kyselyDel.setAttribute("title", "Poista kysely");
+kyselyDel.innerHTML = "&#9932;";
+kyselyInd.appendChild(kyselyDel);
+
+target.appendChild(kyselyInd);
+kyselyAmount++;
+}else{
+var kyselyIndText = document.getElementById(currentKysely);
+kyselyIndText.innerHTML = formData.get("kysymys-teksti");
+$(kyselyIndText).data("teksti", formData.get("vastaus-teksti"));
+$(kyselyIndText).data("tottatarua", formData.get("tottatarua"));
+currentKysely = 0;
+}
+document.getElementById("kyselyAdd").value = "Luo uusi";
+document.getElementById("kysymys-teksti").value = "";
+document.getElementById("vastaus-teksti").value = "";
+}
+
+function kyselyPassValues(elem){
+  document.getElementById("kysymys-teksti").value = elem.innerHTML;
+  document.getElementById("vastaus-teksti").value = $(elem).data("teksti");
+  document.getElementById("tottatarua").value = $(elem).data("tottatarua");
+  currentKysely = elem.id;
+  document.getElementById("kyselyAdd").value = "Tallenna muutokset";
+}
+function cancelKysely(event, elem){
+  event.preventDefault();
+  document.getElementById("kysymys-teksti").value = "";
+  document.getElementById("vastaus-teksti").value = "";
+  currentKysely = 0;
+  document.getElementById("kyselyAdd").value = "Luo uusi";
+}
+
+
 //välittää täytetyt tiedot xml:ään ja lisää sivuja vastaavat indikaattorit
 function formFunc(elem, event){
   event.preventDefault();
@@ -463,7 +530,26 @@ function formFunc(elem, event){
       drop.setAttribute("target", target);
     });
   } else if(formElem.id === "kysely"){
+    commonElements("kysely");
+    addPageElement(formData.get("nav-otsikko"));
+    var kyselyTextElem = xmlDoc.createElement("teksti");
+    kyselyTextElem.innerHTML = formData.get("teksti");
+    sivu.appendChild(kyselyTextElem);
 
+
+    var kyselyElem = xmlDoc.createElement("kysely");
+    sivu.appendChild(kyselyElem);
+    $("#kyselyList").children("div").each(function(index){
+      var tehtavaElem = xmlDoc.createElement("tehtava");
+      kyselyElem.appendChild(tehtavaElem);
+      var kysymysElem = xmlDoc.createElement("kysymys");
+      kysymysElem.innerHTML = this.children[0].innerHTML;
+      tehtavaElem.appendChild(kysymysElem);
+      var vastausElem = xmlDoc.createElement("vastaus");
+      vastausElem.innerHTML = $(this).find(".kyselyText").data("teksti");
+      vastausElem.setAttribute("totta-vai-tarua" , formData.get("tottatarua"));
+      tehtavaElem.appendChild(vastausElem);
+    });
   }
 
   var n = $(sivut).find("sivu").length - 1;
