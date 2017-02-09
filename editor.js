@@ -2,12 +2,12 @@
 var xmlDoc;
 
 $.ajax({
-  type: "GET",
+  method: "GET",
   url: "elements.xml",
   dataType: "xml",
   success: function (xml) {
-    init(xml);
     xmlDoc = xml;
+    init(xml);
     console.log("success");
   },
   error: function(){
@@ -341,38 +341,36 @@ function addKysely(elem, event){
 
   if(currentKysely === 0){
     var kyselyInd = document.createElement("div");
+    target.appendChild(kyselyInd);
     kyselyInd.setAttribute("class", "elemenIndicator");
+
     var kyselyIndText = document.createElement("a");
-    kyselyIndText.setAttribute("class", "kyselyText");
     kyselyInd.appendChild(kyselyIndText);
+    kyselyIndText.setAttribute("class", "kyselyText");
     kyselyIndText.setAttribute("id", kyselyAmount);
     kyselyIndText.setAttribute("onclick", "kyselyPassValues(this)");
     kyselyIndText.innerHTML = formData.get("kysymys-teksti");
     $(kyselyIndText).data("teksti", formData.get("vastaus-teksti"));
     $(kyselyIndText).data("tottatarua", formData.get("tottatarua"));
 
+    var kyselyDel = document.createElement("a");
+    kyselyInd.appendChild(kyselyDel);
+    kyselyDel.setAttribute("onClick", "deleteElement(this)");
+    kyselyDel.setAttribute("class", "characterbutton delete");
+    kyselyDel.setAttribute("title", "Poista kysely");
+    kyselyDel.innerHTML = "&#9932;";
 
-
-
-var kyselyDel = document.createElement("a");
-kyselyDel.setAttribute("onClick", "deleteElement(this)");
-kyselyDel.setAttribute("class", "characterbutton delete");
-kyselyDel.setAttribute("title", "Poista kysely");
-kyselyDel.innerHTML = "&#9932;";
-kyselyInd.appendChild(kyselyDel);
-
-target.appendChild(kyselyInd);
-kyselyAmount++;
-}else{
-var kyselyIndText = document.getElementById(currentKysely);
-kyselyIndText.innerHTML = formData.get("kysymys-teksti");
-$(kyselyIndText).data("teksti", formData.get("vastaus-teksti"));
-$(kyselyIndText).data("tottatarua", formData.get("tottatarua"));
-currentKysely = 0;
-}
-document.getElementById("kyselyAdd").value = "Luo uusi";
-document.getElementById("kysymys-teksti").value = "";
-document.getElementById("vastaus-teksti").value = "";
+    kyselyAmount++;
+  } else{
+    var kyselyIndText = document.getElementById(currentKysely);
+    kyselyIndText.innerHTML = formData.get("kysymys-teksti");
+    $(kyselyIndText).data("teksti", formData.get("vastaus-teksti"));
+    $(kyselyIndText).data("tottatarua", formData.get("tottatarua"));
+    currentKysely = 0;
+  }
+  document.getElementById("kyselyAdd").value = "Luo uusi";
+  document.getElementById("kysymys-teksti").value = "";
+  document.getElementById("vastaus-teksti").value = "";
 }
 
 function kyselyPassValues(elem){
@@ -395,14 +393,6 @@ function cancelKysely(event, elem){
 function formFunc(elem, event){
   event.preventDefault();
   tinyMCE.triggerSave();
-
-  $.ajax({
-    type:     "POST",
-    url:      $(this).attr('action'),
-    success:  function() {
-                console.log("POST was success");
-              }
-  });
 
   var formElem = elem.parentElement;
   var formData = new FormData(formElem);
@@ -554,6 +544,21 @@ function formFunc(elem, event){
 
   var n = $(sivut).find("sivu").length - 1;
   console.log($(sivut).find("sivu")[n].innerHTML);
+
+  $.ajax({
+    method: "POST",
+    url: "upload.php",
+    contentType: "text/xml",
+    dataType: 'xml',
+    processData: true,
+    data: {'xml':xmlDoc},
+    success: function() {
+      console.log("POST was success");
+    },
+    error: function() {
+      console.log("ERROR");
+    }
+  });
 
   document.getElementById("kansi").style.display = "none";
   document.getElementById("sivumalli1").style.display = "none";
