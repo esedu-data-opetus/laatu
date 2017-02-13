@@ -545,13 +545,19 @@ function formFunc(elem, event){
   var n = $(sivut).find("sivu").length - 1;
   console.log($(sivut).find("sivu")[n].innerHTML);
 
+  console.log('xml on' + (new XMLSerializer()).serializeToString(xmlDoc)); 
+  var xmlDocString = (new XMLSerializer()).serializeToString(xmlDoc);
+
   $.ajax({
     method: "POST",
     url: "upload.php",
     contentType: "text/xml",
     dataType: 'xml',
     processData: true,
-    data: {'xml':xmlDoc},
+    data: {'xml':xmlDocString},
+    beforeSend: function(){
+     console.log('xml on' + xmlDocString);
+    },
     success: function() {
       console.log("POST was success");
     },
