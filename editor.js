@@ -545,14 +545,14 @@ function formFunc(elem, event){
   var n = $(sivut).find("sivu").length - 1;
   console.log($(sivut).find("sivu")[n].innerHTML);
 
-  console.log('xml on' + (new XMLSerializer()).serializeToString(xmlDoc)); 
+  console.log('xml on' + (new XMLSerializer()).serializeToString(xmlDoc));
   var xmlDocString = (new XMLSerializer()).serializeToString(xmlDoc);
 
   $.ajax({
-    method: "POST",
+    type: "POST",
     url: "upload.php",
     contentType: "text/xml",
-    dataType: 'xml',
+    dataType: 'text',
     processData: true,
     data: {'xml':xmlDocString},
     beforeSend: function(){

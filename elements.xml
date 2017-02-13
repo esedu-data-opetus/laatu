@@ -1,9 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  <![CDATA[[ sisältö ]> CDATA tagin sisällä oleva teksti luetaan ainoastaan tekstinä
-
-  <br> tarkoittaa pakotettua rivinvaihtoa
--->
 <root>
   <title>Laatu</title>
   <header>
