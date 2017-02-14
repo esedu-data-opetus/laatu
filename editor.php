@@ -90,6 +90,7 @@
     </div>
     <ul id="sortable"></ul>
     <button onclick="addElement()">Lisää elementti</button>
+    <button onclick="saveFunc()">Tallenna muutokset</button>
   </div>
 </body>
 </html>

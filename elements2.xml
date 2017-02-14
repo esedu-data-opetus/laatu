@@ -706,28 +706,10 @@
         ]]></teksti>
     </sivu>
     <sivu>
-      <tyyppi>sivumalli1</tyyppi>
-      <nav>
-        <otsikko>asd</otsikko>
-        <sivulle>20</sivulle>
-        <activity>inactive</activity>
-      </nav>
-      <otsikko>asd</otsikko>
-      <teksti>
-        <p>asd</p>
-      </teksti>
-    </sivu>
-    <sivu>
-      <tyyppi>sivumalli1</tyyppi>
-      <nav>
-        <otsikko>asd</otsikko>
-        <sivulle>21</sivulle>
-        <activity>inactive</activity>
-      </nav>
-      <otsikko>asd</otsikko>
-      <teksti>
-        <p>asd</p>
-      </teksti>
+      <tyyppi>kansi</tyyppi>
+      <nav-otsikko>Upeaa juttua</nav-otsikko>
+      <otsikko>Aivan järjettömän mahtava kansi!</otsikko>
+      <kuva>bad example for future generations (riq's lack of skills regarding the use of indent).PNG</kuva>
     </sivu>
   </sivut>
 </root>

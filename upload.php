@@ -1,7 +1,8 @@
 <?php
+  //print_r($_POST);
   $xml = $_POST['xml'];
 
-  echo $xml;
+  //echo $xml;
 
   /*$target_dir = "/pics";
   $image = $target_dir . basename($_FILES["kuva"]["name"]);
@@ -23,7 +24,7 @@ $dom = new DOMDocument("1.0");
 $dom->preserveWhiteSpace = false;
 $dom->formatOutput = true;
 $dom->loadXML($xml);
-echo $dom;
+echo $dom->saveXML();
 $dom->save("elements.xml");
 
 ?>

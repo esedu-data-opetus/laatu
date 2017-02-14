@@ -58,7 +58,25 @@ function init(xml){
     editElem.setAttribute("class", "characterbutton edit");
     editElem.setAttribute("title", "Muokkaa sivua");
     editElem.innerHTML = "&#9881;";
+    $(editElem).data("numero", $sivu.children("numero").html());
     sivuElem.appendChild(editElem);
+  });
+}
+
+function saveFunc(){
+  var xmlDocString = (new XMLSerializer()).serializeToString(xmlDoc);
+
+  $.ajax({
+    method: "POST",
+    url: "upload.php",
+    data: { xml: xmlDocString },
+    dataType: "text",
+    success: function(data){
+      console.log("XML tallennettu")
+    },
+    error: function(){
+      console.log("Ei toimi!");
+    }
   });
 }
 
@@ -112,6 +130,37 @@ function deleteFunc(elem){
 //avaa valitun elementin formin
 function editFunc(elem){
   var pageIndex = $(elem).parent().index();
+
+  var sivuNumero = $(elem).data("numero");
+  document.getElementById("menu").style.display = "block";
+
+  $(xmlDoc).find('sivu').each(function(index){
+
+    var thisNumero = $(this).children("numero").html();
+    var thisTyyppi = $(this).children("tyyppi").html();
+
+    if(thisNumero === sivuNumero && thisTyyppi === "kansi"){
+      document.getElementById("kansi").style.display = "block";
+
+
+    } else if(thisNumero === sivuNumero && thisTyyppi === "sivumallis1"){
+      document.getElementById("sivumalli1").style.display = "block";
+
+
+    } else if(thisNumero === sivuNumero && thisTyyppi === "sivumalli2"){
+      document.getElementById("sivumalli2").style.display = "block";
+
+
+    } else if(thisNumero === sivuNumero && thisTyyppi === "draganddrop"){
+      document.getElementById("draganddrop").style.display = "block";
+
+
+    } else if(thisNumero === sivuNumero && thisTyyppi === "kysely"){
+      document.getElementById("kysely").style.display = "block";
+
+
+    }
+  }
 }
 
 //accordioneiden määrä
@@ -406,8 +455,16 @@ function formFunc(elem, event){
     tyyppiElem.innerHTML = type;
     sivu.appendChild(tyyppiElem);
 
-    var navElem = xmlDoc.createElement("nav-otsikko");
-    navElem.innerHTML = formData.get("nav-otsikko");
+    var navElem = xmlDoc.createElement("nav");
+    var navTitle = xmlDoc.createElement("otsikko");
+    navTitle.innerHTML = formData.get("nav-otsikko");
+    var sivulleElem = xmlDoc.createElement("sivulle");
+    sivulleElem.innerHTML = $(sivut).find("sivu").length - 1;
+    var activityElem = xmlDoc.createElement("activity");
+    activityElem.innerHTML = "inactive";
+    navElem.appendChild(navTitle);
+    navElem.appendChild(sivulleElem);
+    navElem.appendChild(activityElem);
     sivu.appendChild(navElem);
   }
 
@@ -543,28 +600,7 @@ function formFunc(elem, event){
   }
 
   var n = $(sivut).find("sivu").length - 1;
-  console.log($(sivut).find("sivu")[n].innerHTML);
-
-  console.log('xml on' + (new XMLSerializer()).serializeToString(xmlDoc));
-  var xmlDocString = (new XMLSerializer()).serializeToString(xmlDoc);
-
-  $.ajax({
-    type: "POST",
-    url: "upload.php",
-    contentType: "text/xml",
-    dataType: 'text',
-    processData: true,
-    data: {'xml':xmlDocString},
-    beforeSend: function(){
-     console.log('xml on' + xmlDocString);
-    },
-    success: function() {
-      console.log("POST was success");
-    },
-    error: function() {
-      console.log("ERROR");
-    }
-  });
+  //console.log($(sivut).find("sivu")[n].innerHTML);
 
   document.getElementById("kansi").style.display = "none";
   document.getElementById("sivumalli1").style.display = "none";
