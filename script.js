@@ -242,20 +242,27 @@ function init(xml) {
         textElem.innerHTML = text;
         leftElem.appendChild(textElem);
 
+        var formi = document.createElement("FORM");
+
         var kyselyWrapper = document.createElement("div");
         kyselyWrapper.setAttribute("class", "kyselywrapper");
+        kyselyWrapper.appendChild(formi);
         var upperLeftWrapper = document.createElement("div");
         kyselyWrapper.appendChild(upperLeftWrapper);
         upperLeftWrapper.setAttribute("class", "upperLeftWrapper");
+        formi.appendChild(upperLeftWrapper);
         var upperRightWrapper = document.createElement("div");
         kyselyWrapper.appendChild(upperRightWrapper);
         upperRightWrapper.setAttribute("class", "upperRightWrapper");
-
+        formi.appendChild(upperRightWrapper);
         content.appendChild(kyselyWrapper);
+
         var tottaElem = document.createElement("p");
         tottaElem.innerHTML = "Totta";
+
         var taruaElem = document.createElement("p");
         taruaElem.innerHTML = "Tarua";
+
         taruaElem.setAttribute("class", "tottatarua");
         tottaElem.setAttribute("class", "tottatarua");
         taruaElem.setAttribute("style", "float:right;");
@@ -272,6 +279,7 @@ function init(xml) {
           var tehtavaWrapper = document.createElement("div");
           tehtavaWrapper.setAttribute("class", "tehtavaWrapper");
           kyselyWrapper.appendChild(tehtavaWrapper);
+          formi.appendChild(tehtavaWrapper);
 
           var leftWrapper = document.createElement("div");
           leftWrapper.setAttribute("class", "leftWrapper");
@@ -328,22 +336,22 @@ function init(xml) {
         nameTextElem.innerHTML = "Nimi";
         nameTextElem.setAttribute("class", "teksti");
         kyselyWrapper.appendChild(nameTextElem);
-
+        formi.appendChild(nameTextElem);
         var nameElem = document.createElement("input");
         nameElem.setAttribute("type", "text");
         nameElem.setAttribute("name", "nimi");
         nameElem.style.margin = "0 0 5px 0";
         kyselyWrapper.appendChild(nameElem);
-
+        formi.appendChild(nameElem);
         lineBreak(kyselyWrapper, 1);
 
         var selectionElem = document.createElement("select");
         selectionElem.setAttribute("name", "esimies");
         kyselyWrapper.appendChild(selectionElem);
         selectionElem.style.margin = "0 0 5px 0";
-
+        formi.appendChild(selectionElem);
         var optionElem = document.createElement("option");
-        optionElem.innerHTML = "esimerkki";
+        optionElem.innerHTML = "Esimies";
         selectionElem.appendChild(optionElem);
 
         lineBreak(kyselyWrapper, 1);
@@ -352,6 +360,7 @@ function init(xml) {
         buttonElem.setAttribute("onclick", "submitdata();");
         buttonElem.innerHTML = "Lähetä";
         kyselyWrapper.appendChild(buttonElem);
+        formi.appendChild(buttonElem);
       }
     }
     addNavElements();
@@ -445,10 +454,8 @@ function closeMenu(){
 
 $("#esimies").load('options.php');
 
-function submitData(parentDiv) {
-  var vastausElem = parentDiv;
-  $(vastausElem).addClass("visible");
-  $(vastausElem).removeClass("hidden");
+function submitdata() {
+
 
   $(function() {
     $.ajax({
