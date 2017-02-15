@@ -29,14 +29,14 @@
       </form>
       <form id="sivumalli1" class="sivumalli">
         Tabin otsikko: <input type="text" name="nav-otsikko"> <br>
-        Otsikko: <input type="text" name="otsikko"> <br>
-        Sisältöteksti: <textarea name="teksti" cols="50" rows="15" > </textarea><br>
+        Otsikko: <input type="text" name="sivu1-otsikko"> <br>
+        Sisältöteksti: <textarea name="sivu1-teksti" id="sivu1-teksti" cols="50" rows="15"></textarea><br>
         <input type="submit" value="Lähetä" onclick="formFunc(this, event)">
       </form>
       <form id="sivumalli2" class="sivumalli">
         Tabin otsikko: <input type="text" name="nav-otsikko"> <br>
-        Otsikko: <input type="text" name="otsikko"> <br>
-        Sisältöteksti: <textarea type="text" name="teksti"></textarea> <br>
+        Otsikko: <input type="text" name="sivu2-otsikko"> <br>
+        Sisältöteksti: <textarea type="text" name="sivu2-teksti" id="sivu2-teksti"></textarea> <br>
 
         Haitarilista: <br><br>
         <div id="accordionList"></div> <br><br>

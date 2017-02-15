@@ -2,9 +2,7 @@
   //print_r($_POST);
   $xml = $_POST['xml'];
 
-  //echo $xml;
-
-  /*$target_dir = "/pics";
+  $target_dir = "/pics";
   $image = $target_dir . basename($_FILES["kuva"]["name"]);
 
   if ( file_exists($_FILES['kuva']['tmp_name']) ){
@@ -18,13 +16,10 @@
     }
   }
 
-$lista = simplexml_load_file('elements.xml');*/
-
 $dom = new DOMDocument("1.0");
 $dom->preserveWhiteSpace = false;
 $dom->formatOutput = true;
 $dom->loadXML($xml);
-echo $dom->saveXML();
 $dom->save("elements.xml");
 
 ?>

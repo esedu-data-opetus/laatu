@@ -135,19 +135,24 @@ function editFunc(elem){
   document.getElementById("menu").style.display = "block";
 
   $(xmlDoc).find('sivu').each(function(index){
-
     var thisNumero = $(this).children("numero").html();
     var thisTyyppi = $(this).children("tyyppi").html();
+    var thisPage;
 
     if(thisNumero === sivuNumero && thisTyyppi === "kansi"){
-      document.getElementById("kansi").style.display = "block";
-
-
-    } else if(thisNumero === sivuNumero && thisTyyppi === "sivumallis1"){
-      document.getElementById("sivumalli1").style.display = "block";
-
-
-    } else if(thisNumero === sivuNumero && thisTyyppi === "sivumalli2"){
+      thisPage = document.getElementById("kansi");
+      thisPage.style.display = "block";
+      thisPage.children[0].value = $(this).children("nav").children("otsikko").html();
+      thisPage.children[2].value = $(this).children("otsikko").html();
+    } else if(thisNumero === sivuNumero && thisTyyppi === "sivu1"){
+      thisPage = document.getElementById("sivumalli1");
+      thisPage.style.display = "block";
+      thisPage.children[0].value = $(this).children("nav").children("otsikko").html();
+      thisPage.children[2].value = $(this).children("otsikko").html();
+      var thisTeksti = $(this).children("teksti").html();
+      console.log(thisTeksti);
+      tinyMCE.get('sivu1-teksti').setContent(thisTeksti);
+    } else if(thisNumero === sivuNumero && thisTyyppi === "sivu2"){
       document.getElementById("sivumalli2").style.display = "block";
 
 
@@ -160,7 +165,7 @@ function editFunc(elem){
 
 
     }
-  }
+  });
 }
 
 //accordioneiden määrä
@@ -510,11 +515,12 @@ function formFunc(elem, event){
     addPageElement(formData.get("nav-otsikko"));
 
     var otsikkoElem = xmlDoc.createElement("otsikko");
-    otsikkoElem.innerHTML = formData.get("otsikko");
+    otsikkoElem.innerHTML = formData.get("sivu1-otsikko");
     sivu.appendChild(otsikkoElem);
 
     var tekstiElem = xmlDoc.createElement("teksti");
-    tekstiElem.innerHTML = formData.get("teksti");
+    console.log(formData.get("sivu1-teksti"));
+    tekstiElem.innerHTML = formData.get("sivu1-teksti");
     sivu.appendChild(tekstiElem);
 
   } else if(formElem.id === "sivumalli2"){
@@ -522,11 +528,11 @@ function formFunc(elem, event){
     addPageElement(formData.get("nav-otsikko"));
 
     var otsikkoElem = xmlDoc.createElement("otsikko");
-    otsikkoElem.innerHTML = formData.get("otsikko");
+    otsikkoElem.innerHTML = formData.get("sivu2-otsikko");
     sivu.appendChild(otsikkoElem);
 
     var tekstiElem = xmlDoc.createElement("teksti");
-    tekstiElem.innerHTML = formData.get("teksti");
+    tekstiElem.innerHTML = formData.get("sivu2-teksti");
     sivu.appendChild(tekstiElem);
 
     var haitarilista = xmlDoc.createElement("haitarilista");
