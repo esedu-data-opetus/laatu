@@ -21,8 +21,9 @@ function init(xml){
 //teksti editorin aktivointi
 
   tinyMCE.init({
-        mode : "textareas",
-        theme : "simple"
+    entity_encoding : "raw",
+    mode : "textareas",
+    theme : "simple"
   });
 
 //sortable elementtien aktivointi ja asetukset
