@@ -242,7 +242,32 @@ function init(xml) {
         textElem.innerHTML = text;
         leftElem.appendChild(textElem);
 
+        var vastaukset = document.createElement("div");
+        vastaukset.setAttribute("id", "vastaus");
+        leftElem.appendChild(vastaukset);
+
+        var indikaattori = 1;
+
+        $sivu.find("tehtava").each(function(){
+
+          var tottataruaText = $(this).children("vastaus").attr("totta-vai-tarua");
+          var tottataruaElem = document.createElement("p");
+
+          tottataruaElem.setAttribute("style", "font-weight: bold;");
+          tottataruaElem.innerHTML = indikaattori + ".) " + tottataruaText;
+          vastaukset.appendChild(tottataruaElem);
+
+          var vastausElem = document.createElement("p");
+          vastaukset.appendChild(vastausElem);
+
+          var vastaus = $(this).find("vastaus").text();
+          vastausElem.innerHTML = vastaus;
+          indikaattori++;
+
+        });
+
         var formi = document.createElement("FORM");
+        formi.setAttribute("name", "FORM");
 
         var kyselyWrapper = document.createElement("div");
         kyselyWrapper.setAttribute("class", "kyselywrapper");
@@ -293,7 +318,7 @@ function init(xml) {
           kysymysElem.setAttribute("class", "teksti");
 
           var kysymysText = $tehtava.find("kysymys").text();
-          kysymysElem.innerHTML = kysymysText
+          kysymysElem.innerHTML = kysymysNumero + ".) " + kysymysText
           leftWrapper.appendChild(kysymysElem);
 
           var fieldsetElem = document.createElement("fieldset");
@@ -306,6 +331,7 @@ function init(xml) {
           inputElem1.setAttribute("name", kysymysNumero);
           inputElem1.setAttribute("class", "radionappi");
           inputElem1.setAttribute("style", "float:left;");
+          inputElem1.setAttribute("value", "totta");
           fieldsetElem.appendChild(inputElem1);
 
           var inputElem2 = document.createElement("input");
@@ -313,6 +339,7 @@ function init(xml) {
           inputElem2.setAttribute("name", kysymysNumero);
           inputElem2.setAttribute("class", "radionappi");
           inputElem2.setAttribute("style", "float:right;");
+          inputElem2.setAttribute("value", "tarua");
           fieldsetElem.appendChild(inputElem2);
           rightWrapper.appendChild(fieldsetElem);
 
@@ -357,6 +384,7 @@ function init(xml) {
         lineBreak(kyselyWrapper, 1);
 
         var buttonElem = document.createElement("button");
+        buttonElem.setAttribute("type", "button");
         buttonElem.setAttribute("onclick", "submitdata();");
         buttonElem.innerHTML = "Lähetä";
         kyselyWrapper.appendChild(buttonElem);
@@ -458,11 +486,16 @@ function submitdata() {
 
 
   $(function() {
+
+    document.getElementById("vastaus").style.visibility="visible"; 
+
+
     $.ajax({
       type: 'POST',
+      dataType: 'text',
       url: "submit.php",
       data: $("FORM").serialize(),
-      success: function() {
+      success: function(data) {
         return "success";
       }
     });
