@@ -18,14 +18,6 @@ $.ajax({
 //jos xml:n hakeminen onnistuu, tekee seuraavan
 function init(xml){
 
-//teksti editorin aktivointi
-
-  tinyMCE.init({
-    entity_encoding : "raw",
-    mode : "textareas",
-    theme : "simple"
-  });
-
 //sortable elementtien aktivointi ja asetukset
   $( "#sortable" ).sortable({
     stop: function(event, ui) {
@@ -512,7 +504,7 @@ function formFunc(elem, event){
     sivu.appendChild(kuvaElem);
 
   } else if(formElem.id === "sivumalli1"){
-    commonElements("sivumalli1");
+    commonElements("sivu1");
     addPageElement(formData.get("nav-otsikko"));
 
     var otsikkoElem = xmlDoc.createElement("otsikko");
@@ -524,7 +516,7 @@ function formFunc(elem, event){
     tekstiElem.innerHTML = formData.get("sivu1-teksti");
     sivu.appendChild(tekstiElem);
 
-  } else if(formElem.id === "sivumalli2"){
+  } else if(formElem.id === "sivu2"){
     commonElements("sivumalli2");
     addPageElement(formData.get("nav-otsikko"));
 
