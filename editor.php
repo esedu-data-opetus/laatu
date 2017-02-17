@@ -5,8 +5,16 @@
   <title>Laatu editor</title>
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-  <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
-  <script>tinymce.init({ selector:'textarea' });</script>
+  <script type="text/javascript" src="tinymce/js/tinymce/tinymce.min.js"></script>
+  <script>
+  //teksti editorin aktivointi
+
+    tinyMCE.init({
+      entity_encoding : "raw",
+      mode : "textareas",
+    });
+
+  </script>
   <link rel="stylesheet" type="text/css" href="editor.css">
   <script src="editor.js"></script>
 </head>
