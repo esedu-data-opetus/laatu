@@ -120,12 +120,16 @@ function deleteFunc(elem){
   pageElement.parentElement.removeChild(pageElement);
 }
 
+var currentEdit = "empty";
+
 //avaa valitun elementin formin
 function editFunc(elem){
   var pageIndex = $(elem).parent().index();
 
   var sivuNumero = $(elem).data("numero");
   document.getElementById("menu").style.display = "block";
+
+  currentEdit = pageIndex;
 
   $(xmlDoc).find('sivu').each(function(index){
     var thisNumero = $(this).children("numero").html();
@@ -143,7 +147,6 @@ function editFunc(elem){
       thisPage.children[0].value = $(this).children("nav").children("otsikko").html();
       thisPage.children[2].value = $(this).children("otsikko").html();
       var thisTeksti = $(this).children("teksti").html();
-      console.log(thisTeksti);
       tinyMCE.get('sivu1-teksti').setContent(thisTeksti);
     } else if(thisNumero === sivuNumero && thisTyyppi === "sivu2"){
       document.getElementById("sivumalli2").style.display = "block";
@@ -448,6 +451,12 @@ function formFunc(elem, event){
   var sivu = xmlDoc.createElement("sivu");
   sivut.appendChild(sivu);
 
+  if(currentEdit !== "empty"){
+    $(sivu).siblings().eq(currentEdit).after(sivu);
+    currentSivu = xmlDoc.getElementsByTagName("sivu")[currentEdit];
+    $(currentSivu).remove();
+  }
+
   function commonElements(type){
     var tyyppiElem = xmlDoc.createElement("tyyppi");
     tyyppiElem.innerHTML = type;
@@ -598,8 +607,13 @@ function formFunc(elem, event){
     });
   }
 
+  var xmlDocStringTest = (new XMLSerializer()).serializeToString(xmlDoc);
+  console.log(xmlDocStringTest);
+
   var n = $(sivut).find("sivu").length - 1;
   //console.log($(sivut).find("sivu")[n].innerHTML);
+
+  currentEdit = "empty";
 
   document.getElementById("kansi").style.display = "none";
   document.getElementById("sivumalli1").style.display = "none";
