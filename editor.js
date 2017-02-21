@@ -54,7 +54,57 @@ function init(xml){
     $(editElem).data("numero", $sivu.children("numero").html());
     sivuElem.appendChild(editElem);
   });
+
+  $(xml).find('esimiehet').children('esimies').each(function(index){
+    console.log("kissa");
+    var sivuElem = document.createElement("li");
+    document.getElementById("esimieswrapper").appendChild(sivuElem);
+    var titleElem = document.createElement("a");
+    titleElem.innerHTML = $(this).text();
+    sivuElem.appendChild(titleElem);
+
+    var deleteElem = document.createElement("a");
+    deleteElem.setAttribute("onClick", "deleteEsimiesFunc(this)");
+    deleteElem.setAttribute("class", "characterbutton delete");
+    deleteElem.setAttribute("title", "Poista esimies");
+    deleteElem.innerHTML = "&#9932;";
+    sivuElem.appendChild(deleteElem);
+  });
 }
+
+function deleteEsimiesFunc(elem){
+  var pageElement = elem.parentElement;
+  var pageIndex = $(pageElement).index();
+
+  var y = xmlDoc.getElementsByTagName("esimies")[pageIndex];
+  xmlDoc.documentElement.getElementsByTagName("esimiehet")[0].removeChild(y);
+  pageElement.parentElement.removeChild(pageElement);
+  console.log(xmlDoc.getElementsByTagName("esimiehet")[0].innerHTML);
+}
+function addEsimies(event){
+  event.preventDefault();
+  document.getElementById("esimieswrapper");
+
+
+  var sivuElem = document.createElement("li");
+  document.getElementById("esimieswrapper").appendChild(sivuElem);
+  var titleElem = document.createElement("a");
+  titleElem.innerHTML = document.getElementById("esimies-text").value;
+  sivuElem.appendChild(titleElem);
+
+  var deleteElem = document.createElement("a");
+  deleteElem.setAttribute("onClick", "deleteEsimiesFunc(this)");
+  deleteElem.setAttribute("class", "characterbutton delete");
+  deleteElem.setAttribute("title", "Poista esimies");
+  deleteElem.innerHTML = "&#9932;";
+  sivuElem.appendChild(deleteElem);
+  var esimiesElem = xmlDoc.createElement("esimies");
+  esimiesElem.innerHTML = document.getElementById("esimies-text").value;
+  xmlDoc.getElementsByTagName("esimiehet")[0].appendChild(esimiesElem);
+}
+
+
+
 
 function saveFunc(){
   var xmlDocString = (new XMLSerializer()).serializeToString(xmlDoc);
@@ -119,6 +169,7 @@ function deleteFunc(elem){
 
   pageElement.parentElement.removeChild(pageElement);
 }
+
 
 var currentEdit = "empty";
 
