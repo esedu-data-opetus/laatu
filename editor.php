@@ -57,8 +57,8 @@
       </form>
       <form id="draganddrop" class="sivumalli">
         Tabin otsikko: <input type="text" name="nav-otsikko"> <br>
-        Otsikko: <input type="text" name="otsikko"> <br>
-        Sisältöteksti: <textarea type="text" name="teksti"></textarea> <br>
+        Otsikko: <input type="text" name="otsikko" id="otsikko"> <br>
+        Sisältöteksti: <textarea type="text" name="dd-teksti" id="dd-teksti"></textarea> <br>
 
         Droppables: <br><br>
         <div id="droppables"></div> <br><br>
@@ -78,8 +78,9 @@
       </form>
       <form id="kysely" class="sivumalli">
         Tabin otsikko: <input type="text" name="nav-otsikko"> <br>
+        Otsikko: <input type="text" name="otsikko" id="otsikko"> <br>
         Kyselyteksti: <textarea type="text" name="teksti" id="kysely-teksti"></textarea> <br><br>
-          <div id="kyselyList"></div>
+        <div id="kyselyList"></div>
         <div id="kyselyDiv">
           Kysymys: <input type="text" name="kysymys-teksti" id="kysymys-teksti"> <br>
           Oikea vastaus: <input type="text" name="vastaus-teksti" id="vastaus-teksti"> <br>

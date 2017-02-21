@@ -149,17 +149,140 @@ function editFunc(elem){
       var thisTeksti = $(this).children("teksti").html();
       tinyMCE.get('sivu1-teksti').setContent(thisTeksti);
     } else if(thisNumero === sivuNumero && thisTyyppi === "sivu2"){
-      document.getElementById("sivumalli2").style.display = "block";
+      thisPage = document.getElementById("sivumalli2");
+      thisPage.style.display = "block";
+      thisPage.children[0].value = $(this).children("nav").children("otsikko").html();
+      thisPage.children[2].value = $(this).children("otsikko").html();
+      var thisTeksti = $(this).children("teksti").html();
+      tinyMCE.get('sivu2-teksti').setContent(thisTeksti);
 
+      var target = document.getElementById("accordionList");
 
-    } else if(thisNumero === sivuNumero && thisTyyppi === "draganddrop"){
-      document.getElementById("draganddrop").style.display = "block";
+      $(this).find('haitarilista').find('haitari').each(function(index){
+        var haitariInd = document.createElement("div");
+        haitariInd.setAttribute("class", "elemenIndicator");
+        var haitariIndText = document.createElement("a");
+        haitariIndText.setAttribute("class", "haitariText");
+        haitariInd.appendChild(haitariIndText);
+        haitariIndText.setAttribute("id", accordionAmount);
+        haitariIndText.setAttribute("onclick", "accordionPassValues(this)");
+        haitariIndText.innerHTML = $(this).find("otsikko").html();
+        $(haitariIndText).data("teksti", $(this).find("teksti").html());
 
+        var haitariDel = document.createElement("a");
+        haitariDel.setAttribute("onClick", "deleteElement(this)");
+        haitariDel.setAttribute("class", "characterbutton delete");
+        haitariDel.setAttribute("title", "Poista haitari");
+        haitariDel.innerHTML = "&#9932;";
+        haitariInd.appendChild(haitariDel);
+
+        target.appendChild(haitariInd);
+        accordionAmount++;
+      });
+
+    } else if(thisNumero === sivuNumero && thisTyyppi === "dragdrop"){
+      thisPage = document.getElementById("draganddrop");
+      thisPage.style.display = "block";
+      thisPage.children[0].value = $(this).children("nav").children("otsikko").html();
+      thisPage.children[2].value = $(this).children("otsikko").html();
+      var thisTeksti = $(this).children("teksti").html();
+      tinyMCE.get('dd-teksti').setContent(thisTeksti);
+
+      var target = document.getElementById("droppables");
+
+      $(this).find('drops').find('drop').each(function(index){
+        var dropInd = document.createElement("div");
+        dropInd.setAttribute("class", "elemenIndicator");
+        var dropIndText = document.createElement("a");
+        dropIndText.setAttribute("class", "dropText");
+        dropInd.appendChild(dropIndText);
+        dropIndText.setAttribute("id", "drop" + dropAmount);
+        dropIndText.setAttribute("onclick", "dropPassValues(this)");
+        dropIndText.innerHTML = this.innerHTML;
+        $(dropInd).data("target", $(this).attr("target"));
+
+        var dropDel = document.createElement("a");
+        dropDel.setAttribute("onClick", "deleteElement(this)");
+        dropDel.setAttribute("class", "characterbutton delete");
+        dropDel.setAttribute("title", "Poista droppable");
+        dropDel.innerHTML = "&#9932;";
+        dropInd.appendChild(dropDel);
+
+        var dropAdd = document.createElement("a");
+        dropAdd.setAttribute("onClick", "dragMenu(this)");
+        dropAdd.setAttribute("class", "characterbutton edit small-char");
+        dropAdd.setAttribute("title", "Lisää draggable");
+        dropAdd.innerHTML = "&plus;";
+        dropInd.appendChild(dropAdd);
+
+        var draggables = document.createElement("div");
+        draggables.setAttribute("class", "draggables");
+        dropInd.appendChild(draggables);
+
+        target.appendChild(dropInd);
+        dropAmount++;
+      });
+
+      $(this).find('drags').find('drag').each(function(index){
+        var dragInd = document.createElement("div");
+        dragInd.setAttribute("class", "elemenIndicator");
+        var dragIndText = document.createElement("a");
+        dragIndText.setAttribute("class", "dragText");
+        dragInd.appendChild(dragIndText);
+        dragIndText.setAttribute("id", "drag" + dragAmount);
+        dragIndText.setAttribute("onclick", "dragPassValues(this)");
+        dragIndText.innerHTML = this.innerHTML;
+        $(dragInd).data("target", $(this).attr("target"));
+
+        var dragDel = document.createElement("a");
+        dragDel.setAttribute("onClick", "deleteElement(this)");
+        dragDel.setAttribute("class", "characterbutton delete");
+        dragDel.setAttribute("title", "Poista draggable");
+        dragDel.innerHTML = "&#9932;";
+        dragInd.appendChild(dragDel);
+
+        $("#droppables").children("div").each(function(index){
+          if($(this).data("target") === $(dragInd).data("target")){
+            $(this).children("div").append(dragInd)
+          }
+        });
+
+        dragAmount++;
+      });
 
     } else if(thisNumero === sivuNumero && thisTyyppi === "kysely"){
-      document.getElementById("kysely").style.display = "block";
+      thisPage = document.getElementById("kysely");
+      thisPage.style.display = "block";
+      thisPage.children[0].value = $(this).children("nav").children("otsikko").html();
+      thisPage.children[2].value = $(this).children("otsikko").html();
+      var thisTeksti = $(this).children("teksti").html();
+      tinyMCE.get('kysely-teksti').setContent(thisTeksti);
 
+      var target = document.getElementById("kyselyList");
 
+      $(this).find('kysely').find('tehtava').each(function(index){
+        var kyselyInd = document.createElement("div");
+        target.appendChild(kyselyInd);
+        kyselyInd.setAttribute("class", "elemenIndicator");
+
+        var kyselyIndText = document.createElement("a");
+        kyselyInd.appendChild(kyselyIndText);
+        kyselyIndText.setAttribute("class", "kyselyText");
+        kyselyIndText.setAttribute("id", kyselyAmount);
+        kyselyIndText.setAttribute("onclick", "kyselyPassValues(this)");
+        kyselyIndText.innerHTML = $(this).find("kysymys").html();
+        $(kyselyIndText).data("teksti", $(this).find("vastaus").html());
+        $(kyselyIndText).data("tottatarua", $(this).find("vastaus").attr("totta-vai-tarua"));
+
+        var kyselyDel = document.createElement("a");
+        kyselyInd.appendChild(kyselyDel);
+        kyselyDel.setAttribute("onClick", "deleteElement(this)");
+        kyselyDel.setAttribute("class", "characterbutton delete");
+        kyselyDel.setAttribute("title", "Poista kysely");
+        kyselyDel.innerHTML = "&#9932;";
+
+        kyselyAmount++;
+      });
     }
   });
 }
@@ -587,6 +710,11 @@ function formFunc(elem, event){
   } else if(formElem.id === "kysely"){
     commonElements("kysely");
     addPageElement(formData.get("nav-otsikko"));
+
+    var otsikkoElem = xmlDoc.createElement("otsikko");
+    otsikkoElem.innerHTML = formData.get("otsikko");
+    sivu.appendChild(otsikkoElem);
+
     var kyselyTextElem = xmlDoc.createElement("teksti");
     kyselyTextElem.innerHTML = formData.get("teksti");
     sivu.appendChild(kyselyTextElem);
