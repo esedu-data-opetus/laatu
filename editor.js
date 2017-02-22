@@ -666,11 +666,12 @@ function formFunc(elem, event){
   }
 
   if(formElem.id === "kansi"){
+	  var imgae = document.getElementById('kuva');
 	  var imageData = new FormData();
-	  jQuery.each(jQuery('#kuva')[0].files, function(i, file) {
-		  imageData.append('file-'+i, file);
-		  console.log(file);
-	  });
+	  
+	  imageData.append('file-0', imgae.files[0]);
+	  console.log('imageData ' + JSON.stringify(imageData));
+	  
 	  
 	  console.log(imageData);
 	  
