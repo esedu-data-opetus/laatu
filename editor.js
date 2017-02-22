@@ -57,7 +57,6 @@ function init(xml){
   });
 
   $(xml).find('esimiehet').children('esimies').each(function(index){
-    console.log("kissa");
     var sivuElem = document.createElement("li");
     document.getElementById("esimieswrapper").appendChild(sivuElem);
     var titleElem = document.createElement("a");
@@ -77,10 +76,9 @@ function deleteEsimiesFunc(elem){
   var pageElement = elem.parentElement;
   var pageIndex = $(pageElement).index();
 
-  var y = xmlDoc.getElementsByTagName("esimies")[pageIndex];
-  xmlDoc.documentElement.getElementsByTagName("esimiehet")[0].removeChild(y);
+  var currentElem = xmlDoc.getElementsByTagName("esimies")[pageIndex];
+  xmlDoc.getElementsByTagName("esimiehet")[0].removeChild(currentElem);
   pageElement.parentElement.removeChild(pageElement);
-  console.log(xmlDoc.getElementsByTagName("esimiehet")[0].innerHTML);
 }
 function addEsimies(event){
   event.preventDefault();

@@ -267,7 +267,6 @@
       <esimiehet>
         <esimies>Onni Heinonen</esimies>
         <esimies>Riku Hänninen</esimies>
-        <esimies>Kissa</esimies>
       </esimiehet>
       <otsikko>TEHTÄVÄSIVU:</otsikko>
       <teksti>
@@ -483,14 +482,6 @@
           Graafinen toteutus: Mitja Immonen <br/>
           Sisällöissä on hyödynnetty AMEO-verkoston Laatu-Katti vieköön!-koulutusta.
         </teksti>
-    </sivu>
-    <sivu>
-      <tyyppi>sivu1</tyyppi>
-      <nav-otsikko>Testi sivu</nav-otsikko>
-      <otsikko>Testi</otsikko>
-      <teksti>
-        <p>Testi</p>
-      </teksti>
     </sivu>
   </sivut>
 </root>
