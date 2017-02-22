@@ -114,7 +114,7 @@ function saveFunc(){
     data: { xml: xmlDocString },
     dataType: "text",
     success: function(data){
-      console.log("XML tallennettu")
+      console.log(data);
     },
     error: function(){
       console.log("Ei toimi!");
@@ -182,7 +182,7 @@ function editFunc(elem){
   currentEdit = pageIndex;
 
   $(xmlDoc).find('sivu').each(function(index){
-    var thisNumero = $(this).children("numero").html();
+    var thisNumero = $(this).index() + 1;
     var thisTyyppi = $(this).children("tyyppi").html();
     var thisPage;
 
@@ -666,6 +666,29 @@ function formFunc(elem, event){
   }
 
   if(formElem.id === "kansi"){
+	  var imageData = new FormData();
+	  jQuery.each(jQuery('#kuva')[0].files, function(i, file) {
+		  imageData.append('file-'+i, file);
+		  console.log(file);
+	  });
+	  
+	  console.log(imageData);
+	  
+	  $.ajax({
+		    method: "POST",
+		    url: "uploadImage.php",
+		    data: imageData,
+		    contentType: false,
+		    processData: false,
+		    dataType: "text",
+		    success: function(data){
+		      console.log(data);
+		    },
+		    error: function(){
+		      console.log("Ei toimi!");
+		    }
+		  });
+	  
     commonElements("kansi");
     addPageElement(formData.get("nav-otsikko"));
 
@@ -689,7 +712,6 @@ function formFunc(elem, event){
     console.log(formData.get("sivu1-teksti"));
     tekstiElem.innerHTML = formData.get("sivu1-teksti");
     sivu.appendChild(tekstiElem);
-
   } else if(formElem.id === "sivu2"){
     commonElements("sivumalli2");
     addPageElement(formData.get("nav-otsikko"));

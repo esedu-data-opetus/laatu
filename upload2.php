@@ -10,7 +10,7 @@ function upload($target_dir, $image){
   }
 
   if(isset($_POST["submit"])) {
-    $check = getimagesize($_FILES["kuva"]["tmp_name"]);
+    $check = getimagesize($_FILES["file-0"]);
     if($check !== false) {
         $uploadOk = 1;
     } else {
@@ -23,7 +23,7 @@ function upload($target_dir, $image){
   }
 
   if ($uploadOk === 1) {
-    move_uploaded_file($_FILES["kuva"]["tmp_name"], $image);
+    move_uploaded_file($_FILES["file-0"], $image);
     return true;
   } else{
     return false;

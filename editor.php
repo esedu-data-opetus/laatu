@@ -29,7 +29,7 @@
         <button onclick="sivumalli(this)">Drag and drop</button>
         <button onclick="sivumalli(this)">Kysely</button>
       </div>
-      <form id="kansi" class="sivumalli" method="post" action="upload.php" enctype="multipart/form-data">
+      <form id="kansi" class="sivumalli">
         Tabin otsikko: <input type="text" name="nav-otsikko"> <br>
         Otsikko: <input type="text" name="otsikko"> <br>
         Kansikuva: <input type="file" name="kuva" id="kuva"> <br>

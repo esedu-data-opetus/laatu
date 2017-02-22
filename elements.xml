@@ -483,5 +483,11 @@
           Sisällöissä on hyödynnetty AMEO-verkoston Laatu-Katti vieköön!-koulutusta.
         </teksti>
     </sivu>
+    <sivu>
+      <tyyppi>kansi</tyyppi>
+      <nav-otsikko>Kansi testi</nav-otsikko>
+      <otsikko>Otsikko</otsikko>
+      <kuva>bad example for future generations (riq's lack of skills regarding the use of indent).PNG</kuva>
+    </sivu>
   </sivut>
 </root>
