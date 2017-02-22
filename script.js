@@ -45,19 +45,25 @@ function init(xml) {
   $(xml).find('sivu').each(function(index){
 
     var $sivu = $(this);
-    var $nav = $(this).find("nav");
     var carousel = document.getElementById("carousel-inner");
     var content;
-    var number = $sivu.find("numero").text()
+    var pageIndex = $sivu.index();
+    var pageNumber = pageIndex + 1;
 
     function addNavElements(){
       var tabElem = document.createElement("li");
-      var tabTitle = document.createTextNode($nav.find("otsikko").text());
+      var tabTitle = document.createTextNode($sivu.find("nav-otsikko").text());
       tabElem.appendChild(tabTitle);
-      var slideTo = $nav.find('sivulle').text();
-      var activity = $nav.find('activity').text();
+      var activity;
+      
+      if(pageIndex === 0){
+        activity = "active";
+      } else{
+        activity = "inactive";
+      }
+     
       tabElem.setAttribute("data-target", "#carousel-custom");
-      tabElem.setAttribute("data-slide-to", slideTo);
+      tabElem.setAttribute("data-slide-to", pageIndex);
       tabElem.setAttribute("class", activity);
       tabElem.setAttribute("onClick", "navFunc(); closeMenu();");
       var tabList = document.getElementById("navlist");
@@ -68,7 +74,7 @@ function init(xml) {
       indElem.appendChild(indPict);
       indElem.setAttribute("class", activity);
       indElem.setAttribute("data-target", "#carousel-custom");
-      indElem.setAttribute("data-slide-to", slideTo);
+      indElem.setAttribute("data-slide-to", pageIndex);
       indElem.setAttribute("onClick", "navFunc()");
       var indicators = document.getElementById("indicators");
       indicators.appendChild(indElem);
@@ -77,12 +83,11 @@ function init(xml) {
     function addItems(){
       var itemElem = document.createElement("div");
       itemElem.setAttribute("class", "item");
-      var activity = $sivu.find("nav").find("activity").text();
-      if(activity === "active"){
-        itemElem.classList.add("active");
+      if(pageIndex === 0){
+    	itemElem.classList.add("active");
       }
-      var pageNumber = "page " + $sivu.find("numero").text();
-      itemElem.setAttribute("id", pageNumber)
+      var pageId = "page " + pageNumber;
+      itemElem.setAttribute("id", pageId)
       var contentElem = document.createElement("div");
       contentElem.setAttribute("class", "content");
       itemElem.appendChild(contentElem);

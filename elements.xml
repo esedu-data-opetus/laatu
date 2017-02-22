@@ -8,24 +8,14 @@
   </header>
   <sivut>
     <sivu>
-      <numero>1</numero>
       <tyyppi>kansi</tyyppi>
-      <nav>
-        <sivulle>0</sivulle>
-        <activity>active</activity>
-        <otsikko>Etusivu</otsikko>
-      </nav>
+      <nav-otsikko>Etusivu</nav-otsikko>
       <otsikko>Laadunhallinnasta ja laadun kehityksestä Esedulaisille</otsikko>
       <kuva>pics/laatuympyra.gif</kuva>
     </sivu>
     <sivu>
-      <numero>2</numero>
       <tyyppi>sivu1</tyyppi>
-      <nav>
-        <sivulle>1</sivulle>
-        <activity>inactive</activity>
-        <otsikko>Esittely</otsikko>
-      </nav>
+      <nav-otsikko>Esittely</nav-otsikko>
       <otsikko>Tervetuloa tutustumaan laadunhallintaan ja jatkuvan parantamisen periaatteeseen!</otsikko>
       <teksti>
           Tämän materiaalin myötä perehdyt Esedun laadunhallintaan, sen periaatteisiin ja toimintamalleihin. Materiaaliin läpi käytyäsi tiedät, mistä asioista laatu syntyy. Olet myös tutustunut Esedun toiminnan kulmakiviin kuten strategiaan ja prosesseihin, joiden tunteminen on laadukkaan toiminnan edellytys. Materiaali porautuu organisaatiotasolta oman työn tasolle. <br/> <br/>
@@ -36,24 +26,14 @@
         </teksti>
     </sivu>
     <sivu>
-      <numero>3</numero>
       <tyyppi>kansi</tyyppi>
-      <nav>
-        <sivulle>2</sivulle>
-        <activity>inactive</activity>
-        <otsikko>OSA 1 Suunnittelu ja toteutus</otsikko>
-      </nav>
+      <nav-otsikko>OSA 1 Suunnittelu ja toteutus</nav-otsikko>
       <otsikko>OSA 1 Suunnittelu ja toteutus</otsikko>
       <kuva>pics/laatuympyra.gif</kuva>
     </sivu>
     <sivu>
-      <numero>4</numero>
       <tyyppi>sivu2</tyyppi>
-      <nav>
-        <sivulle>3</sivulle>
-        <activity>inactive</activity>
-        <otsikko>Mikä tekee oppilaitoksestamme laadukkaan</otsikko>
-      </nav>
+      <nav-otsikko>Mikä tekee oppilaitoksestamme laadukkaan</nav-otsikko>
       <otsikko>Mikä tekee oppilaitoksestamme laadukkaan</otsikko>
       <teksti>
         <ul>
@@ -111,13 +91,8 @@
       </haitarilista>
     </sivu>
     <sivu>
-      <numero>5</numero>
       <tyyppi>sivu2</tyyppi>
-      <nav>
-        <sivulle>4</sivulle>
-        <activity>inactive</activity>
-        <otsikko>Mikä tekee omasta työstäni laadukkaan</otsikko>
-      </nav>
+      <nav-otsikko>Mikä tekee omasta työstäni laadukkaan</nav-otsikko>
       <otsikko>Mikä tekee omasta työstäni laadukkaan</otsikko>
       <teksti>
         <ul>
@@ -143,13 +118,8 @@
       </haitarilista>
     </sivu>
     <sivu>
-      <numero>6</numero>
       <tyyppi>dragdrop</tyyppi>
-      <nav>
-        <sivulle>5</sivulle>
-        <activity>inactive</activity>
-        <otsikko>Tehtäväsivu 1</otsikko>
-      </nav>
+      <nav-otsikko>Tehtäväsivu 1</nav-otsikko>
       <otsikko>TEHTÄVÄSIVU</otsikko>
       <teksti>Vie sanat oikeaan dragon:</teksti>
       <dragdrop>
@@ -177,13 +147,8 @@
       </dragdrop>
     </sivu>
     <sivu>
-      <numero>7</numero>
       <tyyppi>sivu2</tyyppi>
-      <nav>
-        <sivulle>6</sivulle>
-        <activity>inactive</activity>
-        <otsikko>Miten asetamme tavoitteet oppilaitoksellemme</otsikko>
-      </nav>
+      <nav-otsikko>Miten asetamme tavoitteet oppilaitoksellemme</nav-otsikko>
       <otsikko>Miten asetamme tavoitteet oppilaitoksellemme</otsikko>
       <teksti>
         <ul>
@@ -225,13 +190,8 @@
       </haitarilista>
     </sivu>
     <sivu>
-      <numero>8</numero>
       <tyyppi>sivu2</tyyppi>
-      <nav>
-        <sivulle>7</sivulle>
-        <activity>inactive</activity>
-        <otsikko>Miten asetan tavoitteet työlleni</otsikko>
-      </nav>
+      <nav-otsikko>Miten asetan tavoitteet työlleni</nav-otsikko>
       <otsikko>Miten asetan tavoitteet työlleni</otsikko>
       <teksti>
         <ul>
@@ -302,13 +262,8 @@
           <vastaus totta-vai-tarua="Totta">Oppisopimus koordinaattori ja vastuuopettajat suunnittelevat oppisopimusopiskelijan tietopuolisen koulutuksen niin, että ne tukevat ja täydentävät työpaikalla tapahtuvaa oppimista</vastaus>
         </tehtava>
       </kysely>
-      <numero>9</numero>
       <tyyppi>kysely</tyyppi>
-      <nav>
-        <sivulle>8</sivulle>
-        <activity>inactive</activity>
-        <otsikko>Tehtäväsivu 2</otsikko>
-      </nav>
+      <nav-otsikko>Tehtäväsivu 2</nav-otsikko>
       <esimiehet>
         <esimies>Onni Heinonen</esimies>
         <esimies>Riku Hänninen</esimies>
@@ -320,24 +275,14 @@
       </teksti>
     </sivu>
     <sivu>
-      <numero>10</numero>
       <tyyppi>kansi</tyyppi>
-      <nav>
-        <sivulle>9</sivulle>
-        <activity>inactive</activity>
-        <otsikko>OSA 2 Arvointi ja parantaminen</otsikko>
-      </nav>
+      <nav-otsikko>OSA 2 Arvointi ja parantaminen</nav-otsikko>
       <otsikko>OSA 2 Arvointi ja parantaminen</otsikko>
       <kuva>pics/laatuympyra.gif</kuva>
     </sivu>
     <sivu>
-      <numero>11</numero>
       <tyyppi>sivu2</tyyppi>
-      <nav>
-        <sivulle>10</sivulle>
-        <activity>inactive</activity>
-        <otsikko>Miten arvioimme oppilaitoksemme toiminnan vaikuttavuutta</otsikko>
-      </nav>
+      <nav-otsikko>Miten arvioimme oppilaitoksemme toiminnan vaikuttavuutta</nav-otsikko>
       <otsikko>Miten arvioimme oppilaitoksemme toiminnan vaikuttavuutta</otsikko>
       <teksti>
         <ul>
@@ -379,13 +324,8 @@
       </haitarilista>
     </sivu>
     <sivu>
-      <numero>12</numero>
       <tyyppi>sivu2</tyyppi>
-      <nav>
-        <sivulle>11</sivulle>
-        <activity>inactive</activity>
-        <otsikko>Miten arvioin oman työni vaikutuksia ja vaikuttavuutta</otsikko>
-      </nav>
+      <nav-otsikko>Miten arvioin oman työni vaikutuksia ja vaikuttavuutta</nav-otsikko>
       <otsikko>Miten arvioin oman työni vaikutuksia ja vaikuttavuutta</otsikko>
       <teksti><ul><li>Arvioin omaa ja ryhmäni työtä sekä oppilaitokseni toimintaa ja tavoitteiden toteutumista</li><li>Annan ja otan vastaan palautetta esimerkiksi opiskelijoiltani ja muilta asiakkailtani ja esimieheltäni</li><li>Osallistun omaa työtäni, ryhmääni ja oppilaitostani koskevien arviointi-, palaute- ja tulostietojen käsittelyyn</li><li>Osallistun itsearviointeihin sekä sisäisiin että ulkoisiin arviointeihin ja auditointeihin sovituilla tavoilla</li></ul>
           Kuinka parannan omaa toimintaani <br/>
@@ -409,13 +349,8 @@
       </haitarilista>
     </sivu>
     <sivu>
-      <numero>13</numero>
       <tyyppi>sivu1</tyyppi>
-      <nav>
-        <sivulle>12</sivulle>
-        <activity>inactive</activity>
-        <otsikko>Tehtäväsivu 3</otsikko>
-      </nav>
+      <nav-otsikko>Tehtäväsivu 3</nav-otsikko>
       <otsikko>TEHTÄVÄSIVU: Palautteiden hyödyntäminen</otsikko>
       <teksti>
           Nuorten koulutuksen opettaja: <br/>
@@ -434,13 +369,8 @@
       <kuva>pics/opiskelijapalaute.png</kuva>
     </sivu>
     <sivu>
-      <numero>14</numero>
       <tyyppi>sivu2</tyyppi>
-      <nav>
-        <sivulle>13</sivulle>
-        <activity>inactive</activity>
-        <otsikko>Miten parannamme oppilaitoksen toimintaa</otsikko>
-      </nav>
+      <nav-otsikko>Miten parannamme oppilaitoksen toimintaa</nav-otsikko>
       <otsikko>Miten parannamme oppilaitoksen toimintaa</otsikko>
       <teksti>
         <ul>
@@ -468,13 +398,8 @@
       </haitarilista>
     </sivu>
     <sivu>
-      <numero>15</numero>
       <tyyppi>sivu1</tyyppi>
-      <nav>
-        <sivulle>14</sivulle>
-        <activity>inactive</activity>
-        <otsikko>Miten osoitamme oppilaitoksen laadukkuuden</otsikko>
-      </nav>
+      <nav-otsikko>Miten osoitamme oppilaitoksen laadukkuuden</nav-otsikko>
       <otsikko>Miten osoitamme oppilaitoksen laadukkuuden</otsikko>
       <teksti>
         <ul>
@@ -491,24 +416,14 @@
       </teksti>
     </sivu>
     <sivu>
-      <numero>16</numero>
       <tyyppi>kansi</tyyppi>
-      <nav>
-        <sivulle>15</sivulle>
-        <activity>inactive</activity>
-        <otsikko>OSA 3 Tuloksellisuus- ja vaikuttavuusmittarit</otsikko>
-      </nav>
+      <nav-otsikko>OSA 3 Tuloksellisuus- ja vaikuttavuusmittarit</nav-otsikko>
       <otsikko>OSA 3 Tuloksellisuus- ja vaikuttavuusmittarit</otsikko>
       <kuva>pics/laatuympyra.gif</kuva>
     </sivu>
     <sivu>
-      <numero>17</numero>
       <tyyppi>sivu2</tyyppi>
-      <nav>
-        <sivulle>16</sivulle>
-        <activity>inactive</activity>
-        <otsikko>Tuloksellisuus- ja vaikuttavuusmittarit</otsikko>
-      </nav>
+      <nav-otsikko>Tuloksellisuus- ja vaikuttavuusmittarit</nav-otsikko>
       <otsikko>Tuloksellisuus- ja vaikuttavuusmittarit</otsikko>
       <teksti>
         <ul>
@@ -541,13 +456,8 @@
       </haitarilista>
     </sivu>
     <sivu>
-      <numero>18</numero>
       <tyyppi>sivu1</tyyppi>
-      <nav>
-        <sivulle>17</sivulle>
-        <activity>inactive</activity>
-        <otsikko>Tiedon keruu ja analysointi</otsikko>
-      </nav>
+      <nav-otsikko>Tiedon keruu ja analysointi</nav-otsikko>
       <otsikko>Tiedon keruu ja analysointi</otsikko>
       <teksti>
           Koulutuksen järjestäjä määrittää: <br/>
@@ -555,13 +465,8 @@
         </teksti>
     </sivu>
     <sivu>
-      <numero>19</numero>
       <tyyppi>sivu1</tyyppi>
-      <nav>
-        <sivulle>18</sivulle>
-        <activity>inactive</activity>
-        <otsikko>Näytöt tuloksellisuudesta ja vaikuttavuudesta</otsikko>
-      </nav>
+      <nav-otsikko>Näytöt tuloksellisuudesta ja vaikuttavuudesta</nav-otsikko>
       <otsikko>Näytöt tuloksellisuudesta ja vaikuttavuudesta</otsikko>
       <teksti>
           Näyttöjä tuloksellisuudesta ja vaikuttavuudesta ovat esimerkiksi <br/>
@@ -569,19 +474,22 @@
         </teksti>
     </sivu>
     <sivu>
-      <numero>20</numero>
       <tyyppi>sivu1</tyyppi>
-      <nav>
-        <sivulle>19</sivulle>
-        <activity>inactive</activity>
-        <otsikko>Toteutus</otsikko>
-      </nav>
+      <nav-otsikko>Toteutus</nav-otsikko>
       <otsikko>Toteutus</otsikko>
       <teksti>
           Tekninen toteutus: Onni Heinonen ja Riku Hänninen <br/>
           Graafinen toteutus: Mitja Immonen <br/>
           Sisällöissä on hyödynnetty AMEO-verkoston Laatu-Katti vieköön!-koulutusta.
         </teksti>
+    </sivu>
+    <sivu>
+      <tyyppi>sivu1</tyyppi>
+      <nav-otsikko>Testi sivu</nav-otsikko>
+      <otsikko>Testi</otsikko>
+      <teksti>
+        <p>Testi</p>
+      </teksti>
     </sivu>
   </sivut>
 </root>

@@ -29,14 +29,15 @@ function init(xml){
 //jokaista xml:n sivua kohtaan tekee sortable elementin
   $(xml).find('sivu').each(function(index){
     var $sivu =  $(this);
-    var $nav = $sivu.find("nav");
+    var pageIndex = $sivu.index();
+    var pageNumber = pageIndex + 1;
     var sortable = document.getElementById("sortable");
 
     var sivuElem = document.createElement("li");
     sortable.appendChild(sivuElem);
 
     var titleElem = document.createElement("a");
-    titleElem.innerHTML = $nav.find("otsikko").text();
+    titleElem.innerHTML = $sivu.find("nav-otsikko").text();
     sivuElem.appendChild(titleElem);
 
     var deleteElem = document.createElement("a");
@@ -51,7 +52,7 @@ function init(xml){
     editElem.setAttribute("class", "characterbutton edit");
     editElem.setAttribute("title", "Muokkaa sivua");
     editElem.innerHTML = "&#9881;";
-    $(editElem).data("numero", $sivu.children("numero").html());
+    $(editElem).data("numero", pageNumber);
     sivuElem.appendChild(editElem);
   });
 }
@@ -139,19 +140,19 @@ function editFunc(elem){
     if(thisNumero === sivuNumero && thisTyyppi === "kansi"){
       thisPage = document.getElementById("kansi");
       thisPage.style.display = "block";
-      thisPage.children[0].value = $(this).children("nav").children("otsikko").html();
+      thisPage.children[0].value = $(this).children("nav-otsikko").html();
       thisPage.children[2].value = $(this).children("otsikko").html();
     } else if(thisNumero === sivuNumero && thisTyyppi === "sivu1"){
       thisPage = document.getElementById("sivumalli1");
       thisPage.style.display = "block";
-      thisPage.children[0].value = $(this).children("nav").children("otsikko").html();
+      thisPage.children[0].value = $(this).children("nav-otsikko").html();
       thisPage.children[2].value = $(this).children("otsikko").html();
       var thisTeksti = $(this).children("teksti").html();
       tinyMCE.get('sivu1-teksti').setContent(thisTeksti);
     } else if(thisNumero === sivuNumero && thisTyyppi === "sivu2"){
       thisPage = document.getElementById("sivumalli2");
       thisPage.style.display = "block";
-      thisPage.children[0].value = $(this).children("nav").children("otsikko").html();
+      thisPage.children[0].value = $(this).children("nav-otsikko").html();
       thisPage.children[2].value = $(this).children("otsikko").html();
       var thisTeksti = $(this).children("teksti").html();
       tinyMCE.get('sivu2-teksti').setContent(thisTeksti);
@@ -183,7 +184,7 @@ function editFunc(elem){
     } else if(thisNumero === sivuNumero && thisTyyppi === "dragdrop"){
       thisPage = document.getElementById("draganddrop");
       thisPage.style.display = "block";
-      thisPage.children[0].value = $(this).children("nav").children("otsikko").html();
+      thisPage.children[0].value = $(this).children("nav-otsikko").html();
       thisPage.children[2].value = $(this).children("otsikko").html();
       var thisTeksti = $(this).children("teksti").html();
       tinyMCE.get('dd-teksti').setContent(thisTeksti);
@@ -253,7 +254,7 @@ function editFunc(elem){
     } else if(thisNumero === sivuNumero && thisTyyppi === "kysely"){
       thisPage = document.getElementById("kysely");
       thisPage.style.display = "block";
-      thisPage.children[0].value = $(this).children("nav").children("otsikko").html();
+      thisPage.children[0].value = $(this).children("nav-otsikko").html();
       thisPage.children[2].value = $(this).children("otsikko").html();
       var thisTeksti = $(this).children("teksti").html();
       tinyMCE.get('kysely-teksti').setContent(thisTeksti);
@@ -585,17 +586,9 @@ function formFunc(elem, event){
     tyyppiElem.innerHTML = type;
     sivu.appendChild(tyyppiElem);
 
-    var navElem = xmlDoc.createElement("nav");
-    var navTitle = xmlDoc.createElement("otsikko");
+    var navTitle = xmlDoc.createElement("nav-otsikko");
     navTitle.innerHTML = formData.get("nav-otsikko");
-    var sivulleElem = xmlDoc.createElement("sivulle");
-    sivulleElem.innerHTML = $(sivut).find("sivu").length - 1;
-    var activityElem = xmlDoc.createElement("activity");
-    activityElem.innerHTML = "inactive";
-    navElem.appendChild(navTitle);
-    navElem.appendChild(sivulleElem);
-    navElem.appendChild(activityElem);
-    sivu.appendChild(navElem);
+    sivu.appendChild(navTitle);
   }
 
   function addPageElement(title){
