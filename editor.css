@@ -95,11 +95,12 @@ h1{
   display: none;
 }
 #esimiehet{
-  display: inline-block;
+  display: block;
   margin-left: 20px;
+  float: left;
 }
 
-#esimiehet h4{
+h4{
   margin: 0px 0px 10px 0px;
 }
 

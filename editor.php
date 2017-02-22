@@ -98,6 +98,7 @@
       </form>
     </div>
     <div id="sivuDiv">
+      <h4>Sivut</h4>
       <ul id="sortable"></ul><br/>
       <button onclick="addElement()">Lisää elementti</button>
       <button onclick="saveFunc()">Tallenna muutokset</button>
