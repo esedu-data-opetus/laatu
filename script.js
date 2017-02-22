@@ -52,7 +52,7 @@ function init(xml) {
 
     function addNavElements(){
       var tabElem = document.createElement("li");
-      var tabTitle = document.createTextNode($sivu.find("nav-otsikko").text());
+      var tabTitle = document.createTextNode($sivu.find("nav-otsikko").html());
       tabElem.appendChild(tabTitle);
       var activity;
       
@@ -98,17 +98,17 @@ function init(xml) {
 
     function pageTypes(){
 
-      var pageType = $sivu.find("tyyppi").text();
+      var pageType = $sivu.find("tyyppi").html();
 
       if(pageType === "kansi"){
         var titleElem = document.createElement("p");
         titleElem.setAttribute("class", "otsikko");
-        var title = $sivu.children("otsikko").text();
+        var title = $sivu.children("otsikko").html();
         var titleNode = document.createTextNode(title);
         titleElem.appendChild(titleNode);
         content.appendChild(titleElem);
 
-        var image = $sivu.find("kuva").text();
+        var image = $sivu.find("kuva").html();
         var imgElem = document.createElement("img");
         imgElem.setAttribute("src", image);
         imgElem.setAttribute("class", "titleImage");
@@ -119,14 +119,14 @@ function init(xml) {
 
         var titleElem = document.createElement("p");
         titleElem.setAttribute("class", "otsikko");
-        var title = $sivu.children("otsikko").text();
+        var title = $sivu.children("otsikko").html();
         var titleNode = document.createTextNode(title);
         titleElem.appendChild(titleNode);
         wrapperElem.appendChild(titleElem);
 
         var textElem = document.createElement("p");
         textElem.setAttribute("class", "teksti");
-        var text = $sivu.children("teksti").text();
+        var text = $sivu.children("teksti").html();
         textElem.innerHTML = text;
         wrapperElem.appendChild(textElem);
 
@@ -139,14 +139,14 @@ function init(xml) {
 
         var titleElem = document.createElement("p");
         titleElem.setAttribute("class", "otsikko");
-        var title = $sivu.children("otsikko").text();
+        var title = $sivu.children("otsikko").html();
         var titleNode = document.createTextNode(title);
         titleElem.appendChild(titleNode);
         leftElem.appendChild(titleElem);
 
-        var textElem = document.createElement("p");
+        var textElem = document.createElement("div");
         textElem.setAttribute("class", "teksti");
-        var text = $sivu.children("teksti").text();
+        var text = $sivu.children("teksti").html();
         textElem.innerHTML = text;
         leftElem.appendChild(textElem);
 
@@ -171,7 +171,7 @@ function init(xml) {
           var pTitleElem = document.createElement("p");
           pTitleElem.classList.add("teksti");
           pTitleElem.classList.add("aPanelButtonText");
-          var pTitle = $panel.find("otsikko").text();
+          var pTitle = $panel.find("otsikko").html();
           pTitleElem.innerHTML = pTitle;
           // append
           pIndicatorElem.appendChild(pIndicatorChar);
@@ -185,7 +185,7 @@ function init(xml) {
           // text
           var pTextElem = document.createElement("p");
           pTextElem.setAttribute("class", "teksti");
-          var pText = $panel.find("teksti").text();
+          var pText = $panel.find("teksti").html();
           pTextElem.innerHTML = pText;
           // append
           panelElem.appendChild(pTextElem);
@@ -202,7 +202,7 @@ function init(xml) {
           var dragElem = document.createElement("div");
           var target = $drag.attr("target");
           var dragTextElem = document.createElement("p");
-          dragTextElem.innerHTML = $drag.text();
+          dragTextElem.innerHTML = $drag.html();
           dragElem.appendChild(dragTextElem);
           dragElem.setAttribute("class", "drag");
           dragElem.setAttribute("draggable", "true");
@@ -221,7 +221,7 @@ function init(xml) {
           var dropElem = document.createElement("div");
           var target = $drop.attr("target");
           var dropTextElem = document.createElement("p");
-          dropTextElem.innerHTML = $drop.text();
+          dropTextElem.innerHTML = $drop.html();
           dropElem.appendChild(dropTextElem);
           dropElem.setAttribute("class", "drop");
           dropElem.setAttribute("ondrop", "drop(event)");
@@ -236,14 +236,14 @@ function init(xml) {
 
         var titleElem = document.createElement("p");
         titleElem.setAttribute("class", "otsikko");
-        var title = $sivu.children("otsikko").text();
+        var title = $sivu.children("otsikko").html();
         var titleNode = document.createTextNode(title);
         titleElem.appendChild(titleNode);
         leftElem.appendChild(titleElem);
 
         var textElem = document.createElement("p");
         textElem.setAttribute("class", "teksti");
-        var text = $sivu.children("teksti").text();
+        var text = $sivu.children("teksti").html();
         textElem.innerHTML = text;
         leftElem.appendChild(textElem);
 
@@ -265,7 +265,7 @@ function init(xml) {
           var vastausElem = document.createElement("p");
           vastaukset.appendChild(vastausElem);
 
-          var vastaus = $(this).find("vastaus").text();
+          var vastaus = $(this).find("vastaus").html();
           vastausElem.innerHTML = vastaus;
           indikaattori++;
 
@@ -322,7 +322,7 @@ function init(xml) {
           var kysymysElem = document.createElement("p");
           kysymysElem.setAttribute("class", "teksti");
 
-          var kysymysText = $tehtava.find("kysymys").text();
+          var kysymysText = $tehtava.find("kysymys").html();
           kysymysElem.innerHTML = kysymysNumero + ".) " + kysymysText
           leftWrapper.appendChild(kysymysElem);
 
@@ -386,7 +386,7 @@ function init(xml) {
         optionElem.innerHTML = "Esimies";
         selectionElem.appendChild(optionElem);
         $sivu.find("esimiehet").find("esimies").each(function(){
-        var esimies = $(this).text();
+        var esimies = $(this).html();
 
         var optionElem = document.createElement("option");
         optionElem.innerHTML = esimies;
