@@ -385,12 +385,19 @@ function init(xml) {
         var optionElem = document.createElement("option");
         optionElem.innerHTML = "Esimies";
         selectionElem.appendChild(optionElem);
+        $sivu.find("esimiehet").find("esimies").each(function(){
+        var esimies = $(this).text();
+
+        var optionElem = document.createElement("option");
+        optionElem.innerHTML = esimies;
+        selectionElem.appendChild(optionElem);
+      });
 
         lineBreak(kyselyWrapper, 1);
 
         var buttonElem = document.createElement("button");
         buttonElem.setAttribute("type", "button");
-        buttonElem.setAttribute("onclick", "submitdata();");
+        buttonElem.setAttribute("onclick", "submitdata(this);");
         buttonElem.innerHTML = "Lähetä";
         kyselyWrapper.appendChild(buttonElem);
         formi.appendChild(buttonElem);
@@ -487,23 +494,22 @@ function closeMenu(){
 
 $("#esimies").load('options.php');
 
-function submitdata() {
+function submitdata(elem) {
+  var formElem = elem.parentElement;
+  var formData = new FormData(formElem);
+  document.getElementById("vastaus").style.visibility="visible";
 
-
-  $(function() {
-
-    document.getElementById("vastaus").style.visibility="visible"; 
-
-
-    $.ajax({
-      type: 'POST',
-      dataType: 'text',
-      url: "submit.php",
-      data: $("FORM").serialize(),
-      success: function(data) {
-        return "success";
-      }
-    });
+  $.ajax({
+    type: 'POST',
+    dataType: 'text',
+    url: "submit.php",
+    data: $('FORM').serialize() + "&pageNumber=" + $(elem).parents(".item").index(),
+    success: function(data) {
+      console.log(data)
+    },
+    error: function(){
+      console.log("error")
+    }
   });
 }
 

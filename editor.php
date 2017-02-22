@@ -97,9 +97,19 @@
         <input type="submit" value="Lähetä" onclick="formFunc(this, event)">
       </form>
     </div>
-    <ul id="sortable"></ul>
-    <button onclick="addElement()">Lisää elementti</button>
-    <button onclick="saveFunc()">Tallenna muutokset</button>
+    <div id="sivuDiv">
+      <ul id="sortable"></ul><br/>
+      <button onclick="addElement()">Lisää elementti</button>
+      <button onclick="saveFunc()">Tallenna muutokset</button>
+    </div>
+    <div id="esimiehet">
+      <h4>Esimiehet</h4>
+      <div id="esimieswrapper"></div><br>
+      <form id="esimiesForm">
+        <input type="text" name="esimies-text" id="esimies-text" placeholder = "Uusi Esimies"/><br>
+        <button onclick="addEsimies(event)">Lisää esimies</button>
+      </form>
+    </div>
   </div>
 </body>
 </html>
