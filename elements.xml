@@ -18,12 +18,8 @@
       <nav-otsikko>Esittely</nav-otsikko>
       <otsikko>Tervetuloa tutustumaan laadunhallintaan ja jatkuvan parantamisen periaatteeseen!</otsikko>
       <teksti>
-          Tämän materiaalin myötä perehdyt Esedun laadunhallintaan, sen periaatteisiin ja toimintamalleihin. Materiaaliin läpi käytyäsi tiedät, mistä asioista laatu syntyy. Olet myös tutustunut Esedun toiminnan kulmakiviin kuten strategiaan ja prosesseihin, joiden tunteminen on laadukkaan toiminnan edellytys. Materiaali porautuu organisaatiotasolta oman työn tasolle. <br/> <br/>
-
-          Aikaa materiaaliin perehtymiseen menee arvioilta 1-1,5 tuntia. Materiaali sisältää pieniä tehtäviä, joihin vastaaminen onnistuu materiaaliin tutustumalla. Tehtävien oikeat vastaukset saat näkyviin Lähetä-painikkeen kautta. <br/> <br/>
-
-          Vahvistamalla henkilöstön osaamista vahvistamme myös työhyvinvointia!
-        </teksti>
+        <p>Tämän materiaalin myötä perehdyt Esedun laadunhallintaan, sen periaatteisiin ja toimintamalleihin. Materiaaliin läpi käytyäsi tiedät, mistä asioista laatu syntyy. Olet myös tutustunut Esedun toiminnan kulmakiviin kuten strategiaan ja prosesseihin, joiden tunteminen on laadukkaan toiminnan edellytys. Materiaali porautuu organisaatiotasolta oman työn tasolle. <br/> <br/> Aikaa materiaaliin perehtymiseen menee arvioilta 1-1,5 tuntia. Materiaali sisältää pieniä tehtäviä, joihin vastaaminen onnistuu materiaaliin tutustumalla. Tehtävien oikeat vastaukset saat näkyviin Lähetä-painikkeen kautta. <br/> <br/> Vahvistamalla henkilöstön osaamista vahvistamme myös työhyvinvointia!</p>
+      </teksti>
     </sivu>
     <sivu>
       <tyyppi>kansi</tyyppi>
@@ -478,16 +474,10 @@
       <nav-otsikko>Toteutus</nav-otsikko>
       <otsikko>Toteutus</otsikko>
       <teksti>
-          Tekninen toteutus: Onni Heinonen ja Riku Hänninen <br/>
-          Graafinen toteutus: Mitja Immonen <br/>
-          Sisällöissä on hyödynnetty AMEO-verkoston Laatu-Katti vieköön!-koulutusta.
-        </teksti>
-    </sivu>
-    <sivu>
-      <tyyppi>kansi</tyyppi>
-      <nav-otsikko>Kansi testi</nav-otsikko>
-      <otsikko>Otsikko</otsikko>
-      <kuva>bad example for future generations (riq's lack of skills regarding the use of indent).PNG</kuva>
+        <p>Tekninen toteutus: Onni Heinonen ja Riku Hänninen</p>
+        <p>Graafinen toteutus: Mitja Immonen</p>
+        <p>Sisällöissä on hyödynnetty AMEO-verkoston Laatu-Katti vieköön!-koulutusta.</p>
+      </teksti>
     </sivu>
   </sivut>
 </root>

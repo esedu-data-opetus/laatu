@@ -1,22 +1,25 @@
  /* tekstit */
+ p{
+   margin: 0;
+ }
+ .teksti{
+   font-family: Arial,Helvetica,sans-serif;
+   font-size: 1.5em;
+   color: grey;
+   margin: 0 !important;
+ }
+ .otsikko{
+   font-family: Arial,Helvetica,sans-serif;
+   font-size: 2.5em;
+   color: orange;
+   line-height: 110%
+ }
 .carousel h3,
 .carousel a,
 .carousel a:hover{
   font-family: Arial,Helvetica,sans-serif;
   color: grey;
   text-decoration: none;
-}
-.teksti{
-  font-family: Arial,Helvetica,sans-serif;
-  font-size: 1.5em;
-  color: grey;
-  margin: 0 !important;
-}
-.otsikko{
-  font-family: Arial,Helvetica,sans-serif;
-  font-size: 2.5em;
-  color: orange;
-  line-height: 110%
 }
 .accordion h3,
 .accordion a,

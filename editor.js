@@ -102,10 +102,28 @@ function addEsimies(event){
   xmlDoc.getElementsByTagName("esimiehet")[0].appendChild(esimiesElem);
 }
 
-
-
-
 function saveFunc(){
+  var elemAmount = $("#sortable li").length - 1;
+  console.log(elemAmount);
+
+  $("#sortable").children('li').each(function(index){
+    var sortableElem = this;
+    var sortableIndex = $(this).index();
+    $(xmlDoc).find('sivu').each(function(index){
+
+      var text1 = sortableElem.children[0].innerHTML;
+      var text2 = $(this).children("nav-otsikko").html();
+
+      if(text1 === text2){
+        if(sortableIndex < elemAmount){
+          $(this).siblings().eq(sortableIndex).after(this);
+        } else{
+          $(this).parent().append(this);
+        }
+      }
+    });
+  });
+
   var xmlDocString = (new XMLSerializer()).serializeToString(xmlDoc);
 
   $.ajax({
@@ -114,7 +132,7 @@ function saveFunc(){
     data: { xml: xmlDocString },
     dataType: "text",
     success: function(data){
-      console.log(data);
+      console.log("XML lähetetty");
     },
     error: function(){
       console.log("Ei toimi!");
@@ -182,23 +200,23 @@ function editFunc(elem){
   currentEdit = pageIndex;
 
   $(xmlDoc).find('sivu').each(function(index){
-    var thisNumero = $(this).index() + 1;
+    var thisNumero = $(this).index();
     var thisTyyppi = $(this).children("tyyppi").html();
     var thisPage;
 
-    if(thisNumero === sivuNumero && thisTyyppi === "kansi"){
+    if(thisNumero === pageIndex && thisTyyppi === "kansi"){
       thisPage = document.getElementById("kansi");
       thisPage.style.display = "block";
       thisPage.children[0].value = $(this).children("nav-otsikko").html();
       thisPage.children[2].value = $(this).children("otsikko").html();
-    } else if(thisNumero === sivuNumero && thisTyyppi === "sivu1"){
+    } else if(thisNumero === pageIndex && thisTyyppi === "sivu1"){
       thisPage = document.getElementById("sivumalli1");
       thisPage.style.display = "block";
       thisPage.children[0].value = $(this).children("nav-otsikko").html();
       thisPage.children[2].value = $(this).children("otsikko").html();
       var thisTeksti = $(this).children("teksti").html();
       tinyMCE.get('sivu1-teksti').setContent(thisTeksti);
-    } else if(thisNumero === sivuNumero && thisTyyppi === "sivu2"){
+    } else if(thisNumero === pageIndex && thisTyyppi === "sivu2"){
       thisPage = document.getElementById("sivumalli2");
       thisPage.style.display = "block";
       thisPage.children[0].value = $(this).children("nav-otsikko").html();
@@ -230,7 +248,7 @@ function editFunc(elem){
         accordionAmount++;
       });
 
-    } else if(thisNumero === sivuNumero && thisTyyppi === "dragdrop"){
+    } else if(thisNumero === pageIndex && thisTyyppi === "dragdrop"){
       thisPage = document.getElementById("draganddrop");
       thisPage.style.display = "block";
       thisPage.children[0].value = $(this).children("nav-otsikko").html();
@@ -646,6 +664,12 @@ function formFunc(elem, event){
     var sivuElem = document.createElement("li");
     sortable.appendChild(sivuElem);
 
+    if(currentEdit !== "empty"){
+      $(sivuElem).siblings().eq(currentEdit).after(sivuElem);
+      currentSivu = $(sortable).children("li")[currentEdit];
+      $(currentSivu).remove();
+    }
+
     var titleElem = document.createElement("a");
     titleElem.innerHTML = title;
     sivuElem.appendChild(titleElem);
@@ -668,13 +692,8 @@ function formFunc(elem, event){
   if(formElem.id === "kansi"){
 	  var imgae = document.getElementById('kuva');
 	  var imageData = new FormData();
-	  
 	  imageData.append('file-0', imgae.files[0]);
-	  console.log('imageData ' + JSON.stringify(imageData));
-	  
-	  
-	  console.log(imageData);
-	  
+
 	  $.ajax({
 		    method: "POST",
 		    url: "uploadImage.php",
@@ -689,7 +708,7 @@ function formFunc(elem, event){
 		      console.log("Ei toimi!");
 		    }
 		  });
-	  
+
     commonElements("kansi");
     addPageElement(formData.get("nav-otsikko"));
 
