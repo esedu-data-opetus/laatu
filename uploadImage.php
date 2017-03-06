@@ -1,13 +1,14 @@
 <?php
 
-print_r($_FILES);
-
+  print_r($_FILES);
 
   $target_dir = "pics/";
-  $image = $target_dir . basename($_FILES["file-0"]["name"]);
-  
-  move_uploaded_file($_FILES["file-0"]["tmp_name"], $image);
-  
+
+  foreach ($_FILES as $key => $file){
+    $image = $target_dir . basename($file["name"]);
+    move_uploaded_file($file["tmp_name"], $image);
+  }
+
 /*
   if ( file_exists($image) ){
     echo "File exists";

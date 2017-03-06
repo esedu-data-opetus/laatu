@@ -15,6 +15,47 @@ $.ajax({
   }
 });
 
+//tallentaa tyyli asetukset
+function saveStyle(elem, event){
+  event.preventDefault();
+
+  var formElem = elem.parentElement;
+  var formData = new FormData(formElem);
+
+  var logoName = formData.get('logo').name;
+  $(xmlDoc).find("logo").text(logoName);
+
+  var kansikuvaName = formData.get('kansi-kuva').name;
+  $(xmlDoc).find("kansi").text(kansikuvaName);
+
+  var test = formData.get('test-text').value;
+  $(xmlDoc).find("test").text(test);
+
+  console.log($(xmlDoc).find("test").text());
+  var imageData = new FormData();
+
+  $(formElem).find('input[type=file]').each(function(index){
+    var fileName = "file-" + index;
+    imageData.append(fileName, this.files[0]);
+  });
+
+  $.ajax({
+      method: "POST",
+      url: "uploadImage.php",
+      data: imageData,
+      contentType: false,
+      processData: false,
+      dataType: "text",
+      success: function(data){
+        console.log(data);
+      },
+      error: function(){
+        console.log("Ei toimi!");
+      }
+    });
+
+}
+
 //jos xml:n hakeminen onnistuu, tekee seuraavan
 function init(xml){
 

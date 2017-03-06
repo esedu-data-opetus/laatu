@@ -103,6 +103,20 @@
       <button onclick="addElement()">Lisää elementti</button>
       <button onclick="saveFunc()">Tallenna muutokset</button>
     </div>
+    <div id="styleDiv">
+      <h4>Tyyli asetukset</h4>
+      <form id="styleForm">
+        Logo: <br/>
+        <input type="file" name="logo" id="logo"> <br/><br/>
+
+        Kansikuva: <br/>
+        <input type="file" name="kansi-kuva" id="kansi-kuva"> <br/><br/>
+
+        Testi väri: <br/>
+        <input type="text" name="test-text" id="test-text"/> <br/><br/>
+        <button onclick="saveStyle(this, event)">Tallenna muutokset</button>
+      </form>
+    </div>
     <div id="esimiehet">
       <h4>Esimiehet</h4>
       <div id="esimieswrapper"></div><br>

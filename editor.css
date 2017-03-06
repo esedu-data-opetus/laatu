@@ -32,6 +32,12 @@
   margin: 10px 10px 0px 0px;
 }
 
+#styleDiv{
+  display: block;
+  margin-left: 20px;
+  float: left;
+}
+
 #sivumalli{
   display: none;
 }

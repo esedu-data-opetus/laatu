@@ -3,8 +3,8 @@
   <title>Laatu</title>
   <header>
     <logo>esedu_logo.png</logo>
-    <teksti>Etelä-Savon ammattiopisto</teksti>
-    <teksti>South Savo Vocational College</teksti>
+    <kansi>pics/laatuympyra.gif</kansi>
+    <test/>
   </header>
   <sivut>
     <sivu>
