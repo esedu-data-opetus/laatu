@@ -20,9 +20,11 @@ function init(xml) {
         var otsikkoDiv = document.createElement("div");
         document.getElementById("wrapper").appendChild(otsikkoDiv);
         var otsikkoText = document.createElement("p");
+        var vastausText = document.createElement("p");
         var otsikkoNumero = document.createElement("p");
         otsikkoDiv.appendChild(otsikkoText);
         otsikkoDiv.appendChild(otsikkoNumero);
+        otsikkoDiv.appendChild(vasausText);
        var otsikko = $(this).find("otsikko").text();
        var numero = $(this).index();
        otsikkoText.innerHTML = otsikko;
@@ -40,7 +42,8 @@ function vastausOpen(){
     dataType: 'text',
     url: "vastaus.php",
     success: function(data) {
-      console.log(data)
+      var json = JSON.parse(data);
+      
     },
     error: function(){
       console.log("error")
