@@ -11,6 +11,8 @@ $.ajax({
     console.log("error");
   }
 });
+var esimies = "Onni Heinonen";
+
 
 
 function init(xml) {
@@ -20,33 +22,38 @@ function init(xml) {
         var otsikkoDiv = document.createElement("div");
         document.getElementById("wrapper").appendChild(otsikkoDiv);
         var otsikkoText = document.createElement("p");
-        var vastausText = document.createElement("p");
         var otsikkoNumero = document.createElement("p");
         otsikkoDiv.appendChild(otsikkoText);
         otsikkoDiv.appendChild(otsikkoNumero);
-        otsikkoDiv.appendChild(vasausText);
        var otsikko = $(this).find("otsikko").text();
        var numero = $(this).index();
        otsikkoText.innerHTML = otsikko;
        otsikkoNumero.innerHTML = numero;
-       var button = document.createElement("button");
-       button.setAttribute("onclick", "vastausOpen()");
-       button.innerHTML = "Näytä vastaukset";
-       otsikkoDiv.appendChild(button);
+       $.ajax({
+         method: "POST",
+         dataType: 'json',
+         url: "vastaus.php",
+         data: { esimies: esimies },
+         success: function(data) {
 
-    }
-  });
-}
-function vastausOpen(){
-  $.ajax({
-    dataType: 'text',
-    url: "vastaus.php",
-    success: function(data) {
-      var json = JSON.parse(data);
-      
-    },
-    error: function(){
-      console.log("error")
+           $('#example').DataTable( {
+               "data": data,
+               "columns": [
+                   { "data": "Nimi" },
+                   { "data": "Esimies" },
+                   { "data": "Vastaus" },
+                   { "data": "Aika" },
+                   { "data": "PageNumber" },
+                   { "data": "KysymysNumero" }
+               ]
+           } );
+           console.log(data)
+
+     }
+
+
+       });
+
     }
   });
 }

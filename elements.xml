@@ -236,7 +236,6 @@
     </sivu>
     <sivu>
       <kysely>
-        <otsikko> Totta vai Tarua? </otsikko>
         <tehtava>
           <kysymys>Aikaisemman osaamisen tunnistamisen ja tunnustamisen prosessikuvauksen mukaan ohjauskeskustelun käyminen on opiskelijan vastuulla</kysymys>
           <vastaus totta-vai-tarua="Tarua">Ryhmäohjaaja kartoittaa opiskelijan aiempaa osaamista HOPS –keskustelun yhteydessä. Opinto-ohjaaja kirjaa suoraan tutkinnon perusteissa mainitut korvaavuudet</vastaus>

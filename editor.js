@@ -359,7 +359,8 @@ function editFunc(elem){
         dragAmount++;
       });
 
-    } else if(thisNumero === sivuNumero && thisTyyppi === "kysely"){
+    } else if(thisNumero === pageIndex && thisTyyppi === "kysely"){
+      console.log("func toimii");
       thisPage = document.getElementById("kysely");
       thisPage.style.display = "block";
       thisPage.children[0].value = $(this).children("nav-otsikko").html();
