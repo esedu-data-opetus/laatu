@@ -5,6 +5,7 @@
   <title>Laatu editor</title>
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <script src="js/jscolor.min.js"></script>
   <script type="text/javascript" src="tinymce/js/tinymce/tinymce.min.js"></script>
   <script>
   //teksti editorin aktivointi
@@ -113,7 +114,7 @@
         <input type="file" name="kansi-kuva" id="kansi-kuva"> <br/><br/>
 
         Testi väri: <br/>
-        <input type="text" name="test-text" id="test-text"/> <br/><br/>
+        Color: <input class="jscolor" value="ab2567"> <br/><br/>
         <button onclick="saveStyle(this, event)">Tallenna muutokset</button>
       </form>
     </div>

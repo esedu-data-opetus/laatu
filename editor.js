@@ -28,9 +28,6 @@ function saveStyle(elem, event){
   var kansikuvaName = formData.get('kansi-kuva').name;
   $(xmlDoc).find("kansi").text(kansikuvaName);
 
-  var test = formData.get('test-text').value;
-  $(xmlDoc).find("test").text(test);
-
   console.log($(xmlDoc).find("test").text());
   var imageData = new FormData();
 
