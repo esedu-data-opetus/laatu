@@ -55,13 +55,13 @@ function init(xml) {
       var tabTitle = document.createTextNode($sivu.find("nav-otsikko").html());
       tabElem.appendChild(tabTitle);
       var activity;
-      
+
       if(pageIndex === 0){
         activity = "active";
       } else{
         activity = "inactive";
       }
-     
+
       tabElem.setAttribute("data-target", "#carousel-custom");
       tabElem.setAttribute("data-slide-to", pageIndex);
       tabElem.setAttribute("class", activity);
@@ -385,13 +385,14 @@ function init(xml) {
         var optionElem = document.createElement("option");
         optionElem.innerHTML = "Esimies";
         selectionElem.appendChild(optionElem);
-        $sivu.find("esimiehet").find("esimies").each(function(){
-        var esimies = $(this).html();
 
-        var optionElem = document.createElement("option");
-        optionElem.innerHTML = esimies;
-        selectionElem.appendChild(optionElem);
-      });
+        $(xml).find("esimiehet").find("esimies").each(function(){
+          var esimies = $(this).html();
+
+          var optionElem = document.createElement("option");
+          optionElem.innerHTML = esimies;
+          selectionElem.appendChild(optionElem);
+        });
 
         lineBreak(kyselyWrapper, 1);
 

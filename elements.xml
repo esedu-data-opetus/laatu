@@ -477,5 +477,23 @@
         <p>Sisällöissä on hyödynnetty AMEO-verkoston Laatu-Katti vieköön!-koulutusta.</p>
       </teksti>
     </sivu>
+    <sivu>
+      <tyyppi>kysely</tyyppi>
+      <nav-otsikko>Tesmi</nav-otsikko>
+      <otsikko>Tesmi 1</otsikko>
+      <teksti>
+        <p>Tesmi 2</p>
+      </teksti>
+      <kysely>
+        <tehtava>
+          <kysymys>Tesmi</kysymys>
+          <vastaus totta-vai-tarua="Tarua">Tesmi</vastaus>
+        </tehtava>
+        <tehtava>
+          <kysymys>Tesmi 1</kysymys>
+          <vastaus totta-vai-tarua="Tarua">Tesmi 1</vastaus>
+        </tehtava>
+      </kysely>
+    </sivu>
   </sivut>
 </root>
