@@ -121,7 +121,7 @@
         <drags>
           <drag target="4">Hanketoiminta</drag>
           <drag target="1">Henkilöstösuunnitelma</drag>
-          <drag target="3">Asiakaspalauttee</drag>
+          <drag target="3">Asiakaspalautteet</drag>
           <drag target="2">Ohjaus</drag>
           <drag target="3">Oppimistulokset</drag>
           <drag target="2">Työssäoppiminen</drag>
@@ -270,8 +270,8 @@
     </sivu>
     <sivu>
       <tyyppi>kansi</tyyppi>
-      <nav-otsikko>OSA 2 Arvointi ja parantaminen</nav-otsikko>
-      <otsikko>OSA 2 Arvointi ja parantaminen</otsikko>
+      <nav-otsikko>OSA 2 Arviointi ja parantaminen</nav-otsikko>
+      <otsikko>OSA 2 Arviointi ja parantaminen</otsikko>
       <kuva>pics/laatuympyra.gif</kuva>
     </sivu>
     <sivu>
@@ -475,25 +475,8 @@
         <p>Tekninen toteutus: Onni Heinonen ja Riku Hänninen</p>
         <p>Graafinen toteutus: Mitja Immonen</p>
         <p>Sisällöissä on hyödynnetty AMEO-verkoston Laatu-Katti vieköön!-koulutusta.</p>
+        <p>Teknisessä toteutuksessa käytetyt kielet ja frameworkit: Html, css, javascript, php, xml, Bootstrap, jQuery.</p>
       </teksti>
-    </sivu>
-    <sivu>
-      <tyyppi>kysely</tyyppi>
-      <nav-otsikko>Tesmi</nav-otsikko>
-      <otsikko>Tesmi 1</otsikko>
-      <teksti>
-        <p>Tesmi 2</p>
-      </teksti>
-      <kysely>
-        <tehtava>
-          <kysymys>Tesmi</kysymys>
-          <vastaus totta-vai-tarua="Tarua">Tesmi</vastaus>
-        </tehtava>
-        <tehtava>
-          <kysymys>Tesmi 1</kysymys>
-          <vastaus totta-vai-tarua="Tarua">Tesmi 1</vastaus>
-        </tehtava>
-      </kysely>
     </sivu>
   </sivut>
 </root>

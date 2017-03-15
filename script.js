@@ -195,6 +195,17 @@ function init(xml) {
         content.appendChild(leftElem);
         content.appendChild(rightElem);
       } else if(pageType === "dragdrop"){
+        var titleElem = document.createElement("p");
+        titleElem.setAttribute("class", "otsikko");
+        var title = $sivu.children("otsikko").html();
+        titleElem.innerHTML = title;
+        content.appendChild(titleElem);
+
+        var instructionElem = document.createElement("p");
+        instructionElem.setAttribute("class", "teksti");
+        instructionElem.innerHTML = "Vie sanat oikeisiin laatikoihin. Kun vastaat oikein, sanan tausta muuttuu vihreäksi.";
+        content.appendChild(instructionElem);
+
         var $dragList = $sivu.find("drags");
         var nextId = 0;
         $dragList.find("drag").each(function(){
