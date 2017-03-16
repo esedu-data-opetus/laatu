@@ -110,12 +110,9 @@
         Logo: <br/>
         <input type="file" name="logo" id="logo"> <br/><br/>
 
-        Kansikuva: <br/>
-        <input type="file" name="kansi-kuva" id="kansi-kuva"> <br/><br/>
-
         Testi väri: <br/>
         Color: <input class="jscolor" value="ab2567"> <br/><br/>
-        <button onclick="saveStyle(this, event)">Tallenna muutokset</button>
+        <button onclick="saveStyle(this, event); saveFunc()">Tallenna muutokset</button>
       </form>
     </div>
     <div id="esimiehet">

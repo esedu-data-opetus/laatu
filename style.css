@@ -86,7 +86,7 @@
 }
 
 /* header */
-.header{
+#header{
   height: 15%;
   width: 70%;
   background-color:  #4BAD31;
@@ -166,9 +166,9 @@
 }
 .titleImage{
   height: 70%;
-  position: absolute;
-  left: 50%;
+  position: relative;
   top: 50%;
+  left: 50%;
 }
 #mob-control{
   display: none;
@@ -307,20 +307,9 @@
   transform: translateY(-50%);
   top: 50%;
 }
-#vastaus{
-  font-family: Arial,Helvetica,sans-serif;
-  color: grey;
-  text-decoration: none;
-  margin-top: 10px;
-  margin-bottom:-5px;
-  visibility: hidden;
-}
-.vastaus-visible{
-  font-family: Arial,Helvetica,sans-serif;
-  color: grey;
-  text-decoration: none;
-  margin-top: 10px;
-  margin-bottom:-5px;
+.vastaus{
+  margin-top: 20px;
+  display: none;
 }
 
 /* taulukot */
@@ -388,7 +377,7 @@
     top: 0;
     bottom: 0;
   }
-  .header{
+  #header{
     height: 15% !important;
     width: 100% !important;
   }
@@ -466,6 +455,11 @@
     overflow-y: visible !important;
     overflow-x: initial !important;
   }
+  .leftside{
+    height: auto !important;
+    width: 100% !important;
+    overflow: visible !important;
+  }
 
 }
 
@@ -488,7 +482,7 @@
     height: 90% !important;
     width: 100% !important;
   }
-  .header{
+  #header{
     display: none;
   }
   .item{

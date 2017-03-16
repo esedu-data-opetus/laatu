@@ -31,6 +31,9 @@ function imagePosition(image) {
 
 function init(xml) {
 
+  var logo = $(xml).find("logo").text();
+  document.getElementById("header").children[0].setAttribute("src", "pics/" + logo);
+
   $(window).on('resize orientationChange', function(event) {
     var width = $(window).width();
     var height = $(window).height();
@@ -259,56 +262,65 @@ function init(xml) {
         leftElem.appendChild(textElem);
 
         var vastaukset = document.createElement("div");
-        vastaukset.setAttribute("id", "vastaus");
+        vastaukset.setAttribute("class", "vastaus");
         leftElem.appendChild(vastaukset);
+
+        var vastausTeksti = document.createElement("p");
+        vastausTeksti.setAttribute("class", "teksti");
+        vastausTeksti.style.fontWeight = "bold";
+        vastausTeksti.innerHTML = "Oikeat vastaukset";
+        vastaukset.appendChild(vastausTeksti);
 
         var indikaattori = 1;
 
         $sivu.find("tehtava").each(function(){
 
-          var tottataruaText = $(this).children("vastaus").attr("totta-vai-tarua");
-          var tottataruaElem = document.createElement("p");
+          var vastausWrapper = document.createElement("div");
+          vastausWrapper.style.display = "inline-block";
+          vastausWrapper.style.margin = "5px 0px 5px 0px";
+          vastaukset.appendChild(vastausWrapper);
 
-          tottataruaElem.setAttribute("style", "font-weight: bold;");
-          tottataruaElem.innerHTML = indikaattori + ".) " + tottataruaText;
-          vastaukset.appendChild(tottataruaElem);
+          var tottataruaElem = document.createElement("p");
+          tottataruaElem.setAttribute("class", "teksti");
+          tottataruaElem.setAttribute("style", "font-weight: bold");
+          tottataruaElem.innerHTML = indikaattori + ".) " + $(this).children("vastaus").attr("totta-vai-tarua");
+          vastausWrapper.appendChild(tottataruaElem);
 
           var vastausElem = document.createElement("p");
-          vastaukset.appendChild(vastausElem);
+          vastausElem.setAttribute("class", "teksti");
+          vastausElem.innerHTML = $(this).find("vastaus").html();
+          vastausWrapper.appendChild(vastausElem);
 
-          var vastaus = $(this).find("vastaus").html();
-          vastausElem.innerHTML = vastaus;
           indikaattori++;
 
         });
 
-        var formi = document.createElement("FORM");
-        formi.setAttribute("name", "FORM");
-
         var kyselyWrapper = document.createElement("div");
         kyselyWrapper.setAttribute("class", "kyselywrapper");
-        kyselyWrapper.appendChild(formi);
-        var upperLeftWrapper = document.createElement("div");
-        kyselyWrapper.appendChild(upperLeftWrapper);
-        upperLeftWrapper.setAttribute("class", "upperLeftWrapper");
-        formi.appendChild(upperLeftWrapper);
-        var upperRightWrapper = document.createElement("div");
-        kyselyWrapper.appendChild(upperRightWrapper);
-        upperRightWrapper.setAttribute("class", "upperRightWrapper");
-        formi.appendChild(upperRightWrapper);
         content.appendChild(kyselyWrapper);
+
+        var upperLeftWrapper = document.createElement("div");
+        upperLeftWrapper.setAttribute("class", "upperLeftWrapper");
+        kyselyWrapper.appendChild(upperLeftWrapper);
+
+        var upperRightWrapper = document.createElement("div");
+        upperRightWrapper.setAttribute("class", "upperRightWrapper");
+        kyselyWrapper.appendChild(upperRightWrapper);
+
+        var formi = document.createElement("form");
+        formi.setAttribute("name", "FORM");
+        kyselyWrapper.appendChild(formi);
 
         var tottaElem = document.createElement("p");
         tottaElem.innerHTML = "Totta";
+        tottaElem.setAttribute("class", "tottatarua");
+        tottaElem.setAttribute("style", "float:left;");
+        upperRightWrapper.appendChild(tottaElem);
 
         var taruaElem = document.createElement("p");
         taruaElem.innerHTML = "Tarua";
-
         taruaElem.setAttribute("class", "tottatarua");
-        tottaElem.setAttribute("class", "tottatarua");
         taruaElem.setAttribute("style", "float:right;");
-        tottaElem.setAttribute("style", "float:left;");
-        upperRightWrapper.appendChild(tottaElem);
         upperRightWrapper.appendChild(taruaElem);
 
         var $tehtavat = $sivu.find("kysely");
@@ -509,7 +521,7 @@ $("#esimies").load('options.php');
 function submitdata(elem) {
   var formElem = elem.parentElement;
   var formData = new FormData(formElem);
-  document.getElementById("vastaus").style.visibility="visible";
+  $(elem).parents(".item").find(".vastaus").css("display", "block");
 
   $.ajax({
     type: 'POST',

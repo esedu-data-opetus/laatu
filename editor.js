@@ -25,10 +25,6 @@ function saveStyle(elem, event){
   var logoName = formData.get('logo').name;
   $(xmlDoc).find("logo").text(logoName);
 
-  var kansikuvaName = formData.get('kansi-kuva').name;
-  $(xmlDoc).find("kansi").text(kansikuvaName);
-
-  console.log($(xmlDoc).find("test").text());
   var imageData = new FormData();
 
   $(formElem).find('input[type=file]').each(function(index){
