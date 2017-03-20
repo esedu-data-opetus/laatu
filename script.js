@@ -441,8 +441,8 @@ function init(xml) {
   sheet.innerHTML += ".carousel-indicators .active img{ background-color: #" + color2 + "; } ";
   sheet.innerHTML += ".carousel-indicators .inactive img{ background-color: #" + color1b + "; } ";
   sheet.innerHTML += ".carousel-indicators img{ background-color: #" + color1b + "; } ";
-  sheet.innerHTML += ".glyphicon-chevron-left{ color: #" + color1b + "; } ";
-  sheet.innerHTML += ".glyphicon-chevron-right{ color: #" + color1b + "; } ";
+  sheet.innerHTML += ".glyphicon-chevron-left{ color: #" + color1 + "; } ";
+  sheet.innerHTML += ".glyphicon-chevron-right{ color: #" + color1 + "; } ";
   sheet.innerHTML += ".otsikko{ color: #" + color2 + "; } ";
   sheet.innerHTML += "#mob-control{ background-color: #" + color1 + "; } ";
 
