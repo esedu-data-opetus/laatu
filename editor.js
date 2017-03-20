@@ -25,6 +25,14 @@ function saveStyle(elem, event){
   var logoName = formData.get('logo').name;
   $(xmlDoc).find("logo").text(logoName);
 
+  var color1 = formData.get('color1');
+  var color1b = formData.get('color1b');
+  var color2 = formData.get('color2');
+
+  var color1x = $(xmlDoc).find("color1").text(color1);
+  var color1bx = $(xmlDoc).find("color1b").text(color1b);
+  var color2x = $(xmlDoc).find("color2").text(color2);
+
   var imageData = new FormData();
 
   $(formElem).find('input[type=file]').each(function(index){
@@ -47,10 +55,29 @@ function saveStyle(elem, event){
       }
     });
 
+    var xmlDocString = (new XMLSerializer()).serializeToString(xmlDoc);
+
+    $.ajax({
+      method: "POST",
+      url: "upload.php",
+      data: { xml: xmlDocString },
+      dataType: "text",
+      success: function(data){
+        console.log("XML lähetetty");
+      },
+      error: function(){
+        console.log("Ei toimi!");
+      }
+    });
+
 }
 
 //jos xml:n hakeminen onnistuu, tekee seuraavan
 function init(xml){
+
+  document.getElementById("color1").value = $(xml).find("color1").text();
+  document.getElementById("color1b").value = $(xml).find("color1b").text();
+  document.getElementById("color2").value = $(xml).find("color2").text();
 
 //sortable elementtien aktivointi ja asetukset
   $( "#sortable" ).sortable({

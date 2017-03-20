@@ -5,7 +5,6 @@
   <title>Laatu editor</title>
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-  <script src="js/jscolor.min.js"></script>
   <script type="text/javascript" src="tinymce/js/tinymce/tinymce.min.js"></script>
   <script>
   //teksti editorin aktivointi
@@ -16,8 +15,9 @@
     });
 
   </script>
-  <link rel="stylesheet" type="text/css" href="editor.css">
   <script src="editor.js"></script>
+  <script src="js/jscolor.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="editor.css">
 </head>
 <body>
   <div id="wrapper">
@@ -110,8 +110,9 @@
         Logo: <br/>
         <input type="file" name="logo" id="logo"> <br/><br/>
 
-        Testi väri: <br/>
-        Color: <input class="jscolor" value="ab2567"> <br/><br/>
+        Väri 1: <input class="jscolor" value="ab2567" name="color1" id="color1"> <br/>
+        Väri 1b: <input class="jscolor" value="ab2567" name="color1b" id="color1b"> <br/>
+        Väri 2: <input class="jscolor" value="ab2567" name="color2" id="color2"> <br/>
         <button onclick="saveStyle(this, event); saveFunc()">Tallenna muutokset</button>
       </form>
     </div>

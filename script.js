@@ -31,9 +31,6 @@ function imagePosition(image) {
 
 function init(xml) {
 
-  var logo = $(xml).find("logo").text();
-  document.getElementById("header").children[0].setAttribute("src", "pics/" + logo);
-
   $(window).on('resize orientationChange', function(event) {
     var width = $(window).width();
     var height = $(window).height();
@@ -432,6 +429,23 @@ function init(xml) {
     pageTypes();
     imagePosition("titleImage");
   });
+  document.getElementById("header").children[0].setAttribute("src", "pics/" + $(xml).find("logo").text());
+
+  var sheet = document.createElement("style");
+  sheet.innerHTML = "#header{ background-color: #" + $(xml).find("color1").text(); + " } navbaar .active{ background-color: #" + $(xml).find("color1").text(); + " }";
+  document.body.appendChild(sheet);
+
+  document.getElementById("navlist").children[0].style.backgroundColor = "#" + $(xml).find("color1b").text();
+
+  var indList = document.getElementById("indicators").children;
+
+  for(var i = 0; i < indList.length; i++){
+    if(indList[i].getAttribute("class") === "active"){
+      indList[i].children[0].style.backgroundColor = $(xml).find("color2").text();
+    }else{
+      indList[i].children[0].style.backgroundColor = $(xml).find("color1b").text();
+    }
+  }
 }
 
 function next(elem) {

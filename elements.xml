@@ -3,6 +3,12 @@
   <title>Laatu</title>
   <header>
     <logo>esedu_logo.png</logo>
+    <colors>
+      <color1>AB0000</color1>
+      <color1b>AB0000</color1b>
+      <color2>AB0000</color2>
+      <color2b>7165AB</color2b>
+    </colors>
   </header>
   <sivut>
     <sivu>
