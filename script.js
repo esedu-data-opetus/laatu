@@ -431,21 +431,24 @@ function init(xml) {
   });
   document.getElementById("header").children[0].setAttribute("src", "pics/" + $(xml).find("logo").text());
 
+  var color1 = $(xml).find("color1").text();
+  var color1b = $(xml).find("color1b").text();
+  var color2 = $(xml).find("color2").text();
+
   var sheet = document.createElement("style");
-  sheet.innerHTML = "#header{ background-color: #" + $(xml).find("color1").text(); + " } navbaar .active{ background-color: #" + $(xml).find("color1").text(); + " }";
+  sheet.innerHTML = "#header{ background-color: #" + color1 + "; } ";
+  sheet.innerHTML += "#navbaar .active{ background-color: #" + color1b + "; } ";
+  sheet.innerHTML += ".carousel-indicators .active img{ background-color: #" + color2 + "; } ";
+  sheet.innerHTML += ".carousel-indicators .inactive img{ background-color: #" + color1b + "; } ";
+  sheet.innerHTML += ".carousel-indicators img{ background-color: #" + color1b + "; } ";
+  sheet.innerHTML += ".glyphicon-chevron-left{ color: #" + color1b + "; } ";
+  sheet.innerHTML += ".glyphicon-chevron-right{ color: #" + color1b + "; } ";
+  sheet.innerHTML += ".otsikko{ color: #" + color2 + "; } ";
+  sheet.innerHTML += "#mob-control{ background-color: #" + color1 + "; } ";
+
+  console.log(sheet.innerHTML);
   document.body.appendChild(sheet);
 
-  document.getElementById("navlist").children[0].style.backgroundColor = "#" + $(xml).find("color1b").text();
-
-  var indList = document.getElementById("indicators").children;
-
-  for(var i = 0; i < indList.length; i++){
-    if(indList[i].getAttribute("class") === "active"){
-      indList[i].children[0].style.backgroundColor = $(xml).find("color2").text();
-    }else{
-      indList[i].children[0].style.backgroundColor = $(xml).find("color1b").text();
-    }
-  }
 }
 
 function next(elem) {

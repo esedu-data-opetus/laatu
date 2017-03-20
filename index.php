@@ -53,9 +53,7 @@
           <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
           <span class="sr-only">Previous</span>
         </a>
-        <div id="bWrapper">
-          <button id="menuButton" onclick="openMenu()"> <img src="pics/menuicon.png"/> </button>
-        </div>
+        <button id="menuButton" onclick="openMenu()"> <img src="pics/menuicon.png"/> </button>
         <a id="control4" class="right carousel-control" href="#carousel-custom" role="button" data-slide="next" onClick="navFunc()">
           <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
           <span class="sr-only">Next</span>
