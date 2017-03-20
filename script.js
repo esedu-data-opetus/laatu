@@ -72,7 +72,9 @@ function init(xml) {
       var indPict = document.createElement("img");
       indPict.setAttribute("src", "pics/indicator.png");
       indElem.appendChild(indPict);
-      indElem.setAttribute("class", activity);
+      if(activity === "active"){
+        indElem.setAttribute("class", "active");
+      }
       indElem.setAttribute("data-target", "#carousel-custom");
       indElem.setAttribute("data-slide-to", pageIndex);
       indElem.setAttribute("onClick", "navFunc()");
