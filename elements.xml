@@ -4,9 +4,12 @@
   <header>
     <logo>esedu_logo.png</logo>
     <colors>
-      <color1>4BAD31</color1> <!-- #4BAD31 -->
-      <color1b>ACD29B</color1b> <!-- #ACD29B -->
-      <color2>FFA500</color2> <!-- #FFA500 -->
+      <color1>4BAD31</color1>
+      <!-- #4BAD31 -->
+      <color1b>ACD29B</color1b>
+      <!-- #ACD29B -->
+      <color2>FFA500</color2>
+      <!-- #FFA500 -->
     </colors>
   </header>
   <sivut>
@@ -481,6 +484,24 @@
         <p>Sisällöissä on hyödynnetty AMEO-verkoston Laatu-Katti vieköön!-koulutusta.</p>
         <p>Teknisessä toteutuksessa käytetyt kielet ja frameworkit: Html, css, javascript, php, xml, Bootstrap, jQuery.</p>
       </teksti>
+    </sivu>
+    <sivu>
+      <tyyppi>kysely</tyyppi>
+      <nav-otsikko>Kysely</nav-otsikko>
+      <otsikko>Kysely</otsikko>
+      <teksti>
+        <p>Kysely</p>
+      </teksti>
+      <kysely>
+        <tehtava>
+          <kysymys>Kysely</kysymys>
+          <vastaus totta-vai-tarua="Tarua">Kysely</vastaus>
+        </tehtava>
+        <tehtava>
+          <kysymys>Kysely 1</kysymys>
+          <vastaus totta-vai-tarua="Tarua">Kysely 1</vastaus>
+        </tehtava>
+      </kysely>
     </sivu>
   </sivut>
 </root>

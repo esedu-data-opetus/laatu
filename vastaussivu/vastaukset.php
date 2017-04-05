@@ -13,19 +13,6 @@
 </head>
 <body>
 
-     <div class="form">
-         <fieldset>
-             <legend> LOGIN </legend>
-             <form name="login" method="post">
-                 <input name="uname" type="text" placeholder="Nimi"><br>
-                 <input name="upassword" type="password" placeholder="Salasana"><br>
-                 <button onclick="login(data)">Submit</button>
-             </form>
-         </fieldset>
-     </div>
-
-
-
 <div id="wrapper">
   <table id="example" class="display" cellspacing="0" width="100%">
           <thead>
