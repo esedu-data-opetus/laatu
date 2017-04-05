@@ -370,7 +370,7 @@ function init(xml) {
           fieldsetElem.appendChild(inputElem2);
           rightWrapper.appendChild(fieldsetElem);
 
-          if(vastaus === "totta"){
+          if(vastaus === "Totta"){
             console.log("totta");
           } else{
             console.log("tarua");
@@ -538,15 +538,20 @@ function closeMenu(){
 $("#esimies").load('options.php');
 
 function submitdata(elem) {
+  var $sivu = $(this);
   var formElem = elem.parentElement;
   var formData = new FormData(formElem);
   $(elem).parents(".item").find(".vastaus").css("display", "block");
+  var vastaus = $sivu.find("tehtava").each(function(){
+  $tehtava.find("vastaus").attr("totta-vai-tarua")});
+  console.log(vastaus);
 
   $.ajax({
     type: 'POST',
     dataType: 'text',
     url: "submit.php",
     data: $('FORM').serialize() + "&pageNumber=" + $(elem).parents(".item").index(),
+
     success: function(data) {
       console.log(data)
     },

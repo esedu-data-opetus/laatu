@@ -1,0 +1,119 @@
+*{
+  font-family: sans-serif;
+}
+
+#wrapper{
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  padding: 20px;
+}
+
+#menu{
+  display: none;
+  background-color: white;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 20px;
+}
+
+#sivuDiv{
+  float: left;
+  margin-bottom: 10px;
+}
+
+#sivuDiv button{
+  float: left;
+  margin: 10px 10px 0px 0px;
+}
+
+#styleDiv{
+  display: block;
+  margin-left: 20px;
+  float: left;
+}
+
+#sivumalli{
+  display: none;
+}
+
+.sivumalli{
+  display: none;
+}
+
+#sortable{
+  float: left;
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+}
+
+#sortable li{
+  border: 1px solid black;
+  border-radius: 5px;
+  list-style-type: none;
+  min-width: 500px;
+  padding: 3px 5px 3px 5px;
+  background-color: white;
+  cursor: pointer;
+  margin-bottom: -1px;
+}
+
+.characterbutton{
+  margin-left: 5px;
+  float: right;
+  font-size: 15px;
+}
+
+.small-char{
+  font-size: 20px;
+}
+
+.delete:hover{
+  color: red;
+}
+
+.edit:hover{
+  color: blue;
+}
+
+h1{
+  padding: 0;
+  margin: 10px;
+}
+
+.elemenIndicator{
+  display: relative;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 3px 5px 3px 5px;
+  cursor: pointer;
+  margin: 5px 5px 5px 0px;
+  display: inline-block;
+}
+
+#dragDiv{
+  display: none;
+}
+#esimiehet{
+  display: block;
+  margin-left: 20px;
+  float: left;
+}
+
+h4{
+  margin: 0px 0px 10px 0px;
+}
+
+#esimieswrapper li{
+  border: 1px solid black;
+  border-radius: 3px;
+  list-style: none;
+  margin-bottom: -1px;
+  padding: 3px 5px 3px 5px;
+}
