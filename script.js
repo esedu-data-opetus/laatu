@@ -1,10 +1,12 @@
+var xmlDoc;
+
 //ajax (hakee xml:n)
 $.ajax({
   type: "GET",
   url: "elements.xml",
   dataType: "xml",
   success: function (xml) {
-    init(xml);
+    xmlDoc = init(xml);
     console.log("success");
   },
   error: function(){
@@ -430,6 +432,7 @@ function init(xml) {
     addItems();
     pageTypes();
     imagePosition("titleImage");
+
   });
   document.getElementById("header").children[0].setAttribute("src", "pics/" + $(xml).find("logo").text());
 
@@ -450,6 +453,8 @@ function init(xml) {
 
   console.log(sheet.innerHTML);
   document.body.appendChild(sheet);
+
+  return xml;
 
 }
 
@@ -542,21 +547,32 @@ function submitdata(elem) {
   var formElem = elem.parentElement;
   var formData = new FormData(formElem);
   $(elem).parents(".item").find(".vastaus").css("display", "block");
-  var vastaus = $sivu.find("tehtava").each(function(){
-  $tehtava.find("vastaus").attr("totta-vai-tarua")});
-  console.log(vastaus);
 
+  var oikeatVastaukset = new Array();
+  var vastaus = $(xmlDoc).find("tehtava").each(function(){
+      console.log($(this).find("vastaus").attr("totta-vai-tarua"));
+      oikeatVastaukset.push($(this).find("vastaus").attr("totta-vai-tarua"));
+     });
+       var postData = {
+         "Oikeatvastaukset": oikeatVastaukset,
+         "PageNumber": $(elem).parents(".item").index(),
+         "FormData": $('FORM').serialize()
+       }
+       console.log(postData)
   $.ajax({
     type: 'POST',
-    dataType: 'text',
+    dataType: 'json',
     url: "submit.php",
-    data: $('FORM').serialize() + "&pageNumber=" + $(elem).parents(".item").index(),
+    data: {myData:postData},
+    contentType: "application/json; charset=utf-8",
 
     success: function(data) {
       console.log(data)
     },
-    error: function(){
-      console.log("error")
+    error: function(jqxhr,textStatus,errorThrown){
+      console.log(jqxhr);
+      console.log(textStatus);
+      console.log(errorThrown);
     }
   });
 }
