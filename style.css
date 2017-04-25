@@ -1,4 +1,4 @@
- /* tekstit */
+﻿ /* tekstit */
  p{
    margin: 0;
  }
@@ -294,8 +294,8 @@
    height: 10%;
  }
  .radionappi{
-   height:10%;
-   margin: 0px 20px 0px 20px !important;
+   height: 100%
+   margin: 0px 22px 0px 20px !important;
  }
 .tottatarua{
   font-family: Arial,Helvetica,sans-serif;

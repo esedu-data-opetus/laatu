@@ -1,7 +1,7 @@
 //ajax (hakee xml:n)
 $.ajax({
   type: "GET",
-  url: "elements.xml",
+  url: "/laatu/elements.xml",
   dataType: "xml",
   success: function (xml) {
     init(xml);
@@ -12,7 +12,7 @@ $.ajax({
   }
 });
 
-var esimies = "Onni Heinonen";
+var esimies = "Riku Hänninen";
 
 function init(xml) {
 
@@ -58,7 +58,7 @@ function init(xml) {
       $(this).find("tehtava").each(function(){
         var kysymysText = document.createElement("p");
         var kysmys = $(this).find("kysymys").text();
-        kysymysText.innerHTML = kysymysnumero + ".) " + kysmys;
+        kysymysText.innerHTML = kysymysnumero + ".) " + kysmys + "( " + $(this).children("vastaus").attr("totta-vai-tarua")+ " )";
         otsikkoDiv.appendChild(kysymysText);
         kysymysnumero ++;
       });

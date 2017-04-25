@@ -12,7 +12,7 @@ $.ajax({
   }
 });
 
-var esimies = "Onni Heinonen";
+var esimies = "Riku Hänninen";
 
 function init(xml) {
 

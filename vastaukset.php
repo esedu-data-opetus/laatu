@@ -12,44 +12,64 @@
   <link rel="stylesheet" type="text/css" href="vastaukset.css">
 </head>
 <body>
+  <?php
+  if (!isset($_POST['submit'])){
+  ?>
+  <!-- The HTML login form -->
+      <form action="<?=$_SERVER['PHP_SELF']?>" method="post">
+          Username: <input type="text" name="username" /><br />
+          Password: <input type="password" name="password" /><br />
 
-     <div class="form">
-         <fieldset>
-             <legend> LOGIN </legend>
-             <form name="login" method="post">
-                 <input name="uname" type="text" placeholder="Nimi"><br>
-                 <input name="upassword" type="password" placeholder="Salasana"><br>
-                 <button onclick="login(data)">Submit</button>
-             </form>
-         </fieldset>
-     </div>
+          <input type="submit" name="submit" value="Login" />
+      </form>
+      <a href="/laatu/register.php">Tee uusi käyttäjä</a>
+  <?php
+  } else {
+      require_once("db_connect.php");
+      if ($conn->connect_errno) {
+          echo "<p>MySQL error no {$conn->connect_errno} : {$conn->connect_error}</p>";
+          exit();
+      }
+
+      $username = $_POST['username'];
+      $password = $_POST['password'];
+
+      $sql = "SELECT * from users WHERE username LIKE '{$username}' AND password LIKE '{$password}' LIMIT 1";
+      $result = $conn->query($sql);
+      if (!$result->num_rows == 1) {
+          echo "<a href='vastaukset.php'>Väärä käyttäjänimi tai salasana</p>";
+      } else {
+          echo "<div id='wrapper'>
+            <table id='example' class='display' cellspacing='0' width='100%'>
+                    <thead>
+                        <tr>
+                            <th>Nimi</th>
+                            <th>Esimies</th>
+                            <th>Vastaus</th>
+                            <th>Aika</th>
+                            <th>PageNumber</th>
+                            <th>KysymysNumero</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Nimi</th>
+                            <th>Esimies</th>
+                            <th>Vastaus</th>
+                            <th>Aika</th>
+                            <th>PageNumber</th>
+                            <th>KysymysNumero</th>
+                        </tr>
+                    </tfoot>
+                </table>
+              </div>";
+
+      }
+  }
+  ?>
 
 
 
-<div id="wrapper">
-  <table id="example" class="display" cellspacing="0" width="100%">
-          <thead>
-              <tr>
-                  <th>Nimi</th>
-                  <th>Esimies</th>
-                  <th>Vastaus</th>
-                  <th>Aika</th>
-                  <th>PageNumber</th>
-                  <th>KysymysNumero</th>
-              </tr>
-          </thead>
-          <tfoot>
-              <tr>
-                  <th>Nimi</th>
-                  <th>Esimies</th>
-                  <th>Vastaus</th>
-                  <th>Aika</th>
-                  <th>PageNumber</th>
-                  <th>KysymysNumero</th>
-              </tr>
-          </tfoot>
-      </table>
-    </div>
 
 </body>
 </html>

@@ -3,7 +3,7 @@ var xmlDoc;
 
 $.ajax({
   method: "GET",
-  url: "../laatu/elements.xml",
+  url: "elements.xml",
   dataType: "xml",
   success: function (xml) {
     xmlDoc = xml;

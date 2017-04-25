@@ -123,7 +123,25 @@
         <input type="text" name="esimies-text" id="esimies-text" placeholder = "Uusi Esimies"/><br>
         <button onclick="addEsimies(event)">Lisää esimies</button>
       </form>
+      <?php
+      require_once("db_connect.php");
+
+      $sql = "SELECT Id, username, rooli FROM users";
+      $result = $conn->query($sql);
+        if ($result->num_rows > 0) {
+          while($row = $result->fetch_assoc()) {
+          echo "Id: " . $row["Id"]. "<br>Nimi: " . $row["username"]. "<br>Rooli: <button>" . $row["rooli"]. "</button><br><br>";
+        }
+          } else {
+      echo "$result";
+      }
+      $conn->close();
+
+      ?>
     </div>
+
+
+
   </div>
 </body>
 </html>
