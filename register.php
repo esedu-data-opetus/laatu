@@ -8,10 +8,11 @@ require_once("db_connect.php");
 if (!isset($_POST['submit'])) {
 ?>  <!-- The HTML registration form -->
     <form action="<?=$_SERVER['PHP_SELF']?>" method="post">
-        Username: <input type="text" name="username" /><br />
-        Password: <input type="password" name="password" /><br />
+        Nimi: <input type="text" name="username" /><br />
+        Salasana: <input type="password" name="password" /><br />
         <input type="submit" name="submit" value="Register" />
     </form>
+    <p>Laita nimesi muotoon: Etunimi Sukunimi</p>
 <?php
   } else {
     if ($conn->connect_errno) {

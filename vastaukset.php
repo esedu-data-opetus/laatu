@@ -17,12 +17,12 @@
   ?>
   <!-- The HTML login form -->
       <form action="<?=$_SERVER['PHP_SELF']?>" method="post">
-          Username: <input type="text" name="username" /><br />
-          Password: <input type="password" name="password" /><br />
+          Etu ja sukunimi: <input type="text" name="username" id="username" /><br />
+          Salasana: <input type="password" name="password" /><br />
 
           <input type="submit" name="submit" value="Login" />
       </form>
-      <a href="/laatu/register.php">Tee uusi käyttäjä</a>
+      <a href="register.php">Tee uusi käyttäjä</a>
   <?php
   } else {
       require_once("db_connect.php");
@@ -34,10 +34,10 @@
       $username = $_POST['username'];
       $password = $_POST['password'];
 
-      $sql = "SELECT * from users WHERE username LIKE '{$username}' AND password LIKE '{$password}' LIMIT 1";
+      $sql = "SELECT * from users WHERE username LIKE '{$username}' AND password LIKE '{$password}' AND rooli>1 LIMIT 1 ";
       $result = $conn->query($sql);
       if (!$result->num_rows == 1) {
-          echo "<a href='vastaukset.php'>Väärä käyttäjänimi tai salasana</p>";
+          echo "<a href='vastaukset.php'>Pääsy evätty</p>";
       } else {
           echo "<div id='wrapper'>
             <table id='example' class='display' cellspacing='0' width='100%'>
@@ -63,9 +63,10 @@
                     </tfoot>
                 </table>
               </div>";
+            }
 
       }
-  }
+
   ?>
 
 

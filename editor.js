@@ -896,3 +896,20 @@ function formFunc(elem, event){
   document.getElementById("kysely").style.display = "none";
   document.getElementById("menu").style.display = "none";
 }
+
+function rolechange(nimi){
+
+console.log("haloo");
+
+//  $.ajax({
+  //    method: "POST",
+  //    url: "rolechange.php",
+//      dataType: "text",
+//      success: function(data){
+  //      console.log(data);
+//      },
+//      error: function(){
+//        console.log("Ei toimi!");
+//      }
+//
+}

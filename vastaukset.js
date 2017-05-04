@@ -12,12 +12,13 @@ $.ajax({
   }
 });
 
-var esimies = "Riku Hänninen";
 
 function init(xml) {
+  var esimies =  $('#username').val();
 
 
   $.ajax({
+
     method: "POST",
     dataType: 'json',
     url: "vastaus.php",

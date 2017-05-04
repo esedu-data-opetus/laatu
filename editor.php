@@ -130,7 +130,18 @@
       $result = $conn->query($sql);
         if ($result->num_rows > 0) {
           while($row = $result->fetch_assoc()) {
-          echo "Id: " . $row["Id"]. "<br>Nimi: " . $row["username"]. "<br>Rooli: <button>" . $row["rooli"]. "</button><br><br>";
+          echo "Id: " . $row["Id"].
+                "<br>
+                Nimi: " . $row["username"].
+                "<br>" .
+                "Rooli:".  $row["rooli"] .
+                "<a href='roleplus.php?id=". $row['Id'] . "'>"
+                 . "+" . "</a>" .
+
+                "<a href='roleminus.php?id=". $row['Id'] . "'>"
+                  . "-" . "</a>
+                 <br><br>"
+                 ;
         }
           } else {
       echo "$result";
@@ -139,7 +150,6 @@
 
       ?>
     </div>
-
 
 
   </div>
