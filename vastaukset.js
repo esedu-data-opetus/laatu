@@ -17,7 +17,7 @@ function init(xml) {
   var esimies =  $('#username').val();
 
 
-  $.ajax({
+/* $.ajax({
 
     method: "POST",
     dataType: 'json',
@@ -40,7 +40,7 @@ function init(xml) {
     error: function(){
       console.log("error");
     }
-  });
+  }); */
 
   $(xml).find("sivu").each(function(){
 

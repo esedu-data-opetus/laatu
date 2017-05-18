@@ -422,7 +422,7 @@ function init(xml) {
 
         var buttonElem = document.createElement("button");
         buttonElem.setAttribute("type", "button");
-        buttonElem.setAttribute("onclick", "submitdata(this);");
+        buttonElem.setAttribute("onclick", "submitdata(this, event)");
         buttonElem.innerHTML = "Lähetä";
         kyselyWrapper.appendChild(buttonElem);
         formi.appendChild(buttonElem);
@@ -542,7 +542,8 @@ function closeMenu(){
 
 $("#esimies").load('options.php');
 
-function submitdata(elem) {
+function submitdata(elem, event) {
+  event.preventDefault();
   var $sivu = $(this);
   var formElem = elem.parentElement;
   var formData = new FormData(formElem);
@@ -550,29 +551,45 @@ function submitdata(elem) {
 
   var oikeatVastaukset = new Array();
   var vastaus = $(xmlDoc).find("tehtava").each(function(){
-      console.log($(this).find("vastaus").attr("totta-vai-tarua"));
       oikeatVastaukset.push($(this).find("vastaus").attr("totta-vai-tarua"));
      });
-       var postData = {
-         "Oikeatvastaukset": oikeatVastaukset,
-         "PageNumber": $(elem).parents(".item").index(),
-         "FormData": $('FORM').serialize()
-       }
-       console.log(postData)
+  var oikein = 0;
+  var väärin = 0;
+
+  $(elem.parentElement).children(".tehtavaWrapper").each(function(){
+    var index = $(this).index();
+    var parent = this.children[1].children[0];
+    for(var i = 0; i < parent.children.length; i++){
+      if(parent.children[i].checked){
+        if(oikeatVastaukset[index] === parent.children[i].value){
+          oikein++;
+        } else{
+          väärin++;
+        }
+      }
+    }
+
+  });
+  var formNimi = document.forms['FORM'].elements['nimi'].value;
+  var e = document.getElementsByName("esimies")[0];
+  var esimies = e.options[e.selectedIndex].text;
+  console.log(e)
+
+  //if (oikeatVastaukset[numero]===)
   $.ajax({
     type: 'POST',
-    dataType: 'json',
+    dataType: 'text',
     url: "submit.php",
-    data: {myData:postData},
-    contentType: "application/json; charset=utf-8",
+    data: {pageNumber: $(elem).parents(".item").index(), vääräVastaus:väärin, oikeaVastaus:oikein, formNimi:formNimi, esimies:esimies},
 
     success: function(data) {
       console.log(data)
     },
-    error: function(jqxhr,textStatus,errorThrown){
+    error: function(jqxhr,textStatus,errorThrown,data){
       console.log(jqxhr);
       console.log(textStatus);
       console.log(errorThrown);
+      console.log(data)
     }
   });
 }
