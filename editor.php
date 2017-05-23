@@ -1,3 +1,13 @@
+<?php
+session_start();
+if(isset($_SESSION['login_user'])){
+$user = $_SESSION['login_user'];
+
+}else{
+  Header("Location: editorlogin.php");
+}
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,15 +24,7 @@
       mode : "textareas",
     });
 
-    <?php
-    session_start();
-    if(isset($_SESSION['login_user'])){
-    $user = $_SESSION['login_user'];
 
-    }else{
-      Header("Location: editorlogin.php");
-    }
-    ?>
 
   </script>
   <script src="editor.js"></script>
@@ -126,6 +128,7 @@
         <button onclick="saveStyle(this, event); saveFunc()">Tallenna muutokset</button>
       </form>
     </div>
+    <a href='logout2.php'>Kirjaudu ulos</a>
     <div id="esimiehet">
       <h4>Esimiehet</h4>
       <div id="esimieswrapper"></div><br>

@@ -20,7 +20,7 @@
           Etu ja sukunimi: <input type="text" name="username" id="username" /><br />
           Salasana: <input type="password" name="password" /><br />
 
-          <input type="submit" name="submit" value="Login" />
+          <input type="submit" name="submit" value="Kirjaudu" />
       </form>
       <a href="register.php">Tee uusi käyttäjä</a>
   <?php
