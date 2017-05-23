@@ -24,7 +24,7 @@ if (!isset($_POST['submit'])) {
 
     else {
       $username   = $_POST['username'];
-      $password   = $_POST['password'];
+      $password   = md5($_POST['password']);
         # insert data into mysql database
         $sql = "INSERT  INTO `users` (`username`, `password`)
                 VALUES ('{$username}', '{$password}')";

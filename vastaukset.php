@@ -1,76 +1,59 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <title>Laatu editor</title>
+<?php
+session_start();
+if(isset($_SESSION['login_user'])){
+$user = $_SESSION['login_user'];
 
-  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-  <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
-  <script src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
-  <script src="vastaukset.js"></script>
-  <link rel="stylesheet" type="text/css" href="vastaukset.css">
-</head>
-<body>
-  <?php
-  if (!isset($_POST['submit'])){
-  ?>
-  <!-- The HTML login form -->
-      <form action="<?=$_SERVER['PHP_SELF']?>" method="post">
-          Etu ja sukunimi: <input type="text" name="username" id="username" /><br />
-          Salasana: <input type="password" name="password" /><br />
+}else{
+  Header("Location: vastauslogin.php");
+}
+include("db_connect.php");
 
-          <input type="submit" name="submit" value="Login" />
-      </form>
-      <a href="register.php">Tee uusi käyttäjä</a>
-  <?php
-  } else {
-      require_once("db_connect.php");
-      if ($conn->connect_errno) {
-          echo "<p>MySQL error no {$conn->connect_errno} : {$conn->connect_error}</p>";
-          exit();
-      }
+$sql1=  "SELECT rooli FROM users where username='$user'";
 
-      $username = $_POST['username'];
-      $password = $_POST['password'];
+$result1 = $conn->query($sql1);
+  if ($result1->num_rows > 0) {
+    while($row1 = $result1->fetch_assoc()) {
+      if($row1["rooli"]>2){
+        $sql2 = "SELECT Esimies from vastaukset";
+        $result2 = $conn->query($sql2);
+          }if ( $result2->num_rows > 0) {
+            // output data of each row
+            while($row2 = $result2->fetch_assoc()) {
+              $esimies = $row2['Esimies'];
+              echo "Esimies: " . $row2['Esimies'] . "</br>";
+              $sql3 = "SELECT Vaarin, Oikein FROM Vastaukset WHERE Esimies='$esimies'";
+              $result3 = $conn->query($sql3);
+              if ($result3->num_rows > 0) {
+                while($row3 = $result3->fetch_assoc()) {
+                  echo "Esimies: " . $row3['Esimies'] . "Oikein: " . $row3['Oikein'] . "Väärin: " . $row3['Vaarin'];
 
-      $sql = "SELECT * from users WHERE username LIKE '{$username}' AND password LIKE '{$password}' AND rooli>1 LIMIT 1 ";
-      $result = $conn->query($sql);
-      if (!$result->num_rows == 1) {
-          echo "<a href='vastaukset.php'>Pääsy evätty</p>";
-      } else {
-          echo "<div id='wrapper'>
-            <table id='example' class='display' cellspacing='0' width='100%'>
-                    <thead>
-                        <tr>
-                            <th>Nimi</th>
-                            <th>Esimies</th>
-                            <th>Vastaus</th>
-                            <th>Aika</th>
-                            <th>PageNumber</th>
-                            <th>KysymysNumero</th>
-                        </tr>
-                    </thead>
-                    <tfoot>
-                        <tr>
-                            <th>Nimi</th>
-                            <th>Esimies</th>
-                            <th>Vastaus</th>
-                            <th>Aika</th>
-                            <th>PageNumber</th>
-                            <th>KysymysNumero</th>
-                        </tr>
-                    </tfoot>
-                </table>
-              </div>";
-            }
+                }}
+    }
+
+
 
       }
-
-  ?>
-
+        }
 
 
 
-</body>
-</html>
+}else {
+
+$sql = "SELECT * FROM vastaukset WHERE Esimies='$user'";
+$result = $conn->query($sql);
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        echo "Nimi: " . $row["Nimi"].
+              " - Esimies: " . $row["Esimies"].
+              " - Oikein: " . $row["Oikein"].
+               " - Väärin: ". $row['Vaarin'] .
+                " - Aika: " . $row["Aika"].
+                 " - Sivunumero: " . $row['PageNumber'];
+    }
+} else {
+    echo "0 results";
+}
+}
+mysqli_close($conn);
+?>

@@ -244,23 +244,23 @@
       <kysely>
         <tehtava>
           <kysymys>Aikaisemman osaamisen tunnistamisen ja tunnustamisen prosessikuvauksen mukaan ohjauskeskustelun k&#xE4;yminen on opiskelijan vastuulla</kysymys>
-          <vastaus totta-vai-tarua="Tarua">Ryhm&#xE4;ohjaaja kartoittaa opiskelijan aiempaa osaamista HOPS &#x2013;keskustelun yhteydess&#xE4;. Opinto-ohjaaja kirjaa suoraan tutkinnon perusteissa mainitut korvaavuudet</vastaus>
+          <vastaus totta-vai-tarua="tarua">Ryhm&#xE4;ohjaaja kartoittaa opiskelijan aiempaa osaamista HOPS &#x2013;keskustelun yhteydess&#xE4;. Opinto-ohjaaja kirjaa suoraan tutkinnon perusteissa mainitut korvaavuudet</vastaus>
         </tehtava>
         <tehtava>
           <kysymys>Aikuiskoulutushaussa vastuuopettaja ja opintosihteeri vastaavat yhdess&#xE4; mahdollisten hakijoiden informoinnista ja ohjaamisesta</kysymys>
-          <vastaus totta-vai-tarua="Totta">Vastuuopettaja sek&#xE4; opintosihteeri vastaavat hakeutujien tiedusteluihin ja ohjaavat hakeutujia</vastaus>
+          <vastaus totta-vai-tarua="totta">Vastuuopettaja sek&#xE4; opintosihteeri vastaavat hakeutujien tiedusteluihin ja ohjaavat hakeutujia</vastaus>
         </tehtava>
         <tehtava>
           <kysymys>Opettajan vastuulla on ohjata opiskelijat vastaamaan opiskelijapalautekyselyihin (nuorten tulo-, olo- ja p&#xE4;&#xE4;tt&#xF6;kyselyt, aikuiskoulutus OPAL ja AIPAL sek&#xE4; kummankin koulutusmuodon opettajan henkil&#xF6;kohtainen palaute)</kysymys>
-          <vastaus totta-vai-tarua="Totta">Opettajan teht&#xE4;viin kuuluu opiskelijapalautteen keruu! Aikuisten OPAL- ja AIPAL-palautteissa tunnukset pyydet&#xE4;&#xE4;n opintosihteeri Satu Vuoriselta, joka tekee tunnukset vain opettajan pyynn&#xF6;st&#xE4;.</vastaus>
+          <vastaus totta-vai-tarua="totta">Opettajan teht&#xE4;viin kuuluu opiskelijapalautteen keruu! Aikuisten OPAL- ja AIPAL-palautteissa tunnukset pyydet&#xE4;&#xE4;n opintosihteeri Satu Vuoriselta, joka tekee tunnukset vain opettajan pyynn&#xF6;st&#xE4;.</vastaus>
         </tehtava>
         <tehtava>
           <kysymys>Opiskelija tunnistaa olemassa olevan osaamisen</kysymys>
-          <vastaus totta-vai-tarua="Tarua">Jos opiskelijalla on aiemmin hankittua osaamista, h&#xE4;n voi hakea opettajalta osaamisen tunnistamista ja tunnustamista. Opettaja tunnistaa osaamista ja tarvittaessa vapauttaa opiskelijan tutkinnon osan tai teeman opinnoista.</vastaus>
+          <vastaus totta-vai-tarua="tarua">Jos opiskelijalla on aiemmin hankittua osaamista, h&#xE4;n voi hakea opettajalta osaamisen tunnistamista ja tunnustamista. Opettaja tunnistaa osaamista ja tarvittaessa vapauttaa opiskelijan tutkinnon osan tai teeman opinnoista.</vastaus>
         </tehtava>
         <tehtava>
           <kysymys>Oppisopimuskoordinaattori ja vastuuopettaja vastaavat yhdess&#xE4; oppisopimuskoulutuksen tietopuolisen koulutuksen suunnittelusta </kysymys>
-          <vastaus totta-vai-tarua="Totta">Oppisopimus koordinaattori ja vastuuopettajat suunnittelevat oppisopimusopiskelijan tietopuolisen koulutuksen niin, ett&#xE4; ne tukevat ja t&#xE4;ydent&#xE4;v&#xE4;t ty&#xF6;paikalla tapahtuvaa oppimista</vastaus>
+          <vastaus totta-vai-tarua="totta">Oppisopimus koordinaattori ja vastuuopettajat suunnittelevat oppisopimusopiskelijan tietopuolisen koulutuksen niin, ett&#xE4; ne tukevat ja t&#xE4;ydent&#xE4;v&#xE4;t ty&#xF6;paikalla tapahtuvaa oppimista</vastaus>
         </tehtava>
       </kysely>
       <tyyppi>kysely</tyyppi>
