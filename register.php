@@ -31,7 +31,9 @@ if (!isset($_POST['submit'])) {
 
         if ($conn->query($sql)) {
             //echo "New Record has id ".$mysqli->insert_id;
-            echo "<a href='vastaukset.php'>Rekisteröinti onnistui. Paina tästä kirjautuaksesi</p>";
+            echo "<p>Rekisteröinti onnistui.</p>
+            <a href='vastaukset.php'>Vastaussivu kirjautuminen</a><br>
+            <a href='editor.php'>Editori kirjautuminen</a>";
         } else {
             echo "<p>MySQL error no {$conn->errno} : {$conn->error}</p>";
             exit();
